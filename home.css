@@ -1,0 +1,432 @@
+html,body{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+body{
+    display: block;
+}
+/* ----------------navbar------------ */
+.container{
+    max-width: 1800px;
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    display: flex; 
+    justify-content: center;
+}
+#header{
+    background-color: rgb(179, 41, 78);
+    /* background-color: #F0A0A1; */
+    /* background-color: #8c6663; */
+    color: palegoldenrod;
+    width: 100%;
+    display: inline-block;   
+    /* display: flex;
+    flex-direction: row; */
+    position: sticky;
+    z-index: 999;
+    top: 0;
+}
+.container ul {
+    list-style-type: none;
+}
+.container a{
+    text-decoration: none;
+}
+.container ul{
+    display: flex;
+    justify-content: space-between;
+    font-size: 35px;
+}
+.container nav ul{
+    align-items: center;
+}
+.container ul li a{
+    /* color: black; */
+    color: palegoldenrod;
+}
+.container a:hover{
+    color: #8c6663;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.container ul li:first-child{
+    display: flex;
+    align-items: center;
+    line-height: 80px;
+}
+.container ul li:first-child img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.container ul li:nth-child(2){
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+    padding-left: 0px;
+    margin-left: 0px; 
+    margin-right: 300px;
+    line-height: 40px;
+}
+.container ul li:nth-last-child(-n+2){
+    width: 30px;
+    height: 30px;
+}
+.container ul li:nth-last-child(-n+7){
+    padding-left: 20px;
+}
+#bag .cart-amount {
+  position: absolute;
+  background-color: red;
+  color: white;
+  height: 23px;
+  line-height: 23px;
+  padding: 0 0px;
+  border-radius: 25px;
+  top: 20px;
+  margin-left: 20px;
+}
+.mobile img{
+  width: 20px;
+  height: 20px;
+}
+.mobile .cart-amount {
+  position: absolute;
+  background-color: red;
+  color: white;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 0px;
+  border-radius: 25px;
+  top: 90px;
+  margin-left: 20px;
+}
+.mobile{
+  height: 50px;
+}
+/* -----------------section-body---------------- */
+#body{
+  height: 1000px;
+}
+/* --------------section-banner---------------- */
+
+.slide-banner{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden; 
+    text-align: center;
+    top: 0px;
+}
+
+.menu {
+    position: absolute;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    bottom: 0;
+}
+  
+.menu label {
+    cursor: pointer;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50px;
+    margin: 0 .2em 1em;
+    transition: all .3s ease;
+    &:hover {
+      background: #8c6663;
+    }
+}
+.banner{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 10;
+    padding: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    transition: left 0s .75s;
+}
+  
+[id^="banner"]:checked + .banner {
+    left: 0;
+    z-index: 100;
+    transition: left .65s ease-out;
+}
+.banner img{
+    width: 100%;
+    height: 500px;
+}
+/* -------------footer----------------- */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 30px 20px 30px;
+  color: #2f2f2f;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  background-image: url('./pink-flower.jpg'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center center; 
+
+}
+
+.footer-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  max-width: max-content;
+  background-color: #088178;
+  border-radius: 4px;
+  color: #fff;
+  line-height: 0;
+  margin: 16px 0;
+  font-size: 20px;
+  padding: 10px 20px;
+} 
+.footer-nav> * {
+  flex: 1 1 25%; 
+  margin-right: 20px; 
+}
+
+.thanks-addr,
+.footer-nav{
+  margin-bottom: 20px; 
+}
+
+.footer-addr h2,
+.nav-title h2{
+  font-size: 30px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+.footer-nav .nav-item .row {
+  display: flex;
+  flex-direction: column;
+}
+.footer-nav .nav-item {
+  flex: 1; 
+  margin-right: 20px;
+  margin-top:-20px;
+}
+.nav-ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-ul li {
+  margin-bottom: 10px;
+}
+
+.footer-nav li  {
+  list-style: none;
+  text-decoration: none ;
+  font-size: 20px;
+  color: #090909;
+}
+
+
+.thanks-addr,
+.footer-nav {
+  flex: 1;
+  margin-right: 20px; 
+}
+.footer-thanks p{
+font-size: 25px;
+color: rgb(0, 0, 0);
+font-family: 'Dancing Script', cursive;
+
+}
+.footer-thanks h1{
+font-family: 'Dancing Script', cursive;
+font-weight: bolder;
+font-size: 35px;
+}
+.thanks-addr {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+.nav-item {
+  flex: 1;
+  margin-bottom: 20px;
+}
+p{
+font-size: 18px;
+}
+.footer-add{
+  margin-top: 20px;
+}
+.legal {
+  flex-basis: calc(100% - 40px); 
+  font-size: 18px;
+}
+.footer-nav a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+}
+.nav-item .row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+}
+.nav-item .row img {
+border: 1px solid #088178;
+border-radius: 6px;
+width: 146px;
+}
+
+/* Điều chỉnh giao diện header khi màn hình nhỏ hơn 780px */
+@media (max-width: 780px) {
+  .container ul {
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    margin-top: 0;
+  }
+
+  .container ul li:first-child img {
+    width: 60px;
+    height: 60px;
+    margin-right: 50px;
+  }
+  
+  .container ul li:nth-child(2) {
+    font-size: 40px;
+    margin-right: 50px;
+  }
+  .menu-list li:nth-child(n+3):nth-child(-n+9) {
+    display: none;
+  }
+  /* CSS cho dropdown menu */
+  .menu-list.active li:nth-child(n+3):nth-child(-n+7) {
+    position: relative;
+    display: inline-block;
+    top: 40px; 
+    left: -120px;
+    width: 100px;
+    background-color:#8c6663bb;
+    z-index: 1;
+  }
+  .menu-list.active li:nth-child(n+1):nth-child(-n+2) {
+    position:relative;
+    display: inline-block;
+    top: 0; 
+    height: 60px;
+  }
+  .menu-list.active li:nth-child(n+3):nth-child(-n+7) {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc; 
+  }
+  /* Thêm style cho từng mục trong dropdown menu */
+  .menu-list.active li:nth-child(n+3):nth-child(-n+7) a {
+    color:palegoldenrod; 
+    text-decoration: none;
+    &:hover {
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+
+  #bar.active ~ .menu-list li:nth-child(n+3):nth-child(-n+7) {
+    display: block;
+  }
+  /* CSS cho biểu tượng thanh bar */
+  #bar {
+    cursor: pointer;
+  } 
+}
+  /* Điều chỉnh giao diện banner khi màn hình nhỏ hơn 780px */
+@media (max-width: 780px) {
+  .slide-banner {
+    height: 250px;
+  }
+  
+  .menu label {
+    width: 10px;
+    height: 10px;
+    margin: 0 .1em 1em;
+  }
+  
+  .banner img {
+    height: 250px;
+  }
+}
+  /* Điều chỉnh giao diện footer khi màn hình nhỏ hơn 780px */
+@media (max-width: 780px) {
+  .footer {
+    padding: 5px;
+    padding-left: 10px
+  }
+  
+  .footer-nav,.thanks-addr {
+    flex: 1;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .footer-btn {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+  .footer-thanks p{
+    font-size: 20px;
+  }
+  .footer-thanks h1{
+    font-size: 28px;
+  }
+  
+  .footer-nav {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+.nav-item .row img{
+    flex: 1 1 100%;
+}
+.nav-item .row{
+    width: 40%;
+    align-items: flex-start;
+}
+.nav-item
+  .footer-nav p{
+    font-size: 18px;
+  }
+  .footer-nav a{
+    font-size: 18px;
+  }
+  .footer-nav i{
+    flex-direction: row;
+    width: 20px;
+    height: 15px;
+    padding: 10px 25px 15px 0px;
+  }
+  .footer h2{
+    font-size: 20px;
+  }
+  .footer h1{
+    font-size: 30px;
+  }
+}
+/* Ẩn .mobile và #bar khi màn hình lớn hơn 768px */
+@media (min-width: 781px) {
+  .mobile {
+    display: none;
+  }
+}
