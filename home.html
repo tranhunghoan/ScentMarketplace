@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./home.css">
     <link rel="stylesheet" href="./home.js">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,37 +14,39 @@
 </head>
 <body>
     <section id="header">
-        <nav>
-            <div class="container">
+        <a href="./home.html">FragraneceEleven</a>
                 <ul class="menu-list">
-                    <li><img src="./Fragrance Eleven-logos.jpeg" alt=""></li>
-                    <li>FragraneceEleven</li>
+                    
                     <li><a href="home.html">Trang chủ</a></li>
                     <li><a href="shop.html">Cửa hàng</a></li>
                     <li><a href="#">Tin tức</a></li>
                     <li><a href="#">Giới thiệu</a></li>
                     <li><a href="#">Liên hệ</a></li>
-                    <li><a href="#"><img src="right-to-bracket-solid.svg" alt=""></a></li>
-                    <li id="bag">
-                        <a class="active" href="cart.html">
-                            <img src="cart-shopping-solid.svg" alt="">
+                    <li><a href="#"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+                    <li id="cart">
+                        <a href="cart.html">
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                         <div id="cart-amount" class="cart-amount">0</div>
                     </li>
                 </ul>
-            </div>  
             <div class="mobile">
-                <div>
+                <div class="icons" id="cart-icon">
                     <a href="#">
-                        <img src="./cart-shopping-solid.svg" alt="">
+                        <i class="fa-solid fa-cart-shopping"></i>
                     </a>
                     <div id="cart-amount-mobile" class="cart-amount">0</div>
                 </div>
-                <div>
-                    <img id="bar" src="./bars-solid.svg" alt="">
+                <div class="icons" id="bracket-icon">
+                    <a href="#">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </a>
                 </div>
+                <div class="icons" id="bar-icon">
+                    <i id="bar" class="fa-solid fa-bars"></i> 
+                </div>
+                    <i id="xmark" class="fa-solid fa-xmark"></i> 
             </div>
-        </nav> 
     </section>
     <div class="slide-banner">
         <div class="menu">
@@ -68,7 +70,7 @@
             </div>
     </div>
     <section id="body"></section>
-    <footer class="footer section-p1">
+    <footer class="footer ">
         <div class="thanks-addr">
             <div class="footer-thanks">
             <h1>FragraneceEleven</h1>
@@ -80,12 +82,6 @@
                     Thành phố Thủ Đức, Tp.HCM<br>
                     <a class="footer-btn" href="abc@gmail.com">Liên hệ qua Email</a>
                   </address>
-                  <div class="elementor-social-icons">
-                    <a href="#" target="_blank" class="elementor-social-icon-instagram"><i class="fab fa-instagram fa-xl" style="color: #000000;"></i></a>
-                    <a href="#" target="_blank" class="elementor-social-icon-pinterest"><i class="fab fa-pinterest fa-xl" style="color: #000000;"></i></a>
-                    <a href="#" target="_blank" class="elementor-social-icon-facebook"><i class="fab fa-facebook fa-xl" style="color: #000000;"></i></a>
-                    <a href="#" target="_blank" class="elementor-social-icon-twitter"><i class="fab fa-twitter fa-xl" style="color: #000000;"></i></a>
-                    </div>
             </div>
         </div>
         <ul class="footer-nav">
