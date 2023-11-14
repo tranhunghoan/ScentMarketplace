@@ -5,15 +5,14 @@
   box-sizing: border-box;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
-
 body{
   display: block;
 }
 /* ----------------navbar------------ */
 #header{
-  background-color: rgb(179, 41, 78);
+  background-color: black;
   width: 100%;
-  height: 100px;
+  height: 70px;
   display: flex;
   /* display: inline-block; */
   flex-direction: row;
@@ -26,7 +25,7 @@ body{
   padding: 4px 20px;
 }
 #header a{
-color: palegoldenrod;
+color: white;
 }
 #header > a{
 width: 50%;
@@ -34,7 +33,7 @@ font-size: 40px;
 text-decoration: none;
 }
 #header i{
-color: palegoldenrod;
+color: white;
 }
 .menu-list{
 display: flex;
@@ -61,7 +60,7 @@ width: 50px;
 }
 .menu-list li a:hover,
 .menu-list li a.active {
-border-bottom: 2px solid palegoldenrod;
+border-bottom: 2px solid white;
 }
 #xmark{
 display: none;
@@ -164,7 +163,7 @@ padding: 30px 30px 20px 30px;
 color: #2f2f2f;
 background-color: #fff;
 border-top: 1px solid #e5e5e5;
-background-color: #ccccccd5; 
+background-color: #ccc; 
 
 }
 
@@ -230,11 +229,8 @@ flex: 1;
 .footer-thanks p{
 font-size: 25px;
 color: rgb(0, 0, 0);
-font-family: 'Dancing Script', cursive;
-
 }
 .footer-thanks h1{
-font-family: 'Dancing Script', cursive;
 font-weight: bolder;
 font-size: 35px;
 }
@@ -277,7 +273,15 @@ border: 1px solid #088178;
 border-radius: 6px;
 width: 146px;
 }
-
+/* điều chỉnh giao diện tablet */
+@media (max-width:1200px){
+#header > a{
+  font-size: 35px;
+}
+.menu-list li a{
+  font-size: 20px;
+}
+}
 /* Điều chỉnh giao diện header khi màn hình nhỏ hơn 780px */
 @media (max-width: 780px) {
 #header{
@@ -303,12 +307,8 @@ width: 146px;
 }
 #header > a {
   font-size: 25px;
-  font-weight: bold;
   display: block;
   margin-bottom: 10px; 
-}
-.mobile i{
-  font-size: 25px;
 }
 #xmark{
   display: none;
@@ -332,7 +332,7 @@ width: 146px;
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 60px;
+  top: 42px;
   /* left: 0; */
   /* width: 100%; */
   width: 250px;

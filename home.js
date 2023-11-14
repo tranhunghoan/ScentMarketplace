@@ -54,3 +54,21 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+//check password
+document.addEventListener('DOMContentLoaded', function () {
+  var regisForm = document.getElementById('form-register');
+
+  regisForm.addEventListener('submit', function (event) {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm-password");
+      var errorContainer = document.getElementById('password-error');
+
+      if (password !== confirmPassword.value) {
+          errorContainer.textContent = "Mật khẩu nhập lại không khớp!";
+          event.preventDefault(); 
+      } else {
+          errorContainer.textContent = ""; 
+      }
+  });
+});
+

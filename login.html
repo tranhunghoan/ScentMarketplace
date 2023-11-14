@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./home.css">
-    <link rel="stylesheet" href="./home.js">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <title>Login</title>
     <script src="https://kit.fontawesome.com/757ea42d8a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./login.css">
     <script src="./home.js"></script>
 </head>
 <body>
@@ -21,9 +17,9 @@
                     <li><a href="#">Tin tức</a></li>
                     <li><a href="#">Giới thiệu</a></li>
                     <li><a href="#">Liên hệ</a></li>
-                    <li><a href="./login.html"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-right-to-bracket"></i></a></li>
                     <li id="cart">
-                        <a href="#">
+                        <a href="cart.html">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                         <div id="cart-amount" class="cart-amount">0</div>
@@ -47,28 +43,27 @@
                     <i id="xmark" class="fa-solid fa-xmark"></i> 
             </div>
     </section>
-    <div class="slide-banner">
-        <div class="menu">
-            <label for="banner-1-th"></label>
-            <label for="banner-2-th"></label>
-            <label for="banner-3-th"></label>
+    <!-- <section id="form">
+        <div class="picture">
+            <img src="./bc60c9c73d1c54dec38fb1233a0f0072.jpg" alt="">
+        </div> -->
+        <div id="wrapper">
+            <form action="./home.html" id="form-login">
+                <h1 class="form-heading">Đăng nhập tài khoản</h1>
+                <div class="form-group">
+                    <i class="far fa-user"></i>
+                    <input type="text" class="form-input" placeholder="Tên đăng nhập">
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-key"></i>
+                    <input type="password" class="form-input" placeholder="Mật khẩu">
+                </div>
+                <input type="submit" value="Đăng nhập" class="form-submit">
+                <input type="submit" formaction="./register.html" value="Đăng ký" class="form-register">
+            </form>
         </div>
-        <input id="banner-1-th" type="radio" name="slides" checked>
-            <div class="banner banner-1">
-                <img src="./banner1.png" alt="">
-            </div>
-          
-        <input id="banner-2-th" type="radio" name="slides">
-            <div class="banner banner-2">
-                <img src="./banner2.png" alt="">
-            </div>
-          
-        <input id="banner-3-th" type="radio" name="slides">
-            <div class="banner banner-3">
-                <img src="./banner3.png" alt="">
-            </div>
-    </div>
-    <section id="body"></section>
+    <!-- </section> -->
+    
     <footer class="footer ">
         <div class="thanks-addr">
             <div class="footer-thanks">
