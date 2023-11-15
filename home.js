@@ -1,3 +1,4 @@
+//banner
 document.addEventListener("DOMContentLoaded", function() {
   let currentSlide = 1;
   const totalSlides = 3;
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   setInterval(nextSlide, slideDuration);
 });
-
+//dropdown navbar
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("bar").addEventListener("click", function () {
         console.log("Clicked #bar");
@@ -41,20 +42,17 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+// giữ trạng thái trang truy cập
 document.addEventListener("DOMContentLoaded", function() {
   var currentPageUrl = window.location.href;
-
-  // Find all links in the menu
   var menuLinks = document.querySelectorAll('.menu-list li a');
-
-  // Loop through the links and add the "active" class to the link with a matching href
   menuLinks.forEach(function(link) {
     if (link.href === currentPageUrl) {
       link.classList.add('active');
     }
   });
 });
-//check password
+//kiểm tra password
 document.addEventListener('DOMContentLoaded', function () {
   var regisForm = document.getElementById('form-register');
 
@@ -71,4 +69,27 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   });
 });
+document.addEventListener('DOMContentLoaded', function () {
+  var loginForm = document.getElementById('form-login');
+  var bracketIcon = document.getElementById('bracket-icon');
+  //var isLogin = true;
 
+  loginForm.addEventListener('submit', function (event) {
+      var userName = document.getElementById('username').value;
+      var userPass = document.getElementById('password').value;
+      var errorContainer = document.getElementById('account-null');
+
+      if ((!userName || !userPass)) {
+          errorContainer.textContent = "Bạn chưa nhập tên đăng nhập hoặc mật khẩu!";
+          event.preventDefault();
+      } else {
+          errorContainer.textContent = "";
+          bracketIcon.innerHTML = '<a href="#"><i class="fa-solid fa-user"></i></a>';
+      }
+  });
+
+  var registerButton = document.getElementById('register-button');
+  registerButton.addEventListener('click', function () {
+          window.location.href = "./register.html";
+  });
+});

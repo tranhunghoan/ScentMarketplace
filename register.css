@@ -1,19 +1,19 @@
+@font-face {
+    font-family: roboto;
+    src: url(./Roboto-Regular.ttf);
+  }
 *{
     width: 100%;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: roboto;
 }
 body{
     font-size: 20px;
 }
 #wrapper{
-    /* background-image: url(./bgr-form.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; */
       min-height: 90vh;
-      /* float: right; */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -26,7 +26,7 @@ body{
   }
   #form-register{
       max-width: 700px;
-      background: white;
+      background: black;
       float: right;
       flex-grow: 1;
       padding: 30px 30px 40px;
@@ -35,18 +35,18 @@ body{
   .form-heading{
       font-size: 30px;
       font-family: Arial, Helvetica, sans-serif;
-      color: black;
+      color: white;
       text-align: center;
       margin-bottom: 30px;
   }
   .form-group{
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid white;
       margin-top: 15px;
       margin-bottom: 20px;
       display: flex;
   }
   .form-group i{
-      color: black;
+      color: white;
       font-size: 20px;
       padding-top: 5px;
       padding-right: 10px;
@@ -55,17 +55,17 @@ body{
       background: transparent;
       border: 0;
       outline: 0;
-      color: black;
+      color: white;
       flex-grow: 1;
   }
   .form-input::placeholder{
-      color: black;
+      color: white;
   }
   
   .form-submit{
       background: transparent;
-      border: 1px solid black;
-      color: black;
+      border: 1px solid white;
+      color: white;
       width: 100%;
       text-transform: uppercase;
       padding: 6px 10px;
@@ -74,17 +74,14 @@ body{
   }
   .form-register{
       background: transparent;
-      border: 1px solid black;
-      color: black;
+      border: 1px solid white;
+      color: white;
       width: 100%;
       text-transform: uppercase;
       padding: 6px 10px;
       transition: 0.25s ease-in-out;
       margin-top: 5px;
   }
-  /* .form-submit:hover{
-      border: 1px solid white;
-  } */
   .form-register:hover{
       border: 1px solid blue;
   }
