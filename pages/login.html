@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Đăng nhập</title>
     <script src="https://kit.fontawesome.com/757ea42d8a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./login.css">
-    <script src="./home.js"></script>
-    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
+    <script src="/js/home.js"></script>
+    <link rel="stylesheet" href="/assets/css/home.css">
 </head>
 <body>
     <section id="header">
         <a href="./home.html">FragraneceEleven</a>
                 <ul class="menu-list">
-                    <li><a href="home.html">Trang chủ</a></li>
-                    <li><a href="shop.html">Cửa hàng</a></li>
+                    <li><a href="./home.html">Trang chủ</a></li>
+                    <li><a href="./shop.html">Cửa hàng</a></li>
                     <li><a href="#">Tin tức</a></li>
                     <li><a href="#">Giới thiệu</a></li>
                     <li><a href="#">Liên hệ</a></li>
-                    <li><a href="#"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+                    <li id="user-icon"><a href="./login.html"><i class="fa-solid fa-user"></i></a></li>
                     <li id="cart">
                         <a href="cart.html">
                             <i class="fa-solid fa-cart-shopping"></i>
@@ -33,9 +33,9 @@
                     </a>
                     <div id="cart-amount-mobile" class="cart-amount">0</div>
                 </div>
-                <div class="icons" id="bracket-icon">
-                    <a href="#">
-                        <i class="fa-solid fa-right-to-bracket"></i>
+                <div class="icons" id="user-icon">
+                    <a href="./login.html">
+                        <i class="fa-solid fa-user"></i>
                     </a>
                 </div>
                 <div class="icons" id="bar-icon">
@@ -44,8 +44,12 @@
                     <i id="xmark" class="fa-solid fa-xmark"></i> 
             </div>
     </section>
+    <div class="welcome">
+        <p>Chào mừng bạn đã trở lại!</p>
+        <p>Hãy đăng nhập để xem những ưu đãi mới dành cho riêng bạn nào!</p>
+    </div>
         <div id="wrapper">
-            <form action="./home.html" id="form-login">
+            <form onsubmit="login()" id="form-login">
                 <h1 class="form-heading">Đăng nhập tài khoản</h1>
                 <div class="form-group">
                     <i class="far fa-user"></i>
@@ -57,7 +61,7 @@
                 </div>
                 <div id="account-null" style="color: red;"></div>
                 <input type="submit" id="user-submit" value="Đăng nhập" class="form-submit">
-                <button type="button" id="register-button" class="form-register">Đăng ký</button>
+                <button type="button" id="register-button" class="form-register" onclick="formregis()">Đăng ký</button>
             </form>
         </div>
     
@@ -99,11 +103,11 @@
                         <h2 class="nav-title">Cài đặt ứng dụng</h2> 
                         <p>App Store hoặc Google Play</p>
                         <div class="row">
-                            <a href="#"><img src="./app.jpg" alt=""></a>
-                            <a href="#"><img src="./play.jpg" alt=""></a>
+                            <a href="#"><img src="/assets/images/app.jpg" alt=""></a>
+                            <a href="#"><img src="/assets/images/play.jpg" alt=""></a>
                         </div>
                         <p>Phương thức thanh toán</p>
-                        <a href="#"><img src="./pay.png" alt=""></a>                    
+                        <a href="#"><img src="/assets/images/pay.png" alt=""></a>                    
                     </li>         
             </ul> 
             <br>             

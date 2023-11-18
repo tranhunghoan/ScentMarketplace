@@ -1,6 +1,6 @@
 @font-face {
   font-family: roboto;
-  src: url(./Roboto-Regular.ttf);
+  src: url(/fonts/Roboto-Regular.ttf);
 }
 *{
     width: 100%;
@@ -12,10 +12,21 @@
 body{
     font-size: 20px;
 }
-
+.welcome{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    margin-top: 50px;
+}
+.welcome p:first-child{
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+.welcome p:last-child{
+    font-size: 20px;
+}
 #wrapper{
-    min-height: 90vh;
-    /* float: right; */
+    min-height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
