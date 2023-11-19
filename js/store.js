@@ -18,7 +18,7 @@ var numberPage=Math.ceil(infoPerfume.length/18)
     return ` <div class="perfume">
     <div class="wrap_image">
     <img class="perfume_image" src=${perfume.image}>
-    <a  class="directPage" href="/detail.html?id=${perfume.id}">
+    <a  class="directPage" href="./detail.html?id=${perfume.id}">
     <button class='detailProduct'>Xem chi tiết</button>
     </a>
     </div>
