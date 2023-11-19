@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+   <link rel="stylesheet" href="store.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="banner">
+            <div id="slider">
+             
+            </div>
+            <button class="prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="next" >
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="navbar">
+            <a href="/index.html">
+                <i class="fa-solid fa-house"></i>
+           </a>
+        
+            <div class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div class="numberProduct"></div>
+            </div>
+        </div>
+        <div class="search">
+            <input  class="searchItem" type="text" placeholder="Nhập vào sản phẩm bạn muốn tìm kiếm">
+          
+                <i class="fa-solid fa-magnifying-glass searchButton" ></i>
+            
+        </div>
+        <div class="filter_block">
+            <select name="sex">
+                <option value="">Giới tính</option>
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+                </select>
+                <select name="concentration">
+                    <option value="">Nồng độ</option>
+                    <option value="Parfum classic">Parfum classic</option>
+                    <option value="Eau de parfum">Eau de parfum</option>
+                    <option value="Eau de toilette">Eau de toilette</option>
+                    <option value="Eau de cologne">Eau de cologne</option>
+                    <option value="Eau fraiche">Eau fraiche</option>
+                </select>
+                <select name="incense">
+                    <option value="">Nhóm hương</option>
+                    <option value="Floral">Hương Hoa Cỏ </option>
+                    <option value="Aromatic">Hương Thơm Ngát</option>
+                    <option value="Chypre">Hương Síp</option>
+                    <option value="Citrus">Hương Cam Chanh</option>
+                    <option value="Leather">Hương Da Thuộc </option>
+
+                </select>
+                <select name="brand">
+                    <option value="">Thương hiệu</option>
+                    <option value="Alaia">Alaia</option>
+                    <option value="Alai Delon">Alain Delon</option>
+                    <option value="Alexander Mqueen">Alexander Mqueen</option>
+                    <option value="Anna Sui">Anna Sui</option>
+                    <option value="Chloe">Chloe</option>
+                </select>
+                <button class="no_filter">Xoá bộ lọc</button>
+                <button class="filter">Lọc</button>
+        </div>
+        <div class="product"> 
+        </div>
+        <div class="direction">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/elasticlunr/elasticlunr.min.js"></script>
+    <script src="slideshow.js"></script>
+    <script type='module'src="store.js"></script>
+</body>
+</html>
+
+
