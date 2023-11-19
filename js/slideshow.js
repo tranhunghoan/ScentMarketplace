@@ -9,7 +9,7 @@ function renderSlide(){
   slider.innerHTML=bannerItem.join('')
   var slides=document.querySelectorAll('.slide')
   for(let i=0;i<slides.length;i++){
-    slides[i].style.background=`url('img/img${i}.jpg')  no-repeat  `
+    slides[i].style.background=`url('../assets/images/img${i}.jpg')  no-repeat  `
   }
   for(let slide of slides){
     if(slide!==slides[0]){

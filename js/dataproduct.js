@@ -1,7 +1,7 @@
  export var infoPerfume=[
     {
         id:1,
-        image:'img/perfume1.jpg',
+        image:'../assets/images/perfume1.jpg',
         sex:'female',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -15,7 +15,7 @@
     },
     {
         id:2,
-        image:'img/perfume1.jpg',
+        image:'../assets/images/perfume1.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -29,7 +29,7 @@
     },
     {
         id:3,
-        image:'img/perfume1.jpg',
+        image:'../assets/images/perfume1.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -43,7 +43,7 @@
     },
     {
         id:4,
-        image:'img/perfume1.jpg',
+        image:'../assets/images/perfume1.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -57,7 +57,7 @@
     },
     {
         id:5,
-        image:'img/perfume1.jpg',
+        image:'../assets/images/perfume1.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -71,7 +71,7 @@
     },
     {
         id:6,
-        image:'img/perfume2.jpg',
+        image:'../assets/images/perfume2.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -85,7 +85,7 @@
     },
     {
         id:7,
-        image:'img/perfume2.jpg',
+        image:'../assets/images/perfume2.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -99,7 +99,7 @@
     },
     {
         id:8,
-        image:'img/perfume2.jpg',
+        image:'../assets/images/perfume2.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -113,7 +113,7 @@
     },
     {
         id:9,
-        image:'img/perfume2.jpg',
+        image:'../assets/images/perfume2.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -127,7 +127,7 @@
     },
     {
         id:10,
-        image:'img/perfume2.jpg',
+        image:'../assets/images/perfume2.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -141,7 +141,7 @@
     },
     {
         id:11,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -155,7 +155,7 @@
     },
     {
         id:12,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -169,7 +169,7 @@
     },
     {
         id:13,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -183,7 +183,7 @@
     },
     {
         id:14,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -197,7 +197,7 @@
     },
     {
         id:15,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Floral',
@@ -211,7 +211,7 @@
     },
     {
         id:16,
-        image:'img/perfume4.jpg',
+        image:'../assets/images/perfume4.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -225,7 +225,7 @@
     },
     {
         id:17,
-        image:'img/perfume5.jpg',
+        image:'../assets/images/perfume5.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -239,7 +239,7 @@
     },
     {
         id:18,
-        image:'img/perfume5.jpg',
+        image:'../assets/images/perfume5.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -253,7 +253,7 @@
     },
     {
         id:19,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -267,7 +267,7 @@
     },
     {
         id:20,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -281,7 +281,7 @@
     },
     {
         id:21,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -295,7 +295,7 @@
     },
     {
         id:22,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -309,7 +309,7 @@
     },
     {
         id:23,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -323,7 +323,7 @@
     },
     {
         id:24,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -337,7 +337,7 @@
     },
     {
         id:25,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -351,7 +351,7 @@
     },
     {
         id:26,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -365,7 +365,7 @@
     },
     {
         id:27,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
@@ -379,7 +379,7 @@
     },
     {
         id:28,
-        image:'img/perfume3.jpg',
+        image:'../assets/images/perfume3.jpg',
         sex:'male',
         concentration:'Eau de parfum',
         incense:'Aromatic',
