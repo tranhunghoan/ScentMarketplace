@@ -2,26 +2,6 @@ body {
   margin:0;
   font-family: Arial, Helvetica, sans-serif;
 }
-<<<<<<< HEAD
-=======
-#slider {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    position: relative;
-    margin-top: 50px;
-  }
-  .banner{
-    position: relative;
-  }
-  .slide {
-    width: 100%;
-    height: 100%;
-    background-size: cover !important;
-    position:absolute;
-    transition: transform 3s ease;
-  }
->>>>>>> ee9237c (link file)
   .product{
     padding:40px 120px;
     display: flex;
@@ -40,19 +20,6 @@ body {
     border:none;
     box-shadow: 2px 2px 5px rgb(129, 129, 129);
   }
-<<<<<<< HEAD
-=======
-  .prev {
-    left: 10px;
-  }
-  
-  .next {
-    right: 10px;
-  }
-  .fa-star{
-    color:rgb(255, 204, 51);
-  }
->>>>>>> ee9237c (link file)
   button.addIntoCart{
     background-color:#2ea44f; ;
     color:rgb(255, 255, 255);
@@ -60,11 +27,7 @@ body {
     border:none;
     padding:10px 10px;
     box-shadow: 2px 2px 4px rgb(192, 192, 194);
-<<<<<<< HEAD
     margin:10px 0;
-=======
-    margin:10px 0
->>>>>>> ee9237c (link file)
   } 
    button.addIntoCart:hover{
    opacity: 0.7;
@@ -141,37 +104,23 @@ body {
     font-weight: unset;
     line-height: 20px;
   }
-<<<<<<< HEAD
   .old_price p{
     display: inline-block;
     margin:0;
     margin-left: 70px;
-=======
-  .old_price h4{
-    display: inline-block;
-    margin:0;
-    margin-left: 5px;
->>>>>>> ee9237c (link file)
     padding: 0;
     color:rgb(255, 98, 0)
   }
   .direction{
     display:flex;
     justify-content: center;
-<<<<<<< HEAD
     margin-top: 10px;
-=======
->>>>>>> ee9237c (link file)
   }
   .nextPage{
     width:25px;
     height:25px;
-<<<<<<< HEAD
     background-color: rgb(238, 238, 238);
     box-shadow: 2px 2px 5px rgb(142, 142, 142);
-=======
-    background-color: rgb(239, 92, 0);
->>>>>>> ee9237c (link file)
     border:none;
     margin:0 3px 0 3px;
   }
@@ -182,11 +131,8 @@ body {
   .searchItem{
     margin: 20px 20px;
     height:30px;
-<<<<<<< HEAD
     width:250px;
-=======
-    width:300px;
->>>>>>> ee9237c (link file)
+
   }
   .search .fa-magnifying-glass{
     font-size: 20px;
@@ -194,8 +140,6 @@ body {
     align-items: center;
 
   }
-<<<<<<< HEAD
-=======
   .navbar{
     display:flex;
     justify-content: center;
@@ -216,7 +160,6 @@ body {
     font-size: 30px;
     color: rgb(236, 1, 1);
   }
->>>>>>> ee9237c (link file)
   #clonedProduct{
     transition:transform 0.8s ease;
   }
@@ -234,8 +177,6 @@ body {
    top:30px;
    left:1000px;
   }
-<<<<<<< HEAD
-=======
 .cart{
   display: flex;
   flex-direction: row;
@@ -252,7 +193,6 @@ body {
   background-color: rgb(255, 85, 0);
   text-align: center;
 }
->>>>>>> ee9237c (link file)
 .detailProduct{
   position: absolute;
   width:100px;
@@ -286,10 +226,8 @@ button.filter{
   box-shadow:2px 2px 5px rgb(169, 169, 169) ;
   margin:0 5px;
   border-radius:5px;
-<<<<<<< HEAD
   height:40px;
-=======
->>>>>>> ee9237c (link file)
+
 }
 button.no_filter{
   background-color: rgb(2, 82, 255);
@@ -298,13 +236,11 @@ button.no_filter{
   border-radius:5px;
   border: none;
   box-shadow:2px 2px 5px rgb(169, 169, 169) ;
-<<<<<<< HEAD
   height:40px;
-=======
->>>>>>> ee9237c (link file)
 }
 .filter_block{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .filter:hover{
@@ -315,7 +251,6 @@ button.no_filter{
 }
 select{
   padding:10px 0;
-<<<<<<< HEAD
   margin:5px 5px;
   border: none;
   box-shadow: 2px 2px 5px rgb(169, 169, 169);
@@ -325,9 +260,3 @@ select{
     padding:5px;
   }
 }
-=======
-  margin:0 5px;
-  border: none;
-  box-shadow: 2px 2px 5px rgb(169, 169, 169);
-}
->>>>>>> ee9237c (link file)
