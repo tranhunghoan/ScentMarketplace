@@ -252,6 +252,7 @@ button.filter{
   box-shadow:2px 2px 5px rgb(169, 169, 169) ;
   margin:0 5px;
   border-radius:5px;
+  height:40px;
 }
 button.no_filter{
   background-color: rgb(2, 82, 255);
@@ -260,6 +261,7 @@ button.no_filter{
   border-radius:5px;
   border: none;
   box-shadow:2px 2px 5px rgb(169, 169, 169) ;
+  height:40px;
 }
 .filter_block{
   display: flex;
