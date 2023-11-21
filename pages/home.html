@@ -1,54 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
-    <link rel="stylesheet" href="/assets/css/home.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/757ea42d8a.js" crossorigin="anonymous"></script>
     <script src="/js/home.js"></script>
     <script type="module" src="/js/home.js"></script>
     <link rel="stylesheet" href="../assets/css/store.css">
     <link rel="stylesheet" href="/assets/css/home.css">
 </head>
 <body>
-    <section id="header">
-        <a href="./home.html">FragraneceEleven</a>
-                <ul class="menu-list">
-                    <li><a href="./home.html">Trang chủ</a></li>
-                    <li><a href="./store.html">Cửa hàng</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Liên hệ</a></li>
-                    <li id="user-icon"><a id="user-link" href="#" onclick="onLoginSuccess()"><i class="fa-solid fa-user"></i></a></li>
-                    <li id="cart">
-                        <a href="#">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </a>
-                        <div id="cart-amount" class="cart-amount">0</div>
-                    </li>
-                </ul>
-            <div class="mobile">
-                <div class="icons" id="cart-icon">
-                    <a href="#">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
-                    <div id="cart-amount-mobile" class="cart-amount">0</div>
-                </div>
-                <div class="icons" id="user-icon">
-                    <a href="./login.html">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-                </div>
-                <div class="icons" id="bar-icon">
-                    <i id="bar" class="fa-solid fa-bars"></i> 
-                </div>
-                    <i id="xmark" class="fa-solid fa-xmark"></i> 
-            </div>
-    </section>
+    <div id="header-placeholder"></div>
     <div class="slide-banner">
         <div class="menu">
             <label for="banner-1-th"></label>
@@ -136,61 +96,7 @@
             </div>
         </div>
     </section>
-    <footer class="footer ">
-        <div class="thanks-addr">
-            <div class="footer-thanks">
-            <h1>FragraneceEleven</h1>
-                <p>Cảm ơn bạn vì đã lựa chọn FragraneceEleven. 
-                Theo dõi chúng tôi trên các trang mạng xã hội để luôn được cập nhật về những bộ sưu tập mới nhất.</p>
-            </div>
-            <div class="footer-addr">
-                <h2>Liên hệ</h2>     
-                  <address>
-                    Thành phố Thủ Đức, Tp.HCM<br>
-                    <a class="footer-btn" href="abc@gmail.com">Liên hệ qua Email</a>
-                  </address>
-            </div>
-        </div>
-        <ul class="footer-nav">
-                <li class="nav-item">
-                    <h2 class="nav-title">Về chúng tôi</h2>
-                    <ul class="nav-ul">
-                      <li><a href="#">Giới thiệu</a></li>
-                      <li><a href="#">Thông tin vận chuyển</a></li>   
-                      <li><a href="#">Điều khoản và chính sách</a></li>
-                    </ul>
-                </li>    
-                <li class="nav-item">
-                    <h2 class="nav-title">Tài khoản của tôi</h2>
-                    <ul class="nav-ul">
-                      <li><a href="#">Đăng nhập</a></li>
-                      <li><a href="#">Xem giỏ hàng</a></li>
-                      <li><a href="#">Danh sách mong muốn</a></li>
-                      <li><a href="#">Theo dõi đơn hàng</a></li>
-                      <li><a href="#">Trợ giúp</a></li>
-                    </ul>                   
-                </li>       
-                <li class="nav-item">
-                    <h2 class="nav-title">Cài đặt ứng dụng</h2> 
-                    <p>App Store hoặc Google Play</p>
-                    <div class="row">
-                        <a href="#"><img src="/assets/images/app.jpg" alt=""></a>
-                        <a href="#"><img src="/assets/images/play.jpg" alt=""></a>
-                    </div>
-                    <p>Phương thức thanh toán</p>
-                    <a href="#"><img src="/assets/images/pay.png" alt=""></a>                    
-                </li>         
-        </ul> 
-        <br>             
-        <div class="legal">
-                  <p>© 2023 Something. All rights reserved.</p>
-        </div>
-    </footer>
     <div id="footer-placeholder"></div>
     <script src="../js/pageDefault/loadHeaderFooter.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/elasticlunr/elasticlunr.min.js"></script>
-    <script type='module'src="../js/store.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-    <script type="module" src="../js/detail.js"></script>
 </body>
 </html>
