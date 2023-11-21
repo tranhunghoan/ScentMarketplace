@@ -155,4 +155,3 @@ function start(){
     handleClickImage()
 }
 start()
-//console.log(queryParams); 
