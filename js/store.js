@@ -11,7 +11,7 @@ var numberPage=Math.ceil(infoPerfume.length/18)
         numberItem=0;
     }
     else numberItem=JSON.parse( localStorage.getItem('numberItem'))
-    document.querySelector('.cart .numberProduct').innerHTML=`${numberItem}` 
+    document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
     return numberItem
 }
  function renderCard(perfume){ 
@@ -89,7 +89,7 @@ var numberPage=Math.ceil(infoPerfume.length/18)
         duplicateAndMove(e)
         numberItem++;
         localStorage.setItem('numberItem',JSON.stringify(numberItem))
-        document.querySelector('.cart .numberProduct').innerHTML=`${numberItem}`
+        document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
 
 }}
 
