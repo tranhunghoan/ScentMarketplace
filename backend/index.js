@@ -3,6 +3,8 @@ const morgan = require('morgan')
 const app = express()
 require('dotenv').config()
 
+const conn = require('./database/dbConnection')
+
 app.use(morgan('combined'))
 
 app.get('/', (req, res) => {
@@ -12,3 +14,4 @@ app.get('/', (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening on port ${process.env.PORT}`)
 })
+
