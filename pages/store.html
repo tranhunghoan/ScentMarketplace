@@ -1,42 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-   <link rel="stylesheet" href="../assets/css/store.css">
-    <title>Document</title>
+    <title>Cửa hàng</title>
+    <link rel="stylesheet" href="../assets/css/store.css">
 </head>
 <body>
-
+    <div id="header-placeholder"></div>
     <div class="container">
-        <div class="banner">
-            <div id="slider">
-             
-            </div>
-            <button class="prev">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button class="next" >
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-        </div>
-        <div class="navbar">
-            <a href="./store.html">
-                <i class="fa-solid fa-house"></i>
-           </a>
-        
-            <div class="cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <div class="numberProduct"></div>
-            </div>
-        </div>
         <div class="search">
             <input  class="searchItem" type="text" placeholder="Nhập vào sản phẩm bạn muốn tìm kiếm">
-          
                 <i class="fa-solid fa-magnifying-glass searchButton" ></i>
-            
         </div>
         <div class="filter_block">
             <select name="sex">
@@ -115,8 +88,9 @@
         <div class="direction">
         </div>
     </div>
+    <div id="footer-placeholder"></div>
+    <script src="../js/pageDefault/loadHeaderFooter.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/elasticlunr/elasticlunr.min.js"></script>
-    <script src="../js/slideshow.js"></script>
     <script type='module'src="../js/store.js"></script>
 </body>
 </html>
