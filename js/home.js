@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   let currentSlide = 1;
   const totalSlides = 3;
-  const slideDuration = 2000; // Thời gian giữa các chuyển đổi (5 giây trong ví dụ này)
+  const slideDuration = 5000; 
 
   function nextSlide() {
     currentSlide = (currentSlide % totalSlides) + 1;
@@ -150,10 +150,78 @@ function onLoginSuccess() {
     var isLoggedIn = localStorage.getItem('isLoggedIn');
 
     if (isLoggedIn === 'true') {
-      userLink.href = './user.html';
+      userLink.href = '/pages/user.html';
     } 
     else {
-      userLink.href = './login.html';
+      userLink.href = '/pages/login.html';
     }
   });
 }
+//sản phẩm
+// import { infoPerfume } from "./dataproduct.js"
+// var contentPage=''
+// var buttonNextPage=''
+// var currentPage=1
+// var numberPage=Math.ceil(infoPerfume.length/10)
+
+
+//  function setNumberItem(){
+//     var numberItem
+//     if(localStorage.getItem('numberItem')===null){
+//         numberItem=0;
+//     }
+//     else numberItem=JSON.parse( localStorage.getItem('numberItem'))
+//     document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
+//     return numberItem
+// }
+//  function renderCard(perfume){ 
+//     return ` <div class="perfume">
+//     <div class="wrap_image">
+//     <img class="perfume_image" src=${perfume.image}>
+//     <a  class="directPage" href="./detail.html?id=${perfume.id}">
+//     <button class='detailProduct'>Xem chi tiết</button>
+//     </a>
+//     </div>
+//     <div class="perfume_info">
+//     <div class="perfume_name">
+//     ${perfume.name}
+//     </div>
+//     <div class="perfume_brand">
+//     ${perfume.brand}
+//     </div>
+//     <div class="perfume_price old_price">${perfume.price}đ <h4>(-20%)</h4></div>
+//     <div class="perfume_price new_price">${perfume.price*0.8}đ </div>
+// </div>
+// <button class="addIntoCart">Thêm vào giỏ hàng</button> </div>`
+// }
+//  function renderPage(currentPage,perfumes){
+//     contentPage=''
+//     var firstItem=(currentPage-1)*10
+//     var lastItem
+//     if(currentPage<numberPage)lastItem=currentPage*10
+//     else lastItem=perfumes.length
+//         for(let j=firstItem;j<lastItem;j++){
+//             contentPage+=renderCard(perfumes[j]) 
+//         }
+//     document.querySelector('.product').innerHTML=contentPage
+// }
+//  function renderButtonDirect(num){
+//     buttonNextPage=""
+//     for(let i=1;i<=num;i++){
+//         buttonNextPage+=`<button class="nextPage" >${i}</button>`
+//     }
+//     document.querySelector('.direction').innerHTML=buttonNextPage
+// }
+// function start(){
+    
+//   renderPage(1,infoPerfume)
+//   deleteFilter()
+//   setNumberItem()
+//   renderButtonDirect(numberPage)
+//   handleFilter()
+//   handleNextPage(infoPerfume)
+//   handleAddItem()
+//   configElasticlunr()
+
+// }
+// start()
