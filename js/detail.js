@@ -47,24 +47,24 @@ function renderDetailPage(queryParams){
         </tr>
         <tr>
             <th>Giới tính</th>
-            <td> Unisex</td>
+            <td> ${product.sex}</td>
         </tr>
         <tr>
             <th>Nhóm hương</th>
-            <td> Hương Hoa Cỏ - Floral</td>
+            <td>  ${product.incense}</td>
         </tr>
         <tr>
             <th>Nồng độ</th>
-            <td> Eau de parfum</td>
+            <td>  ${product.concentration}</td>
         </tr>
         <tr>
             <th>Phong cách</th>
-            <td> Huyền bí, sang trọng</td>
+            <td>  ${product.style}</td>
         </tr>
     </table>
         <h3>Hương đặc trưng</h3>
         <div class="description">${product.description}</div>
-        <div class="productPrice">Giá: <h4 class="old_price">${product.price}đ</h4> <h4 class="new_price">${product.price*0.8}đ</h4></div>
+        <div class="productPrice">Giá: <h4 class="old_price">${formatNumber(product.price)}đ</h4> <h4 class="new_price">${formatNumber(product.price*0.9)}đ</h4></div>
         <div class="countProduct">
         Số lượng :
         <input type="number" class="number" name="quantity" min="1" max="100" value=1>
@@ -143,6 +143,10 @@ function handleClickImage(){
     }
 
 }
+function formatNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+  
 function start(){
     handleURL()
     setCount()

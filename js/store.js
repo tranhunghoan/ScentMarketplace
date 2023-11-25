@@ -29,12 +29,12 @@ var numberPage=Math.ceil(infoPerfume.length/18)
     <div class="perfume_brand">
     ${perfume.brand}
     </div>
-    <div class="perfume_price old_price">${perfume.price}đ <h4>(-20%)</h4></div>
-    <div class="perfume_price new_price">${perfume.price*0.8}đ </div>
+    <div class="perfume_price old_price">${formatNumber( perfume.price) }đ <h4>(-10%)</h4></div>
+    <div class="perfume_price new_price">${formatNumber( perfume.price*0.9)}đ </div>
 </div>
 <button class="addIntoCart">Thêm vào giỏ hàng</button> </div>`
 }
- function renderPage(currentPage,perfumes){
+ function renderPage(currentPage,numberPage,perfumes){
     contentPage=''
     var firstItem=(currentPage-1)*18
     var lastItem
@@ -99,13 +99,21 @@ var numberPage=Math.ceil(infoPerfume.length/18)
     var buttonPages=document.querySelectorAll('button.nextPage')
     for(let i=0;i<buttonPages.length;i++){
     buttonPages[i].onclick=function (){
-    renderPage(i+1,perfume)
+    renderPage(i+1,numberPage,perfume)
+    handleAddItem()
 }
 }
 }
 function deleteFilter(){
     document.querySelector('button.no_filter').onclick=function(){
-        renderPage(1,infoPerfume)
+        var selects=document.querySelectorAll('.filter_block select')
+        selects.forEach(select => {   
+            select.value=""
+        });
+        renderPage(1,numberPage,infoPerfume)
+        renderButtonDirect(numberPage)
+        handleNextPage(infoPerfume)
+        handleAddItem()
     }
 }
 function removeVietnameseTones(str) {
@@ -133,26 +141,25 @@ function removeVietnameseTones(str) {
     return str;
   }
 function configElasticlunr(){
+    var PerfumeClone = JSON.parse(JSON.stringify(infoPerfume));
     var index = elasticlunr(function () {
-      this.addField('price'); // Thêm trường 'price' cho tìm kiếm
       this.addField('brand');// Thêm trường 'brand' cho tìm kiếm
       this.addField('name');  // Thêm trường 'name' cho tìm kiếm
       this.setRef('id'); // Thiết lập trường làm khóa chính
     });
     
     // Thêm văn bản vào chỉ mục tìm kiếm
-    for(let i=0;i<infoPerfume.length;i++){
-      infoPerfume[i].name=removeVietnameseTones(infoPerfume[i].name)
-      infoPerfume[i].brand=removeVietnameseTones(infoPerfume[i].brand)  
-      index.addDoc(infoPerfume[i])
+    for(let i=0;i<PerfumeClone.length;i++){
+        PerfumeClone[i].name=removeVietnameseTones(infoPerfume[i].name)
+        PerfumeClone[i].brand=removeVietnameseTones(infoPerfume[i].brand)  
+      index.addDoc(PerfumeClone[i])
     }
     var inputSearch=document.querySelector('input.searchItem')
     var searchButton=document.querySelector('.search .searchButton')
     // Tìm kiếm trong chỉ mục
     searchButton.onclick=function(){
-      var results = index.search(removeVietnameseTones(inputSearch.value));
+        var results = index.search(removeVietnameseTones(inputSearch.value));
       handleResultSearch(results)
-      handleAddItem()
     }
   }
 function handleResultSearch(arr){
@@ -160,6 +167,7 @@ function handleResultSearch(arr){
     
      if(arr.length===0){
       contentPage.innerHTML= 'Không tìm thấy kết quả phù hợp'
+      renderButtonDirect(0)
     } 
      else {
       contentPage.innerHTML=""
@@ -167,10 +175,11 @@ function handleResultSearch(arr){
         var index=parseInt(arr[i].ref)-1;
         contentPage.innerHTML+=renderCard(infoPerfume[index])
       }
-     }
-      document.querySelector('.direction').innerHTML=''
-    
-  }
+     
+     renderButtonDirect(Math.ceil(arr.length/18))
+     handleNextPage(arr)
+     handleAddItem()
+  }}
 function handleFilter(){
     var filterButton=document.querySelector('button.filter')
 
@@ -189,21 +198,26 @@ function handleFilter(){
             }
             return true;
         })
-        for(let i=0;i<resultFilter.length;i++){
-            contentPage+=renderCard(resultFilter[i])
-        }
-        document.querySelector('.product').innerHTML=contentPage
-
-        renderButtonDirect(Math.ceil(resultFilter.length/18))
-        renderPage(1,resultFilter)
+        if(resultFilter.length===0){
+            document.querySelector('.product').innerHTML="Không tìm thấy kết quả phù hợp"
+            renderButtonDirect(0)
+            return 0;
+          } 
+        var page=Math.ceil(resultFilter.length/18)
+        renderButtonDirect(page)
+        renderPage(1,page,resultFilter)
         handleNextPage(resultFilter)
-        //console.log(resultFilter)
+        handleAddItem()
     }
  
 }  
+function formatNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+  
  function start(){
     
-    renderPage(1,infoPerfume)
+    renderPage(1,numberPage,infoPerfume)
     deleteFilter()
     setNumberItem()
     renderButtonDirect(numberPage)
