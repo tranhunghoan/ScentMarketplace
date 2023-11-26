@@ -1,23 +1,16 @@
-var mysql = require("mysql");
+const { Sequelize } = require('sequelize');
 
-var conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "testing", // Đổi tên thành db trên xampp
+const sequelize = new Sequelize(process.env.MYSQL_DATABASE, process.env.MYSQL_USER, null, {
+  host: 'localhost',
+  dialect: 'mysql',
+  logging: false
 });
-conn.connect((err) => {
-  if (err) {
-    console.log(err.code);
-    console.log(err.fatal);
+const connectionDB = async ()=> {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
   }
-});
-query = "SELECT * FROM user";
-
-conn.query(query, (err, results, fields) => {
-  if (err) {
-    console.log("An error occurred with query ");
-  }
-  console.log("Query successfully executed", results);
-});
-module.exports = conn;
+}
+connectionDB();
