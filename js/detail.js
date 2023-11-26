@@ -6,13 +6,22 @@ function setCount(){
         numberItem=0;
     }
     else numberItem=JSON.parse( localStorage.getItem('numberItem'))
-    document.querySelector('.cart .numberProduct').innerHTML=`${numberItem}` 
+    document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
 }
 function handleURL(){
     var url = window.location.href;
     url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
         queryParams[key] = value;
         });
+}
+function setNumberItem(){
+    var numberItem
+    if(localStorage.getItem('numberItem')===null){
+        numberItem=0;
+    }
+    else numberItem=JSON.parse( localStorage.getItem('numberItem'))
+    document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
+    return numberItem
 }
 function renderDetailPage(queryParams){
    var idProduct=parseInt(queryParams.id)
@@ -21,16 +30,16 @@ function renderDetailPage(queryParams){
         <div class="slide-image">
         <div class="wrap-slide">
         <img class="perfume_image_detail " src=${product.image} >
-        <img class="perfume_image_detail " src=${product.image} >
-        <img class="perfume_image_detail " src=${product.image} >
-        <img class="perfume_image_detail " src=${product.image} >
+        <img class="perfume_image_detail " src="../assets/images/mini-image1.jpg" >
+        <img class="perfume_image_detail " src="../assets/images/mini-image2.jpg" >
+        <img class="perfume_image_detail " src="../assets/images/mini-image3.jpg" >
         </div>
         </div>
         <div class="mini-image">
         <img tax-index="1"class="perfume_image_detail " src=${product.image} >
-        <img tax-index="2"class="perfume_image_detail " src=${product.image} >
-        <img tax-index="3"class="perfume_image_detail " src=${product.image} >
-        <img tax-index="4"class="perfume_image_detail " src=${product.image} >
+        <img tax-index="2"class="perfume_image_detail " src="../assets/images/mini-image1.jpg" >
+        <img tax-index="3"class="perfume_image_detail " src="../assets/images/mini-image2.jpg" >
+        <img tax-index="4"class="perfume_image_detail " src="../assets/images/mini-image3.jpg" >
         </div>
         </div>
         <div class="infoProduct">
@@ -47,24 +56,24 @@ function renderDetailPage(queryParams){
         </tr>
         <tr>
             <th>Giới tính</th>
-            <td> Unisex</td>
+            <td> ${product.sex}</td>
         </tr>
         <tr>
             <th>Nhóm hương</th>
-            <td> Hương Hoa Cỏ - Floral</td>
+            <td>  ${product.incense}</td>
         </tr>
         <tr>
             <th>Nồng độ</th>
-            <td> Eau de parfum</td>
+            <td>  ${product.concentration}</td>
         </tr>
         <tr>
             <th>Phong cách</th>
-            <td> Huyền bí, sang trọng</td>
+            <td>  ${product.style}</td>
         </tr>
     </table>
-        <h3>Hương đặc trưng</h3>
+        <h3 style="margin:20px 0 15px 0;">Hương đặc trưng</h3>
         <div class="description">${product.description}</div>
-        <div class="productPrice">Giá: <h4 class="old_price">${product.price}đ</h4> <h4 class="new_price">${product.price*0.8}đ</h4></div>
+        <div class="productPrice">Giá: <h4 class="old_price">${formatNumber(product.price)}đ</h4> <h4 class="new_price">${formatNumber(product.price*0.9)}đ</h4></div>
         <div class="countProduct">
         Số lượng :
         <input type="number" class="number" name="quantity" min="1" max="100" value=1>
@@ -111,6 +120,7 @@ function duplicateAndMove(event) {
 
     // Sau khi di chuyển hoàn tất, có thể thêm sản phẩm vào giỏ hàng và xóa bản sao
 }
+
 function handleButtonAddProduct(){
     //setNumberItem()
     var numberProduct
@@ -126,7 +136,7 @@ function handleButtonAddProduct(){
        // duplicateAndMove(e)
         numberProduct=JSON.parse(localStorage.getItem('numberItem'))
          numberProduct+=parseInt(document.querySelector('input.number').value)
-        document.querySelector('.cart .numberProduct').innerHTML=`${numberProduct}`
+        document.querySelector('#cart .cart-amount').innerHTML=`${numberProduct}`
         localStorage.setItem('numberItem',JSON.stringify(numberProduct)) 
     }
 }
@@ -137,15 +147,20 @@ function handleClickImage(){
         imgMini[i].onclick=function(e){
 
             var distance=-(parseInt(e.target.getAttribute("tax-index"))-1)*400
-            console.log(e.target)
+    
            imgSlide.style.transform=`translate(${distance}px,0)`
         }
     }
 
 }
+function formatNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+  
 function start(){
     handleURL()
     setCount()
+    setNumberItem()
     renderDetailPage(queryParams)
     handleButtonAddProduct()
     handleClickImage()

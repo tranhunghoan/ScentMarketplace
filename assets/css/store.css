@@ -2,6 +2,10 @@ body {
   margin:0;
   font-family: Arial, Helvetica, sans-serif;
 }
+.container{
+  background-color: white;
+  position: relative;
+}
   .product{
     padding:40px 120px;
     display: flex;
@@ -115,14 +119,18 @@ body {
     display:flex;
     justify-content: center;
     margin-top: 10px;
+    margin-bottom:20px;
   }
   .nextPage{
     width:25px;
     height:25px;
     background-color: rgb(238, 238, 238);
-    box-shadow: 2px 2px 5px rgb(142, 142, 142);
+    box-shadow: 2px 2px 3px rgb(142, 142, 142);
     border:none;
     margin:0 3px 0 3px;
+  }
+  .nextPage:hover{
+    box-shadow: 2px 2px 7px rgb(142, 142, 142);
   }
   .search{
     display:flex;
@@ -137,7 +145,10 @@ body {
     font-size: 20px;
     display: flex;
     align-items: center;
-
+    width:20px;
+  }
+  .wrap{
+   width:200px;
   }
   #clonedProduct{
     transition:transform 0.8s ease;
@@ -190,6 +201,7 @@ button.filter{
   margin:0 5px;
   border-radius:5px;
   height:40px;
+  width: 80px;
 }
 button.no_filter{
   background-color: rgb(2, 82, 255);
@@ -199,10 +211,12 @@ button.no_filter{
   border: none;
   box-shadow:2px 2px 5px rgb(169, 169, 169) ;
   height:40px;
+  width: 80px;
 }
 .filter_block{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .filter:hover{
   opacity: 0.8;
@@ -213,8 +227,24 @@ button.no_filter{
 select{
   padding:10px 0;
   margin:5px 5px;
+  width:120px;
   border: none;
   box-shadow: 2px 2px 5px rgb(169, 169, 169);
+}
+.fa-chevron-up{
+    position: fixed;
+    border-radius: 50%;
+    background-color: white;
+    padding:2px;
+    right:50px;
+    z-index: 2;
+    bottom:300px;
+    font-size: 30px;
+    box-shadow: 0 5px 5px rgb(191, 191, 191);
+
+}
+.fa-chevron-up:hover{
+    color: rgb(0, 21, 255);
 }
 @media (max-width:600px){
   .product{
