@@ -60,7 +60,7 @@ var numberPage=Math.ceil(infoPerfume.length/18)
     //Gán thuộc tính cho sản phẩm clone
     clonedProduct.id = "clonedProduct"; 
     clonedProduct.style.position = "absolute";
-    clonedProduct.style.zIndex = "1"
+    clonedProduct.style.zIndex = "1000"
     clonedProduct.style.borderRadius = "50%"
     clonedProduct.style.top = '20px'; // Giữ nguyên vị trí của sản phẩm gốc
     clonedProduct.style.left = '20px'; // Giữ nguyên vị trí của sản phẩm gốc
@@ -72,7 +72,7 @@ var numberPage=Math.ceil(infoPerfume.length/18)
   
     // Di chuyển bản sao vào vị trí của icon giỏ hàng
     let xOffset = cartRect.left - clonedRect.left-clonedProduct.offsetWidth*0.5+15;
-    let yOffset = -clonedRect.top-clonedProduct.offsetHeight*0.5+15;
+    let yOffset = -clonedRect.top-clonedProduct.offsetHeight*0.5+20;
    // event.target.parentElement.style.overflow='visible'
     clonedProduct.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(0.05)`;
     setTimeout(() => {
@@ -214,7 +214,27 @@ function handleFilter(){
 function formatNumber(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
-  
+function scrollTop(){
+    var chervon=document.querySelector('.fa-chevron-up')
+    chervon.onclick=function(){ 
+    window.scrollBy({ 
+        top: -window.scrollY, 
+        behavior: 'smooth' 
+    });
+    }
+window.addEventListener('scroll',function(){
+    if(window.scrollY>=400){
+    chervon.style.display='block';
+    }
+    if(window.scrollY<400){
+    chervon.style.display='none';
+    }
+    
+
+
+}
+    )
+}  
  function start(){
     
     renderPage(1,numberPage,infoPerfume)
@@ -225,7 +245,7 @@ function formatNumber(number) {
     handleNextPage(infoPerfume)
     handleAddItem()
     configElasticlunr()
-
+    scrollTop()
 }
 start()
 
