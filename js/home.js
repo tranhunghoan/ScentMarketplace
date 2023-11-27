@@ -95,7 +95,6 @@ function regis(event){
   localStorage.setItem(username, json);
   window.location.href = "./login.html";
 
-  // Return false to prevent the default form submission
   return false;
 }
 //Đăng nhập
@@ -135,7 +134,7 @@ function login() {
   
   if (username == data.username && password == data.password) {
     localStorage.setItem('isLoggedIn', 'true');
-
+    localStorage.setItem('currentUser', user);
     window.location.href = "./home.html";
     return true;
   }
@@ -147,6 +146,7 @@ function login() {
 function onLoginSuccess() {
   var userLink = document.getElementById('user-link');
   userLink.addEventListener('click', function () {
+<<<<<<< Updated upstream
     var isLoggedIn = localStorage.getItem('isLoggedIn');
 
     if (isLoggedIn === 'true') {
@@ -225,3 +225,31 @@ function onLoginSuccess() {
 
 // }
 // start()
+=======
+  var isLoggedIn = localStorage.getItem('isLoggedIn');
+  if (isLoggedIn === 'true') {
+    userLink.href = './user.html';
+  } 
+  else {
+    userLink.href = './login.html';
+  }
+  });
+}
+
+// lấy dữ liệu cho user
+document.addEventListener('DOMContentLoaded', function () {
+  var user = localStorage.getItem('currentUser');
+  var data = JSON.parse(user);
+  // var currentUser = localStorage.getItem('currentUser');
+  // var user = JSON.parse(localStorage.getItem(currentUser));
+
+  var usernameInput = document.getElementById('username-l');
+  var emailInput = document.getElementById('email-l');
+  var telInput = document.getElementById('tel-l');
+
+  usernameInput.value = data.username;
+  emailInput.value = data.email;
+  telInput.value = data.tel;
+});
+
+>>>>>>> Stashed changes

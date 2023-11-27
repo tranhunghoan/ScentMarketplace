@@ -3,9 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Page</title>
+    <link rel="stylesheet" href="\assets\css\register.css">
+    <link rel="stylesheet" href="\assets\css\login.css">
 </head>
+<style>
+    #user-form {
+        max-width: 700px;
+        background: black;
+        float: right;
+        flex-grow: 1;
+        padding: 30px 30px 40px;
+        box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.8);
+        color: white;
+    }
+</style>
 <body>
-    
+    <div id="header-placeholder"></div>
+    <div id="wrapper">
+        <form onsubmit="updateUserInfo(event)" id="user-form">
+            <h1 class="form-heading">Thông tin người dùng</h1>
+            <div class="form-group">
+                <i class="far fa-user"></i>
+                <input id="username-l" class="form-input">
+            </div>
+            <div class="form-group">
+                <i class="fa-regular fa-envelope"></i>
+                <input id="email-l" class="form-input">
+            </div>
+            <div class="form-group">
+                <i class="fa-solid fa-phone"></i>
+                <input id="tel-l" class="form-input">
+            </div>
+            <div class="form-group">
+                <i class="fas fa-map-marker-alt"></i>
+                <input id="address-l" class="form-input">
+            </div>
+            <div id="password-error" style="color: red;"></div>
+            <input type="submit" value="Cập nhật" class="user-form" >
+            <input type="button" value="Đăng xuất" class="user-form" onclick="logout()">
+        </form>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="/js/home.js"></script>
+    <script src="../js/pageDefault/loadHeaderFooter.js"></script>
+    <script>
+        function logout() {
+            localStorage.setItem('isLoggedIn', 'false');
+            localStorage.removeItem('currentUser');
+            window.location.href = './home.html';
+        }
+    </script>
 </body>
 </html>

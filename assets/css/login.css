@@ -11,57 +11,57 @@
 }
 body{
     font-size: 20px;
+    background-color: rgb(249, 239, 226);
 }
 .welcome{
     width: 100%;
-    height: 100px;
+    height: 80px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .welcome p:first-child{
-    font-size: 40px;
-    padding-bottom: 10px;
+    font-size: 30px;
+    padding-bottom: 5px;
 }
 .welcome p:last-child{
-    font-size: 20px;
+    font-size: 18px;
 }
 #wrapper{
-    min-height: 75vh;
+    min-height: 65vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: rgb(249, 239, 226);
+    align-items: center;  
 }
 #wrapper input{
-    font-size: 20px;
+    font-size: 15px;
 }
 #wrapper i{
     width: 21px;
 }
 #form-login{
-    max-width: 700px;
+    max-width: 500px;
     background: black;
     float: right;
     flex-grow: 1;
-    padding: 30px 30px 40px;
+    padding: 25px 25px 35px;
     box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.8);
 }
 .form-heading{
-    font-size: 30px;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 .form-group{
     border-bottom: 1px solid white;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
     display: flex;
 }
 .form-group i{
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     padding-top: 5px;
     padding-right: 10px;
 }
@@ -90,7 +90,7 @@ body{
     background: transparent;
     border: 1px solid white;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     width: 100%;
     text-transform: uppercase;
     padding: 6px 10px;
