@@ -57,6 +57,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //chuyển hướng trang đăng nhập
 //đăng ký, kiểm tra password
+//eye-login
+document.addEventListener('DOMContentLoaded', function () {
+  var passwordInput = document.getElementById('password');
+  var togglePassword = document.getElementById('toggle-password');
+
+  togglePassword.addEventListener('click', function () {
+    console.log('Clicked on the eye icon');
+      var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+  });
+});
+//eye-regis
+document.addEventListener('DOMContentLoaded', function () {
+  var passwordInput = document.getElementById('pass');
+  var togglePassword = document.getElementById('toggle-password');
+
+  togglePassword.addEventListener('click', function () {
+    console.log('Clicked on the eye icon');
+      var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  var passwordInput = document.getElementById('repass');
+  var togglePassword = document.getElementById('rtoggle-password');
+
+  togglePassword.addEventListener('click', function () {
+    console.log('Clicked on the eye icon');
+      var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+  });
+});
+
 function formregis(){
   location.assign("./register.html");
 }
@@ -146,7 +179,6 @@ function login() {
 function onLoginSuccess() {
   var userLink = document.getElementById('user-link');
   userLink.addEventListener('click', function () {
-<<<<<<< Updated upstream
     var isLoggedIn = localStorage.getItem('isLoggedIn');
 
     if (isLoggedIn === 'true') {
@@ -225,17 +257,6 @@ function onLoginSuccess() {
 
 // }
 // start()
-=======
-  var isLoggedIn = localStorage.getItem('isLoggedIn');
-  if (isLoggedIn === 'true') {
-    userLink.href = './user.html';
-  } 
-  else {
-    userLink.href = './login.html';
-  }
-  });
-}
-
 // lấy dữ liệu cho user
 document.addEventListener('DOMContentLoaded', function () {
   var user = localStorage.getItem('currentUser');
@@ -252,4 +273,3 @@ document.addEventListener('DOMContentLoaded', function () {
   telInput.value = data.tel;
 });
 
->>>>>>> Stashed changes

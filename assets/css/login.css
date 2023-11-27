@@ -54,6 +54,7 @@ body{
     margin-bottom: 25px;
 }
 .form-group{
+    position: relative;
     border-bottom: 1px solid white;
     margin-top: 10px;
     margin-bottom: 15px;
