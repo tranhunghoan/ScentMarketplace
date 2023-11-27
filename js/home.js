@@ -117,12 +117,15 @@ function regis(event){
   var tel=document.getElementById("tel").value;
   var password=document.getElementById("pass").value;
   var repass=document.getElementById("repass").value;
+  var address=document.getElementById("address").value;
+
   var user ={
     username: username,
     email: email,
     tel:tel,
     password: password,
     repass: repass,
+    address: address,
   };
   var json = JSON.stringify(user);
   localStorage.setItem(username, json);
@@ -261,15 +264,61 @@ function onLoginSuccess() {
 document.addEventListener('DOMContentLoaded', function () {
   var user = localStorage.getItem('currentUser');
   var data = JSON.parse(user);
-  // var currentUser = localStorage.getItem('currentUser');
-  // var user = JSON.parse(localStorage.getItem(currentUser));
 
   var usernameInput = document.getElementById('username-l');
   var emailInput = document.getElementById('email-l');
   var telInput = document.getElementById('tel-l');
+  var passInput = document.getElementById('pass-l');
+  var addressInput = document.getElementById('address-l')
 
   usernameInput.value = data.username;
   emailInput.value = data.email;
   telInput.value = data.tel;
+  passInput.value = data.password;
+  addressInput.value = data.address;
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  var passwordInput = document.getElementById('pass-l');
+  var togglePassword = document.getElementById('toggle-password');
+
+  togglePassword.addEventListener('click', function () {
+  console.log('Clicked on the eye icon');
+  var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  });
+  });
+
+document.addEventListener('DOMContentLoaded', function () {
+  var userForm = document.getElementById('user-form');
+
+  userForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  var username = document.getElementById('username-l').value;
+  var email = document.getElementById('email-l').value;
+  var tel = document.getElementById('tel-l').value;
+  var password = document.getElementById('pass-l').value;
+  var address = document.getElementById('address-l').value;
+
+  var currentUser = localStorage.getItem(username);
+  var userData = JSON.parse(currentUser);
+  
+  userData.username = username;
+  userData.email = email;
+  userData.tel = tel;
+  userData.password = password;
+  userData.repass = password;
+  userData.address = address;
+
+  localStorage.setItem(username, JSON.stringify(userData));
+
+  alert('Thông tin đã được cập nhật thành công!');
+});
+});
+
+  function logout() {
+      localStorage.setItem('isLoggedIn', 'false');
+      localStorage.removeItem('currentUser');
+      window.location.href = './home.html';
+  }
