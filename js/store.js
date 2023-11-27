@@ -2,7 +2,7 @@ import { infoPerfume } from "./dataproduct.js"
 var contentPage=''
 var buttonNextPage=''
 var currentPage=1
-var numberPage=Math.ceil(infoPerfume.length/10)
+var numberPage=Math.ceil(infoPerfume.length/18)
 
 
  function setNumberItem(){
@@ -29,16 +29,16 @@ var numberPage=Math.ceil(infoPerfume.length/10)
     <div class="perfume_brand">
     ${perfume.brand}
     </div>
-    <div class="perfume_price old_price">${perfume.price}đ <p>(-20%)</p></div>
-    <div class="perfume_price new_price">${perfume.price*0.8}đ </div>
+    <div class="perfume_price old_price">${formatNumber( perfume.price) }đ <h4>(-10%)</h4></div>
+    <div class="perfume_price new_price">${formatNumber( perfume.price*0.9)}đ </div>
 </div>
 <button class="addIntoCart">Thêm vào giỏ hàng</button> </div>`
 }
  function renderPage(currentPage,numberPage,perfumes){
     contentPage=''
-    var firstItem=(currentPage-1)*10
+    var firstItem=(currentPage-1)*18
     var lastItem
-    if(currentPage<numberPage)lastItem=currentPage*10
+    if(currentPage<numberPage)lastItem=currentPage*18
     else lastItem=perfumes.length
         for(let j=firstItem;j<lastItem;j++){
             contentPage+=renderCard(perfumes[j]) 

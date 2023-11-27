@@ -31,7 +31,7 @@ body {
     border:none;
     padding:10px 10px;
     box-shadow: 2px 2px 4px rgb(192, 192, 194);
-    margin:10px 0;
+    margin:10px 0
   } 
    button.addIntoCart:hover{
    opacity: 0.7;
@@ -108,10 +108,10 @@ body {
     font-weight: unset;
     line-height: 20px;
   }
-  .old_price p{
+  .old_price h4{
     display: inline-block;
     margin:0;
-    margin-left: 70px;
+    margin-left: 5px;
     padding: 0;
     color:rgb(255, 98, 0)
   }
@@ -140,7 +140,6 @@ body {
     margin: 20px 20px;
     height:30px;
     width:250px;
-
   }
   .search .fa-magnifying-glass{
     font-size: 20px;
