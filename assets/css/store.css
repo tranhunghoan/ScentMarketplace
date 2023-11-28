@@ -1,3 +1,10 @@
+*{
+  width:auto;
+}
+body{
+  background-color: white;
+
+}
 .container{
   background-color: white;
   position: relative;
@@ -27,7 +34,8 @@
     border:none;
     padding:10px 10px;
     box-shadow: 2px 2px 4px rgb(192, 192, 194);
-    margin:10px 0
+    margin:10px 0;
+    width:100%;
   } 
    button.addIntoCart:hover{
    opacity: 0.7;
@@ -111,7 +119,8 @@
     margin:0;
     margin-left: 5px;
     padding: 0;
-    color:rgb(255, 98, 0)
+    color:rgb(255, 98, 0);
+    width:45px;
   }
   .direction{
     display:flex;
@@ -204,6 +213,7 @@ button.no_filter{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .filter:hover{
   opacity: 0.8;
@@ -258,7 +268,7 @@ select{
   padding: 20px 0;
   font-size: 0;
   z-index: 6;
-  margin: 50px 0;
+  margin: 30px 0;
   animation: cdp-in 500ms ease both; }
   .cdp_i {
     font-size: 14px;
