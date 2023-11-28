@@ -2,18 +2,21 @@
     display: flex;
     padding: 0 100px;
     margin: 30px;
+    justify-content: center;
 }
 .infoProduct{
     padding: 0 50px;
+    width: auto;
 }
 .imageProduct{
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    width: auto;
 }
 table,td,th {
     border-collapse: collapse;
+    width: auto;
   }
 th,td{
     text-align: left;
