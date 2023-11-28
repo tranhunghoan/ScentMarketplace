@@ -3,16 +3,17 @@ var contentPage=''
 var buttonNextPage=''
 var currentPage=1
 var numberPage=Math.ceil(infoPerfume.length/18)
-
+var numberItem
 
  function setNumberItem(){
-    var numberItem
     if(localStorage.getItem('numberItem')===null){
+      console.log(1)
         numberItem=0;
     }
     else numberItem=JSON.parse( localStorage.getItem('numberItem'))
-    document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
-    return numberItem
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
+    });
 }
  function renderCard(perfume){ 
     return ` <div class="perfume">
@@ -23,9 +24,9 @@ var numberPage=Math.ceil(infoPerfume.length/18)
     </a>
     </div>
     <div class="perfume_info">
-    <div class="perfume_name">
-    ${perfume.name}
-    </div>
+    <a href="./detail.html?id=${perfume.id}" style="text-decoration:none">
+    <div class="perfume_name">${perfume.name}</div>
+    </a>
     <div class="perfume_brand">
     ${perfume.brand}
     </div>
@@ -46,11 +47,13 @@ var numberPage=Math.ceil(infoPerfume.length/18)
     document.querySelector('.product').innerHTML=contentPage
 }
  function renderButtonDirect(num){
-    buttonNextPage=""
+    buttonNextPage=`<button index="#!-1" class="prevPage cdp_i">prev</button>`
     for(let i=1;i<=num;i++){
-        buttonNextPage+=`<button class="nextPage" >${i}</button>`
+        buttonNextPage+=`<button class="cdp_i" index="${i}" >${i}</button>`
     }
+    buttonNextPage+=`<button index="#!+1" class="nextPage cdp_i">next</button>`
     document.querySelector('.direction').innerHTML=buttonNextPage
+    Pagination()
 }
  function duplicateAndMove(event) {
     // Lấy sản phẩm gốc
@@ -82,7 +85,6 @@ var numberPage=Math.ceil(infoPerfume.length/18)
     // Sau khi di chuyển hoàn tất, có thể thêm sản phẩm vào giỏ hàng và xóa bản sao
 }
  function handleAddItem(){
-    var numberItem=setNumberItem()
     var buttonAddintocart=document.querySelectorAll('.addIntoCart')
     for( let button of buttonAddintocart){
     button.onclick=function(e){
@@ -95,15 +97,29 @@ var numberPage=Math.ceil(infoPerfume.length/18)
 
 }
  function handleNextPage(perfume){
-    //document.querySelector('.direction').onclick=handleAddItem
-    var buttonPages=document.querySelectorAll('button.nextPage')
+    const nextBtn=document.querySelector('.cdp_i.nextPage')
+    const prevBtn=document.querySelector('.cdp_i.prevPage')
+
+    nextBtn.onclick=function(e){
+            renderPage(currentPage+1,numberPage,perfume)
+            currentPage++;
+            handleAddItem()
+        }
+    prevBtn.onclick=function(e){
+        renderPage(currentPage-1,numberPage,perfume)
+        handleAddItem()
+        currentPage--;
+    }
+    var buttonPages=document.querySelectorAll('button.cdp_i:not(.nextPage,.prevPage)')
     for(let i=0;i<buttonPages.length;i++){
     buttonPages[i].onclick=function (){
+      currentPage=i+1;
     renderPage(i+1,numberPage,perfume)
     handleAddItem()
 }
 }
 }
+//
 function deleteFilter(){
     document.querySelector('button.no_filter').onclick=function(){
         var selects=document.querySelectorAll('.filter_block select')
@@ -235,16 +251,36 @@ window.addEventListener('scroll',function(){
 }
     )
 }  
+function Pagination(){
+    window.onload = function() {
+        var paginationPage = parseInt(document.querySelector('.cdp').getAttribute('actpage'), 10);
+        document.querySelectorAll('.cdp_i').forEach(function(item) {
+          item.addEventListener('click', function() {
+            var go = this.getAttribute('index').replace('#!', '');
+            if (go === '+1') {
+              paginationPage++;
+            } else if (go === '-1') {
+              paginationPage--;
+            } else {
+              paginationPage = parseInt(go, 10);
+            }
+            document.querySelector('.cdp').setAttribute('actpage', paginationPage);
+          });
+        });
+      };
+      
+}
  function start(){
-    
     renderPage(1,numberPage,infoPerfume)
     deleteFilter()
     setNumberItem()
-    renderButtonDirect(numberPage)
+    renderButtonDirect(10)
     handleFilter()
     handleNextPage(infoPerfume)
     handleAddItem()
     configElasticlunr()
     scrollTop()
+    Pagination()
+
 }
 start()
