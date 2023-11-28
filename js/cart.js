@@ -135,6 +135,31 @@ function calculationMobile() {
 
 // cart
 function generateCart() {
+  if(basket.length !== 0) {
+    return cart.innerHTML = basket.map((x) => {
+      var search = product.find((y) => y.id === x.id ) || newProduct.find((y) => y.id === x.id ) || []
+      return `
+      <div id="cart-id-${search.id}" class="cart-box">
+      <div>
+      <img src="${search.img}" alt="">
+      </div>
+      <div class="des">
+          <span class="cart-pro-category">${search.cate}</span>
+          <h5 class="cart-pro-title">${search.title}</h5>
+          <div class="input-number">
+          <button onclick="decrement(${x.id})" class="cart-btn">-</button>
+          <input id="${search.id}" type="number" value="${x.item}" class="cart-quantity">
+          <button onclick="addToCart(${x.id})" class="cart-btn">+</button>
+          </div>
+          <h4 class="cart-price">${search.price} VND</h4>
+      </div>
+      <i onclick="removeItem(${search.id})" class="fas fa-trash trash"></i>
+  </div>
+      `
+    })
+  }else {
+    cart.innerHTML = ``
+  }
 }
 
 
