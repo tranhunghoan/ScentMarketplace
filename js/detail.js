@@ -2,26 +2,18 @@ import { infoPerfume } from "./dataproduct.js";
 var queryParams = {};
 var numberItem
 function setCount(){
+    document.addEventListener("DOMContentLoaded", (event) => {
     if(localStorage.getItem('numberItem')===null){
         numberItem=0;
     }
     else numberItem=JSON.parse( localStorage.getItem('numberItem'))
-    document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
+    document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` })
 }
 function handleURL(){
     var url = window.location.href;
     url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
         queryParams[key] = value;
         });
-}
-function setNumberItem(){
-    var numberItem
-    if(localStorage.getItem('numberItem')===null){
-        numberItem=0;
-    }
-    else numberItem=JSON.parse( localStorage.getItem('numberItem'))
-    document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
-    return numberItem
 }
 function renderDetailPage(queryParams){
    var idProduct=parseInt(queryParams.id)
@@ -44,7 +36,6 @@ function renderDetailPage(queryParams){
         </div>
         <div class="infoProduct">
         <div class="productName">${product.name}</div>
-        <div class="line"></div>
         <table>
         <tr>
             <th>Nhãn hiệu</th>
@@ -160,7 +151,6 @@ function formatNumber(number) {
 function start(){
     handleURL()
     setCount()
-    setNumberItem()
     renderDetailPage(queryParams)
     handleButtonAddProduct()
     handleClickImage()
