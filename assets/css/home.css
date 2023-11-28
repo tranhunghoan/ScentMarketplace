@@ -219,53 +219,7 @@ body{
   text-decoration: none;
   color: white;
 }
-#body .product{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0;
-}
-#body .prev,button.next {
-  height:40px;
-  width:40px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 10px;
-  border-radius:50%;
-  border:none;
-  box-shadow: 2px 2px 5px rgb(129, 129, 129);
-}
-#body .addIntoCart{
-  background-color:#2ea44f; ;
-  color:rgb(255, 255, 255);
-  font-size: 16px;
-  border:none;
-  padding:0 10px;
-  box-shadow: 2px 2px 4px rgb(192, 192, 194);
-  margin: 10px auto;
-  display: block;
-  width: 100%;
-  height: 20px;
-} 
-#body button.addIntoCart:hover{
- opacity: 0.7;
-}
-#body .perfume{
-  display: flex;
-  flex: 0 1 18%;
- position:relative;
- background-color:rgb(255, 255, 255);
- justify-content: center;
- flex-direction: column;
- box-shadow: 2px 2px 3px rgb(182, 181, 181);
- margin:15px 5px 0 5px;
- transition: transform 0.5s ease;
- cursor: pointer;
-}
-#body .perfume:hover{
-  box-shadow: 2px 2px 7px rgb(182, 181, 181);
-}
+
 #body .wrap_image{
   position: relative;
   display: flex;
@@ -688,13 +642,6 @@ body{
   button.prev,button.next {
     height:30px;
     width:30px;
-  }
-  button.addIntoCart{
-    font-size: 8px;
-    width: 100px;
-  } 
-   button.addIntoCart:hover{
-   opacity: 0.7;
   }
   .perfume:hover{
     box-shadow: 2px 2px 7px rgb(182, 181, 181);
