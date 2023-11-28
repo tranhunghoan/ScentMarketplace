@@ -12,6 +12,7 @@
 #cart-banner h2,
 #cart-banner p {
     color: #fff;
+    width: auto;
 }
 
 #shopping-cart {
