@@ -1,8 +1,9 @@
- @font-face {
+@font-face {
   font-family: roboto;
   src: url(/fonts/Roboto-Regular.ttf);
 }
 *{
+    width: 100%;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -10,12 +11,13 @@
 }
 body{
     display: block;
+    background-color: rgba(249, 239, 226, 0.862);
 }
 /* ----------------navbar------------  */
 #header{
     background-color: black;
     width: 100%;
-    height: 70px;
+    height: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -31,7 +33,7 @@ body{
 }
 #header > a{
   width: 50%;
-  font-size: 40px;
+  font-size: 30px;
   text-decoration: none;
 }
 #header i{
@@ -41,7 +43,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 65%;
+  width: 60%;
 }
 .menu-list li{
   display:block;
@@ -54,11 +56,11 @@ body{
 .menu-list li a{
   display: inline-block;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 18px;
   padding: 0;
 }
 .menu-list li:nth-last-child(-n+2){
-  width: 50px;
+  width: 40px;
 }
 .menu-list li a:hover,
 .menu-list li a.active {
@@ -69,67 +71,146 @@ body{
 }
 #cart{
   position: relative;
-  padding: 0;
 }
 #cart-amount{
   position: absolute;
   background-color: red;
   color: white;
   width: 10px;
-  height: 23px;
-  line-height: 23px;
-  padding: 0 2px;
+  height: 15px;
+  line-height: 15px;
+  padding: auto;
   border-radius: 25px;
   top: -5px;
   right: 0;
 }
-.mobile .cart-amount {
+#cart-icon .cart-amount {
   position: absolute;
   background-color: red;
   color: white;
   width: 10px;
-  height: 18px;
-  line-height: 18px;
+  height: 15px;
+  line-height: 15px;
   border-radius: 25px;
-  top: 7px;
+  top: -5px;
   padding: 0 0.05em;
-  right: 100px;
+  right: 0;
 }
 .mobile{
   height: 50px;
 }
+
+/* --------------section-banner---------------- */
+.slide-banner{
+  width: 100%;
+  height: 550px;
+  position: relative;
+  overflow: hidden; 
+  text-align: center;
+  top: 1px;
+}
+.menu {
+  position: absolute;
+  left: 0;
+  z-index: 900;
+  width: 100%;
+  bottom: 0;
+}
+
+.menu label {
+  cursor: pointer;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50px;
+  margin: 0 .2em 1em;
+  transition: all .3s ease;
+  &:hover {
+    background: black;
+  }
+}
+.banner{
+  width: 100%;
+  height: 550px;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 10;
+  padding: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  transition: left 0s .75s;
+}
+
+[id^="banner"]:checked + .banner {
+  left: 0;
+  z-index: 100;
+  transition: left .65s ease-out;
+}
+.banner img{
+  /* width: 100%; */
+  height: 550px;
+}
+
 /* -----------------section-body---------------- */
+#body{
+  max-width: 1100px;
+  margin: 0 auto;
+}
 .favorite{
   width: 100%;
-  padding: 40px 0;
+  padding: 25px 0;
   text-align: center;
 }
 .favorite p:first-child{
-  font-size: 40px;
+  font-size: 25px;
 }
 .favorite p:last-child{
-  font-size: 20px;
+  font-size: 15px;
   padding-top: 5px;
 }
-.list-fav{
-  height: 1000px;
+.list-fav {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* height: 650px; */
 }
+
+.list-fav > div {
+  flex: 0 1 24%;
+  margin-bottom: 10px;
+  text-align: center;
+  max-height: 350px;
+}
+
+.list-fav img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover; 
+}
+
+.list-fav p {
+  margin-top: 10px;
+}
+  /* sản phẩm mới */
 .new-product{
   width: 100%;
-  padding: 40px 0;
+  padding: 25px 0;
   text-align: center;
 }
 .new-product p:first-child{
-  font-size: 40px;
+  font-size: 25px;
 }
 .new-product p:nth-child(2){
-  font-size: 20px;
+  font-size: 15px;
   padding-top: 5px;
 }
 .new-product button{
   width: 10%;
-  height: 40px;
-  font-size: 18px;
+  height: 25px;
+  font-size: 14px;
   background-color: black;
   text-align: center;
   margin-top: 5px;
@@ -138,83 +219,186 @@ body{
   text-decoration: none;
   color: white;
 }
-/* --------------section-banner---------------- */
-
-.slide-banner{
-    width: 100%;
-    height: 500px;
-    position: relative;
-    overflow: hidden; 
-    text-align: center;
-    top: 0px;
+#body .product{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
 }
-
-.menu {
-    position: absolute;
-    left: 0;
-    z-index: 900;
-    width: 100%;
-    bottom: 0;
+#body .prev,button.next {
+  height:40px;
+  width:40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  border-radius:50%;
+  border:none;
+  box-shadow: 2px 2px 5px rgb(129, 129, 129);
 }
-  
-.menu label {
-    cursor: pointer;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background: #fff;
-    border-radius: 50px;
-    margin: 0 .2em 1em;
-    transition: all .3s ease;
-    &:hover {
-      background: #8c6663;
-    }
+#body .addIntoCart{
+  background-color:#2ea44f; ;
+  color:rgb(255, 255, 255);
+  font-size: 12px;
+  border:none;
+  padding:0 10px;
+  box-shadow: 2px 2px 4px rgb(192, 192, 194);
+  margin: 10px auto;
+  display: block;
+  width: 140px;
+} 
+#body button.addIntoCart:hover{
+ opacity: 0.7;
 }
-.banner{
-    width: 100%;
-    height: 500px;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    z-index: 10;
+#body .perfume{
+  display: flex;
+  flex: 0 1 18%;
+ position:relative;
+ background-color:rgb(255, 255, 255);
+ justify-content: center;
+ flex-direction: column;
+ box-shadow: 2px 2px 3px rgb(182, 181, 181);
+ margin:15px 5px 0 5px;
+ transition: transform 0.5s ease;
+ cursor: pointer;
+}
+#body .perfume:hover{
+  box-shadow: 2px 2px 7px rgb(182, 181, 181);
+}
+#body .wrap_image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+#body .wrap_image:hover .perfume_image{
+  transform: scale(1.4);
+}
+#body .wrap_image:hover::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#body .perfume_image{
+  width: 100%;
+  height: auto;
+  position: relative;
+  transition: transform 0.5s;
+  overflow: hidden;
+}
+#body .perfume_name{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-top: 5px;
+  font-size: 14px;
+  overflow:hidden;
+  height:32px;
+  text-transform: uppercase;
+  padding:0 0 3px 0;
+  text-align: center;
+}
+#body .perfume_brand{
+  font-style: italic;
+  text-align: center;
+  margin: 10px 0;
+}
+#body .perfume_price{
+  font-weight: bold;
+  color:rgb(241, 47, 47);
+  text-align: center;
+  height:20px;
+}
+#body .old_price{
+  text-decoration: line-through;
+  color:rgb(97, 97, 97);
+  font-weight: unset;
+  line-height: 20px;
+}
+#body .old_price p{
+  display: inline-block;
+    margin:0;
+    margin-left: 60px;
     padding: 0;
-    background-size: cover;
-    background-position: 50% 50%;
-    transition: left 0s .75s;
+    color:rgb(255, 98, 0);
+    font-size: 12px;
 }
-  
-[id^="banner"]:checked + .banner {
-    left: 0;
-    z-index: 100;
-    transition: left .65s ease-out;
+#body .detailProduct{
+  position: absolute;
+  width:100px;
+  height:40px;
+  display: none;
+  border-radius: 10px;
+  padding: auto;
+  z-index: 2;
+  border: none;
+  box-shadow: 2px 2px 2px rgb(98, 98, 98);
+  background-color: rgb(255, 255, 255);
 }
-.banner img{
-    width: 100%;
-    height: 500px;
+#body .detailProduct:hover{
+  color:white;
+  background-color: rgb(237, 88, 14);
 }
+#body .wrap_image:hover .detailProduct{
+  display: block;
+} 
+  /* lợi ích */
+.advantage{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.advantage > div {
+  flex: 0 1 24%;
+  margin-bottom: 1px;
+  text-align: center;
+  height: 200px;
+  padding: 65px 0;
+}
+
+.advantage p{
+  font-size: 25px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+}
+.advantage i{
+  font-size: 30px;
+  color: black;
+  border-right: 1px solid black;
+}
+.advantage > div:last-child p,
+.advantage > div:last-child i {
+  border-right: none;
+}
+
 /* -------------footer----------------- */
 .footer {
   display: flex;
   flex-wrap: wrap;
   padding: 30px 30px 20px 30px;
-  color: #2f2f2f;
-  background-color: #fff;
-  border-top: 1px solid #e5e5e5;
-  background-color: #ccc; 
+  color: white;
+  background-color: black;
+  border-top: 1px solid #e5e5e5; 
   }
   
   .footer-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px;
+  height: 20px;
   max-width: max-content;
   background-color: #088178;
   border-radius: 4px;
   color: #fff;
   line-height: 0;
   margin: 16px 0;
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px 20px;
   text-decoration: none;
   } 
@@ -229,9 +413,12 @@ body{
   
   .footer-addr h2,
   .nav-title h2{
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bolder;
   margin-bottom: 10px;
+  }
+  h2{
+    font-size: 20px;
   }
   .footer-nav .nav-item .row {
   display: flex;
@@ -253,8 +440,8 @@ body{
   .footer-nav li  {
   list-style: none;
   text-decoration: none ;
-  font-size: 20px;
-  color: #090909;
+  font-size: 15px;
+  color: white;
   }
   
   
@@ -263,12 +450,12 @@ body{
   flex: 1;
   }
   .footer-thanks p{
-  font-size: 20px;
-  color: rgb(0, 0, 0);
+  font-size: 15px;
+  color: white;
   }
   .footer-thanks h1{
   font-weight: bolder;
-  font-size: 35px;
+  font-size: 25px;
   }
   .thanks-addr {
   display: flex;
@@ -295,8 +482,8 @@ body{
   }
   .footer-nav a{
   text-decoration: none;
-  color: rgb(0, 0, 0);
-  font-size: 18px;
+  color: white;
+  font-size: 13x;
   }
   .nav-item .row {
   display: flex;
@@ -309,13 +496,32 @@ body{
   border-radius: 6px;
   width: 146px;
   }
+
 /* điều chỉnh giao diện tablet */
 @media (max-width:1200px){
   #header > a{
-    font-size: 35px;
+    font-size: 25px;
   }
   .menu-list li a{
+    font-size: 15px;
+  }
+  .favorite p:first-child{
     font-size: 20px;
+  }
+  .favorite p:last-child{
+    font-size: 13px;
+  }
+  .new-product p:first-child{
+    font-size: 20px;
+  }
+  .new-product p:nth-child(2){
+    font-size: 13px;
+  }
+  .advantage p{
+    font-size: 18px;
+  }
+  .advantage i{
+    font-size: 25px;
   }
 }
 /* Điều chỉnh giao diện header khi màn hình nhỏ hơn 780px */
@@ -338,20 +544,28 @@ body{
   .mobile .icons #xmark{
     display: none;
   }
-  .mobile div i{
+  #cart-icon{
+    position: relative;
+  }
+  
+  .mobile div{
     text-align: right;
   }
+  #cart-icon a{
+    margin-right: 7px;
+  }
+ 
   #header > a {
-    font-size: 25px;
+    font-size: 20px;
     display: block;
     margin-bottom: 10px; 
   }
   #xmark{
     display: none;
     position: absolute;
-    width: 30px;
-    top: 0;
-    font-size: 30px;
+    width: 20px;
+    top: 30;
+    font-size: 20px;
     cursor: pointer;
     z-index: 2;
   }
@@ -368,15 +582,15 @@ body{
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 42px;
-    width: 250px;
+    top: 50px;
+    width: 200px;
     right: 0;
     z-index: 1;
   }
   .menu-list.active li:nth-child(n+1):nth-child(-n+5){
     position: relative;
     display: block;
-    width: 250px;
+    width: 200px;
     text-align: right;
     top: 0;
     right: 0;
@@ -391,13 +605,13 @@ body{
     font-size: 15px;
     padding: 10px;
     border-bottom: 1px solid #ccc; 
+    margin: 0;
   }
   /* Thêm style cho từng mục trong dropdown menu */
   .menu-list.active li:nth-child(n+1):nth-child(-n+5) a {
-    color:palegoldenrod; 
     text-decoration: none;
     &:hover {
-      font-size: 20px;
+      font-size: 17px;
       color: #fff;
     }
   }
@@ -426,6 +640,111 @@ body{
     height: 250px;
   }
 }
+
+/* Điều chỉnh body khi màn hình nhỏ hơn 780px */
+@media (max-width: 780px){
+  .favorite{
+    padding: 15px 0;
+  }
+  .favorite p:first-child{
+    font-size: 18px;
+  }
+  .favorite p:last-child{
+    font-size: 10px;
+    padding-top: 2px;
+  }
+  .list-fav p {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+    /* sản phẩm mới */
+  .new-product{
+    padding: 25px 0;
+  }
+  .new-product p:first-child{
+    font-size: 18px;
+  }
+  .new-product p:nth-child(2){
+    font-size: 10px;
+    padding-top: 2px;
+  }
+  .new-product button{
+    width: 10%;
+    height: 15px;
+    font-size: 8px;
+  }
+  button.prev,button.next {
+    height:30px;
+    width:30px;
+  }
+  button.addIntoCart{
+    font-size: 8px;
+    width: 100px;
+  } 
+   button.addIntoCart:hover{
+   opacity: 0.7;
+  }
+  .perfume:hover{
+    box-shadow: 2px 2px 7px rgb(182, 181, 181);
+  }
+  .wrap_image:hover::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+   .perfume_image{
+    width:50px;
+    height:70px;
+  } 
+  .perfume_name{
+    margin-top: 2px;
+    font-size: 8px;
+    height:20px;
+    text-transform: uppercase;
+    padding:0 0 3px 0;
+    text-align: center;
+  }
+  .perfume_brand{
+    margin: 5px 0;
+    font-size: 8px; 
+  }
+  .perfume_price{
+    height:12px;
+    font-size: 10px ;
+  }
+  .old_price{
+    line-height: 12px;
+    font-size: 10px;
+  }
+  .old_price p{
+    font-size: 10px;
+    margin-left: 40px;
+  }
+  .detailProduct{
+    width:100px;
+    height:30px;
+  }
+  .perfume {
+    flex: 0 1 calc(25% - 5px);
+  }
+  /* lợi ích */
+  .advantage > div{
+    height: 100px;
+  }
+  .advantage p {
+    font-size: 15px;
+    padding-bottom: 5px;
+  }
+  
+  .advantage i {
+    font-size: 20px;
+  }
+}
  /* Điều chỉnh giao diện footer khi màn hình nhỏ hơn 780px */
 @media (max-width: 780px) {
   .footer {
@@ -442,14 +761,14 @@ body{
   }
   
   .footer-btn {
-    font-size: 16px;
-    padding: 8px 16px;
+    font-size: 10px;
+    padding: 4px 12px;
   }
   .footer-thanks p{
-    font-size: 20px;
+    font-size: 15px;
   }
   .footer-thanks h1{
-    font-size: 28px;
+    font-size: 18px;
   }
   
   .footer-nav {
@@ -476,10 +795,10 @@ body{
   }
   .nav-item
   .footer-nav p{
-    font-size: 18px;
+    font-size: 14px;
   }
   .footer-nav a{
-    font-size: 18px;
+    font-size: 14px;
   }
   .footer-nav i{
     flex-direction: row;
@@ -488,10 +807,10 @@ body{
     padding: 10px 25px 15px 0px;
   }
   .footer h2{
-    font-size: 20px;
+    font-size: 15px;
   }
   .footer h1{
-    font-size: 30px;
+    font-size: 20px;
   }
   }
 /* Ẩn .mobile và #bar khi màn hình lớn hơn 768px */

@@ -1,0 +1,51 @@
+.detailBlogPage {
+    padding: 50px 150px;
+    transition: width 0.3s ease;
+}
+.detailBlogPage #title {
+    color: #088178;
+    text-align: center;
+    text-transform: uppercase;
+}
+.detailBlogPage .image {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 5%;
+}
+.detailBlogPage .box-meta i {
+    color: #999;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    width: auto;
+}
+.detailBlogPage .box-meta {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-bottom: 0.5px solid gainsboro;
+    margin: 30px;
+    width:auto;
+}
+.detailBlogPage h3 {
+    color: #088178 ;
+    font-size: 20px;
+}
+.detailBlogPage .content p {
+    padding: 20px 0;
+    font-size: 17px;
+    line-height: 25px;
+}
+.detailBlogPage .content ul {
+    list-style-type: none;
+}
+@media (max-width: 600px) {
+    .detailBlogPage {
+        padding: 20px;
+        text-align:justify;
+    }
+    .detailBlogPage .image {
+        width: 90%;
+    }
+}

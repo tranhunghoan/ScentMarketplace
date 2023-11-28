@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   let currentSlide = 1;
   const totalSlides = 3;
-  const slideDuration = 2000; // Thời gian giữa các chuyển đổi (5 giây trong ví dụ này)
+  const slideDuration = 5000; 
 
   function nextSlide() {
     currentSlide = (currentSlide % totalSlides) + 1;
@@ -57,6 +57,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //chuyển hướng trang đăng nhập
 //đăng ký, kiểm tra password
+//eye-login
+document.addEventListener('DOMContentLoaded', function () {
+  var passwordInput = document.getElementById('password');
+  var togglePassword = document.getElementById('toggle-password');
+
+  togglePassword.addEventListener('click', function () {
+    console.log('Clicked on the eye icon');
+      var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+  });
+});
+//eye-regis
+document.addEventListener('DOMContentLoaded', function () {
+  var passwordInput = document.getElementById('pass');
+  var togglePassword = document.getElementById('toggle-password');
+
+  togglePassword.addEventListener('click', function () {
+    console.log('Clicked on the eye icon');
+      var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  var passwordInput = document.getElementById('repass');
+  var togglePassword = document.getElementById('rtoggle-password');
+
+  togglePassword.addEventListener('click', function () {
+    console.log('Clicked on the eye icon');
+      var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+  });
+});
+
 function formregis(){
   location.assign("./register.html");
 }
@@ -84,18 +117,20 @@ function regis(event){
   var tel=document.getElementById("tel").value;
   var password=document.getElementById("pass").value;
   var repass=document.getElementById("repass").value;
+  var address=document.getElementById("address").value;
+
   var user ={
     username: username,
     email: email,
     tel:tel,
     password: password,
     repass: repass,
+    address: address,
   };
   var json = JSON.stringify(user);
   localStorage.setItem(username, json);
   window.location.href = "./login.html";
 
-  // Return false to prevent the default form submission
   return false;
 }
 //Đăng nhập
@@ -135,7 +170,7 @@ function login() {
   
   if (username == data.username && password == data.password) {
     localStorage.setItem('isLoggedIn', 'true');
-
+    localStorage.setItem('currentUser', user);
     window.location.href = "./home.html";
     return true;
   }
@@ -150,10 +185,186 @@ function onLoginSuccess() {
     var isLoggedIn = localStorage.getItem('isLoggedIn');
 
     if (isLoggedIn === 'true') {
-      userLink.href = './user.html';
+      userLink.href = '/pages/user.html';
     } 
     else {
-      userLink.href = './login.html';
+      userLink.href = '/pages/login.html';
     }
   });
 }
+
+// lấy dữ liệu cho user
+document.addEventListener('DOMContentLoaded', function () {
+  var user = localStorage.getItem('currentUser');
+  var data = JSON.parse(user);
+
+  var usernameInput = document.getElementById('username-l');
+  var emailInput = document.getElementById('email-l');
+  var telInput = document.getElementById('tel-l');
+  var passInput = document.getElementById('pass-l');
+  var addressInput = document.getElementById('address-l')
+
+  usernameInput.value = data.username;
+  emailInput.value = data.email;
+  telInput.value = data.tel;
+  passInput.value = data.password;
+  addressInput.value = data.address;
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  var passwordInput = document.getElementById('pass-l');
+  var togglePassword = document.getElementById('toggle-password');
+
+  togglePassword.addEventListener('click', function () {
+  console.log('Clicked on the eye icon');
+  var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  });
+  });
+
+document.addEventListener('DOMContentLoaded', function () {
+  var userForm = document.getElementById('user-form');
+
+  userForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  var username = document.getElementById('username-l').value;
+  var email = document.getElementById('email-l').value;
+  var tel = document.getElementById('tel-l').value;
+  var password = document.getElementById('pass-l').value;
+  var address = document.getElementById('address-l').value;
+
+  var currentUser = localStorage.getItem(username);
+  var userData = JSON.parse(currentUser);
+  
+  userData.username = username;
+  userData.email = email;
+  userData.tel = tel;
+  userData.password = password;
+  userData.repass = password;
+  userData.address = address;
+
+  localStorage.setItem(username, JSON.stringify(userData));
+
+  alert('Thông tin đã được cập nhật thành công!');
+});
+});
+
+  function logout() {
+      localStorage.setItem('isLoggedIn', 'false');
+      localStorage.removeItem('currentUser');
+      window.location.href = './home.html';
+  }
+
+//sản phẩm
+// import { infoPerfume } from "./dataproduct.js"
+// var contentPage=''
+// var buttonNextPage=''
+// var currentPage=1
+// var numberPage=Math.ceil(infoPerfume.length/10)
+
+
+//  function setNumberItem(){
+//     var numberItem
+//     if(localStorage.getItem('numberItem')===null){
+//         numberItem=0;
+//     }
+//     else numberItem=JSON.parse( localStorage.getItem('numberItem'))
+//     document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
+//     return numberItem
+// }
+//  function renderCard(perfume){ 
+//     return ` <div class="perfume">
+//     <div class="wrap_image">
+//     <img class="perfume_image" src=${perfume.image}>
+//     <a  class="directPage" href="./detail.html?id=${perfume.id}">
+//     <button class='detailProduct'>Xem chi tiết</button>
+//     </a>
+//     </div>
+//     <div class="perfume_info">
+//     <div class="perfume_name">
+//     ${perfume.name}
+//     </div>
+//     <div class="perfume_brand">
+//     ${perfume.brand}
+//     </div>
+//     <div class="perfume_price old_price">${perfume.price}đ <p>(-20%)</p></div>
+//     <div class="perfume_price new_price">${perfume.price*0.8}đ </div>
+// </div>
+// <button class="addIntoCart">Thêm vào giỏ hàng</button> </div>`
+// }
+//  function renderPage(currentPage,perfumes){
+//     contentPage=''
+//     var firstItem=(currentPage-1)*10
+//     var lastItem
+//     if(currentPage<numberPage)lastItem=currentPage*10
+//     else lastItem=perfumes.length
+//         for(let j=firstItem;j<lastItem;j++){
+//             contentPage+=renderCard(perfumes[j]) 
+//         }
+//     document.querySelector('.product').innerHTML=contentPage
+// }
+//  function renderButtonDirect(num){
+//     buttonNextPage=""
+//     for(let i=1;i<=num;i++){
+//         buttonNextPage+=`<button class="nextPage" >${i}</button>`
+//     }
+//     document.querySelector('.direction').innerHTML=buttonNextPage
+// }
+//  function duplicateAndMove(event) {
+//     // Lấy sản phẩm gốc
+//     let originalProduct = event.target.parentElement.querySelector('.perfume_image');
+//     // Tạo bản sao của sản phẩm gốc
+//     let clonedProduct = originalProduct.cloneNode(true);
+//     //Gán thuộc tính cho sản phẩm clone
+//     clonedProduct.id = "clonedProduct"; 
+//     clonedProduct.style.position = "absolute";
+//     clonedProduct.style.zIndex = "1"
+//     clonedProduct.style.borderRadius = "50%"
+//     clonedProduct.style.top = '20px'; // Giữ nguyên vị trí của sản phẩm gốc
+//     clonedProduct.style.left = '20px'; // Giữ nguyên vị trí của sản phẩm gốc
+//     event.target.parentElement.appendChild(clonedProduct);
+//     let clonedRect = clonedProduct.getBoundingClientRect();
+//     // Lấy vị trí của icon giỏ hàng
+//     let cartIcon = document.querySelector('.fa-cart-shopping');
+//     let cartRect = cartIcon.getBoundingClientRect();
+  
+//     // Di chuyển bản sao vào vị trí của icon giỏ hàng
+//     let xOffset = cartRect.left - clonedRect.left-clonedProduct.offsetWidth*0.5+15;
+//     let yOffset = -clonedRect.top-clonedProduct.offsetHeight*0.5+15;
+//    // event.target.parentElement.style.overflow='visible'
+//     clonedProduct.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(0.05)`;
+//     setTimeout(() => {
+//         clonedProduct.remove()
+//     },800);
+
+//     // Sau khi di chuyển hoàn tất, có thể thêm sản phẩm vào giỏ hàng và xóa bản sao
+// }
+//  function handleAddItem(){
+//     var numberItem=setNumberItem()
+//     var buttonAddintocart=document.querySelectorAll('.addIntoCart')
+//     for( let button of buttonAddintocart){
+//     button.onclick=function(e){
+//         duplicateAndMove(e)
+//         numberItem++;
+//         localStorage.setItem('numberItem',JSON.stringify(numberItem))
+//         document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
+
+// }}
+
+// }
+
+// function start(){
+    
+//   renderPage(1,infoPerfume)
+//   // deleteFilter()
+//   setNumberItem()
+//   renderButtonDirect(numberPage)
+//   // handleFilter()
+//   // handleNextPage(infoPerfume)
+//   handleAddItem()
+//   // configElasticlunr()
+//   onLoginSuccess()
+//   formregis()
+// }
+// start()
