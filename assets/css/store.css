@@ -1,12 +1,4 @@
-*{
-  width:auto;
-}
-body{
-  background-color: white;
-
-}
 .container{
-  background-color: white;
   position: relative;
 }
   .product{
@@ -232,6 +224,7 @@ select{
     position: fixed;
     border-radius: 50%;
     background-color: white;
+    width: auto;
     padding:2px;
     right:50px;
     z-index: 2;
@@ -278,6 +271,7 @@ select{
     text-transform: uppercase;
     margin: 0 3px 6px;
     height: 38px;
+    width: auto;
     min-width: 38px;
     border-radius: 38px;
     border: 2px solid #fff;
