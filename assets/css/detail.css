@@ -132,6 +132,7 @@ ul{
 }
 .fa-circle-check{
     background-color: rgb(1, 219, 16);
+    width: auto;
     border-radius: 50%;
     font-size: 20px;
     border-radius: none;
