@@ -6,7 +6,7 @@
     <title>Đăng nhập</title>
     <script src="https://kit.fontawesome.com/757ea42d8a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/login.css">
-    <script src="/js/home.js"></script>
+    <script type="module" src="/js/home.js"></script>
     <link rel="stylesheet" href="/assets/css/home.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
         <p>Hãy đăng nhập để xem những ưu đãi mới dành cho riêng bạn nào!</p>
     </div>
         <div id="wrapper">
-            <form onsubmit="login()" id="form-login">
+            <form id="form-login" action="./home.html">
                 <h1 class="form-heading">Đăng nhập tài khoản</h1>
                 <div class="form-group">
                     <i class="far fa-user"></i>
@@ -30,7 +30,7 @@
                 </div>
                 <div id="account-null" style="color: red;"></div>
                 <input type="submit" id="user-submit" value="Đăng nhập" class="form-submit">
-                <button type="button" id="register-button" class="form-register" onclick="formregis()">Đăng ký</button>
+                <button type="button" id="register-button" class="form-register">Đăng ký</button>
             </form>
         </div>
     

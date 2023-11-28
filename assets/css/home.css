@@ -239,13 +239,14 @@ body{
 #body .addIntoCart{
   background-color:#2ea44f; ;
   color:rgb(255, 255, 255);
-  font-size: 12px;
+  font-size: 16px;
   border:none;
   padding:0 10px;
   box-shadow: 2px 2px 4px rgb(192, 192, 194);
   margin: 10px auto;
   display: block;
-  width: 140px;
+  width: 100%;
+  height: 20px;
 } 
 #body button.addIntoCart:hover{
  opacity: 0.7;
@@ -266,11 +267,12 @@ body{
   box-shadow: 2px 2px 7px rgb(182, 181, 181);
 }
 #body .wrap_image{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  position: relative;
+  width: 100%;
 }
 #body .wrap_image:hover .perfume_image{
   transform: scale(1.4);
@@ -324,7 +326,7 @@ body{
 #body .old_price p{
   display: inline-block;
     margin:0;
-    margin-left: 60px;
+    margin-left: 30%;
     padding: 0;
     color:rgb(255, 98, 0);
     font-size: 12px;
@@ -348,6 +350,7 @@ body{
 #body .wrap_image:hover .detailProduct{
   display: block;
 } 
+
   /* lợi ích */
 .advantage{
   display: flex;
@@ -381,23 +384,24 @@ body{
 .footer {
   display: flex;
   flex-wrap: wrap;
-  padding: 30px 30px 20px 30px;
   color: white;
   background-color: black;
   border-top: 1px solid #e5e5e5; 
+  /* max-width: 1100px; */
+  margin: 0 auto;
   }
   
   .footer-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20px;
+  height: 35px;
   max-width: max-content;
   background-color: #088178;
   border-radius: 4px;
   color: #fff;
   line-height: 0;
-  margin: 16px 0;
+  margin: 10px 0;
   font-size: 15px;
   padding: 10px 20px;
   text-decoration: none;
@@ -411,15 +415,16 @@ body{
   margin-right: 20px; 
   }
   
-  .footer-addr h2,
-  .nav-title h2{
-  font-size: 20px;
-  font-weight: bolder;
-  margin-bottom: 10px;
-  }
-  h2{
+  
+  .nav-item h2{
     font-size: 20px;
+    padding: 10px 10px 10px 0;
   }
+  .nav-item li,
+  .nav-item p{
+    padding: 5px 0;
+  }
+  
   .footer-nav .nav-item .row {
   display: flex;
   flex-direction: column;
@@ -427,6 +432,7 @@ body{
   .footer-nav .nav-item {
   flex: 1; 
   margin-top:-20px;
+  margin-right:0;
   }
   .nav-ul {
   list-style: none;
@@ -434,14 +440,13 @@ body{
   }
   
   .nav-ul li {
-  margin-bottom: 10px;
+  padding-bottom: 10px;
   }
   
   .footer-nav li  {
   list-style: none;
   text-decoration: none ;
   font-size: 15px;
-  color: white;
   }
   
   
@@ -451,15 +456,17 @@ body{
   }
   .footer-thanks p{
   font-size: 15px;
-  color: white;
+  padding: 10px 0;
   }
   .footer-thanks h1{
   font-weight: bolder;
   font-size: 25px;
+  padding: 10px 0 0 0;
   }
   .thanks-addr {
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
   }
   
   .footer-nav {
@@ -468,17 +475,22 @@ body{
   }
   .nav-item {
   flex: 1;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   }
   p{
-  font-size: 18px;
+  font-size: 15px;
   }
-  .footer-add{
-  margin-top: 20px;
+  
+  .footer-addr h2{
+    font-size: 20px;
+    padding-bottom: 2%
   }
-  .legal {
-  flex-basis: calc(100% - 40px); 
-  font-size: 18px;
+  address{
+    font-style: normal;
+    font-size: 15px;
+  }
+  .legal p{
+  font-size: 15px;
   }
   .footer-nav a{
   text-decoration: none;
@@ -766,36 +778,42 @@ body{
   }
   .footer-thanks p{
     font-size: 15px;
+    padding: 0;
   }
-  .footer-thanks h1{
-    font-size: 18px;
-  }
+  
   
   .footer-nav {
     padding-left: 0;
     display: flex;
     flex-direction: column;
+    margin: 0;
   }
+
+
   .nav-item .row img{
-    flex: 1 1 100%;
+    width: 120%;
   }
   .nav-item .row{
     width: 20%;
     align-items: flex-start;
   }
   .nav-item a img{
-    width:40%
+    width:35%
   }
-  .footer-thanks h1{
-    padding: 0.5em 0;
+  
+  .footer-thanks h2{
+    padding: 10px 0;
   }
   .footer-addr h2, .nav-item h2{
-    padding: 0.5em 0;
     margin: 0;
+    font-size: 15px;
   }
   .nav-item
   .footer-nav p{
     font-size: 14px;
+  }
+  .footer-nav .nav-item:nth-child(3){
+    padding: 0;
   }
   .footer-nav a{
     font-size: 14px;
@@ -806,8 +824,12 @@ body{
     height: 15px;
     padding: 10px 25px 15px 0px;
   }
+  .footer-nav{
+    padding:0;
+  }
   .footer h2{
-    font-size: 15px;
+    font-size: 18px;
+    padding: 5px 0;
   }
   .footer h1{
     font-size: 20px;
