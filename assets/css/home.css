@@ -101,7 +101,6 @@ body{
 }
 
 /* --------------section-banner---------------- */
-
 .slide-banner{
   width: 100%;
   height: 550px;
@@ -155,6 +154,10 @@ body{
 }
 
 /* -----------------section-body---------------- */
+#body{
+  max-width: 1100px;
+  margin: 0 auto;
+}
 .favorite{
   width: 100%;
   padding: 25px 0;
@@ -167,26 +170,25 @@ body{
   font-size: 15px;
   padding-top: 5px;
 }
-.list-fav{
-  height: 1000px;
-}
 .list-fav {
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  height: 600px;
+  /* height: 650px; */
 }
 
 .list-fav > div {
   flex: 0 1 24%;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
   text-align: center;
-  height: 300px;
+  max-height: 350px;
 }
 
 .list-fav img {
-  max-width: 100%;
-  height: 250px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover; 
 }
 
 .list-fav p {
@@ -217,14 +219,13 @@ body{
   text-decoration: none;
   color: white;
 }
-.product{
+#body .product{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* height: 800px; */
   padding: 0;
 }
-button.prev,button.next {
+#body .prev,button.next {
   height:40px;
   width:40px;
   position: absolute;
@@ -235,23 +236,22 @@ button.prev,button.next {
   border:none;
   box-shadow: 2px 2px 5px rgb(129, 129, 129);
 }
-button.addIntoCart{
+#body .addIntoCart{
   background-color:#2ea44f; ;
   color:rgb(255, 255, 255);
   font-size: 12px;
   border:none;
-  padding:10px 10px;
+  padding:0 10px;
   box-shadow: 2px 2px 4px rgb(192, 192, 194);
-  margin:10px auto;
+  margin: 10px auto;
   display: block;
   width: 140px;
 } 
- button.addIntoCart:hover{
+#body button.addIntoCart:hover{
  opacity: 0.7;
 }
-.perfume{
+#body .perfume{
   display: flex;
-  /* width: 225px; */
   flex: 0 1 18%;
  position:relative;
  background-color:rgb(255, 255, 255);
@@ -262,20 +262,20 @@ button.addIntoCart{
  transition: transform 0.5s ease;
  cursor: pointer;
 }
-.perfume:hover{
+#body .perfume:hover{
   box-shadow: 2px 2px 7px rgb(182, 181, 181);
 }
-.wrap_image{
+#body .wrap_image{
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   position: relative;
 }
-.wrap_image:hover .perfume_image{
+#body .wrap_image:hover .perfume_image{
   transform: scale(1.4);
 }
-.wrap_image:hover::after{
+#body .wrap_image:hover::after{
   content: '';
   display: block;
   position: absolute;
@@ -285,14 +285,14 @@ button.addIntoCart{
   height:100%;
   background-color: rgba(0, 0, 0, 0.1);
 }
-.perfume_image{
+#body .perfume_image{
   width: 100%;
   height: auto;
   position: relative;
   transition: transform 0.5s;
   overflow: hidden;
 }
-.perfume_name{
+#body .perfume_name{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -304,24 +304,24 @@ button.addIntoCart{
   padding:0 0 3px 0;
   text-align: center;
 }
-.perfume_brand{
+#body .perfume_brand{
   font-style: italic;
   text-align: center;
   margin: 10px 0;
 }
-.perfume_price{
+#body .perfume_price{
   font-weight: bold;
   color:rgb(241, 47, 47);
   text-align: center;
   height:20px;
 }
-.old_price{
+#body .old_price{
   text-decoration: line-through;
   color:rgb(97, 97, 97);
   font-weight: unset;
   line-height: 20px;
 }
-.old_price p{
+#body .old_price p{
   display: inline-block;
     margin:0;
     margin-left: 60px;
@@ -329,23 +329,23 @@ button.addIntoCart{
     color:rgb(255, 98, 0);
     font-size: 12px;
 }
-.detailProduct{
+#body .detailProduct{
   position: absolute;
   width:100px;
   height:40px;
   display: none;
   border-radius: 10px;
-  padding:auto;
+  padding: auto;
   z-index: 2;
   border: none;
   box-shadow: 2px 2px 2px rgb(98, 98, 98);
   background-color: rgb(255, 255, 255);
 }
-.detailProduct:hover{
+#body .detailProduct:hover{
   color:white;
   background-color: rgb(237, 88, 14);
 }
-.wrap_image:hover .detailProduct{
+#body .wrap_image:hover .detailProduct{
   display: block;
 } 
   /* lợi ích */
@@ -653,19 +653,6 @@ button.addIntoCart{
     font-size: 10px;
     padding-top: 2px;
   }
-  .list-fav {
-    height: 400px;
-  }
-  
-  .list-fav > div {
-    height: 200px;
-  }
-  
-  .list-fav img {
-    max-width: 100%;
-    height: 150px;
-  }
-  
   .list-fav p {
     margin-top: 5px;
     font-size: 12px;
