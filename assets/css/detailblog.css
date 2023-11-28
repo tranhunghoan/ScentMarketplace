@@ -9,10 +9,11 @@
 }
 .detailBlogPage .image {
     clear: both;
-    display: block;
     margin: 0 auto;
-    width: 50%;
-    border-radius: 5%;
+    width: 75%;
+}
+.detailBlogPage image {
+    border-radius: 1.5%;
 }
 .detailBlogPage .box-meta i {
     color: #999;
