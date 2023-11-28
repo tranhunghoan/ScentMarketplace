@@ -192,74 +192,7 @@ function onLoginSuccess() {
     }
   });
 }
-//sản phẩm
-// import { infoPerfume } from "./dataproduct.js"
-// var contentPage=''
-// var buttonNextPage=''
-// var currentPage=1
-// var numberPage=Math.ceil(infoPerfume.length/10)
 
-
-//  function setNumberItem(){
-//     var numberItem
-//     if(localStorage.getItem('numberItem')===null){
-//         numberItem=0;
-//     }
-//     else numberItem=JSON.parse( localStorage.getItem('numberItem'))
-//     document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
-//     return numberItem
-// }
-//  function renderCard(perfume){ 
-//     return ` <div class="perfume">
-//     <div class="wrap_image">
-//     <img class="perfume_image" src=${perfume.image}>
-//     <a  class="directPage" href="./detail.html?id=${perfume.id}">
-//     <button class='detailProduct'>Xem chi tiết</button>
-//     </a>
-//     </div>
-//     <div class="perfume_info">
-//     <div class="perfume_name">
-//     ${perfume.name}
-//     </div>
-//     <div class="perfume_brand">
-//     ${perfume.brand}
-//     </div>
-//     <div class="perfume_price old_price">${perfume.price}đ <h4>(-20%)</h4></div>
-//     <div class="perfume_price new_price">${perfume.price*0.8}đ </div>
-// </div>
-// <button class="addIntoCart">Thêm vào giỏ hàng</button> </div>`
-// }
-//  function renderPage(currentPage,perfumes){
-//     contentPage=''
-//     var firstItem=(currentPage-1)*10
-//     var lastItem
-//     if(currentPage<numberPage)lastItem=currentPage*10
-//     else lastItem=perfumes.length
-//         for(let j=firstItem;j<lastItem;j++){
-//             contentPage+=renderCard(perfumes[j]) 
-//         }
-//     document.querySelector('.product').innerHTML=contentPage
-// }
-//  function renderButtonDirect(num){
-//     buttonNextPage=""
-//     for(let i=1;i<=num;i++){
-//         buttonNextPage+=`<button class="nextPage" >${i}</button>`
-//     }
-//     document.querySelector('.direction').innerHTML=buttonNextPage
-// }
-// function start(){
-    
-//   renderPage(1,infoPerfume)
-//   deleteFilter()
-//   setNumberItem()
-//   renderButtonDirect(numberPage)
-//   handleFilter()
-//   handleNextPage(infoPerfume)
-//   handleAddItem()
-//   configElasticlunr()
-
-// }
-// start()
 // lấy dữ liệu cho user
 document.addEventListener('DOMContentLoaded', function () {
   var user = localStorage.getItem('currentUser');
@@ -322,3 +255,116 @@ document.addEventListener('DOMContentLoaded', function () {
       localStorage.removeItem('currentUser');
       window.location.href = './home.html';
   }
+
+//sản phẩm
+// import { infoPerfume } from "./dataproduct.js"
+// var contentPage=''
+// var buttonNextPage=''
+// var currentPage=1
+// var numberPage=Math.ceil(infoPerfume.length/10)
+
+
+//  function setNumberItem(){
+//     var numberItem
+//     if(localStorage.getItem('numberItem')===null){
+//         numberItem=0;
+//     }
+//     else numberItem=JSON.parse( localStorage.getItem('numberItem'))
+//     document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
+//     return numberItem
+// }
+//  function renderCard(perfume){ 
+//     return ` <div class="perfume">
+//     <div class="wrap_image">
+//     <img class="perfume_image" src=${perfume.image}>
+//     <a  class="directPage" href="./detail.html?id=${perfume.id}">
+//     <button class='detailProduct'>Xem chi tiết</button>
+//     </a>
+//     </div>
+//     <div class="perfume_info">
+//     <div class="perfume_name">
+//     ${perfume.name}
+//     </div>
+//     <div class="perfume_brand">
+//     ${perfume.brand}
+//     </div>
+//     <div class="perfume_price old_price">${perfume.price}đ <p>(-20%)</p></div>
+//     <div class="perfume_price new_price">${perfume.price*0.8}đ </div>
+// </div>
+// <button class="addIntoCart">Thêm vào giỏ hàng</button> </div>`
+// }
+//  function renderPage(currentPage,perfumes){
+//     contentPage=''
+//     var firstItem=(currentPage-1)*10
+//     var lastItem
+//     if(currentPage<numberPage)lastItem=currentPage*10
+//     else lastItem=perfumes.length
+//         for(let j=firstItem;j<lastItem;j++){
+//             contentPage+=renderCard(perfumes[j]) 
+//         }
+//     document.querySelector('.product').innerHTML=contentPage
+// }
+//  function renderButtonDirect(num){
+//     buttonNextPage=""
+//     for(let i=1;i<=num;i++){
+//         buttonNextPage+=`<button class="nextPage" >${i}</button>`
+//     }
+//     document.querySelector('.direction').innerHTML=buttonNextPage
+// }
+//  function duplicateAndMove(event) {
+//     // Lấy sản phẩm gốc
+//     let originalProduct = event.target.parentElement.querySelector('.perfume_image');
+//     // Tạo bản sao của sản phẩm gốc
+//     let clonedProduct = originalProduct.cloneNode(true);
+//     //Gán thuộc tính cho sản phẩm clone
+//     clonedProduct.id = "clonedProduct"; 
+//     clonedProduct.style.position = "absolute";
+//     clonedProduct.style.zIndex = "1"
+//     clonedProduct.style.borderRadius = "50%"
+//     clonedProduct.style.top = '20px'; // Giữ nguyên vị trí của sản phẩm gốc
+//     clonedProduct.style.left = '20px'; // Giữ nguyên vị trí của sản phẩm gốc
+//     event.target.parentElement.appendChild(clonedProduct);
+//     let clonedRect = clonedProduct.getBoundingClientRect();
+//     // Lấy vị trí của icon giỏ hàng
+//     let cartIcon = document.querySelector('.fa-cart-shopping');
+//     let cartRect = cartIcon.getBoundingClientRect();
+  
+//     // Di chuyển bản sao vào vị trí của icon giỏ hàng
+//     let xOffset = cartRect.left - clonedRect.left-clonedProduct.offsetWidth*0.5+15;
+//     let yOffset = -clonedRect.top-clonedProduct.offsetHeight*0.5+15;
+//    // event.target.parentElement.style.overflow='visible'
+//     clonedProduct.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(0.05)`;
+//     setTimeout(() => {
+//         clonedProduct.remove()
+//     },800);
+
+//     // Sau khi di chuyển hoàn tất, có thể thêm sản phẩm vào giỏ hàng và xóa bản sao
+// }
+//  function handleAddItem(){
+//     var numberItem=setNumberItem()
+//     var buttonAddintocart=document.querySelectorAll('.addIntoCart')
+//     for( let button of buttonAddintocart){
+//     button.onclick=function(e){
+//         duplicateAndMove(e)
+//         numberItem++;
+//         localStorage.setItem('numberItem',JSON.stringify(numberItem))
+//         document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
+
+// }}
+
+// }
+
+// function start(){
+    
+//   renderPage(1,infoPerfume)
+//   // deleteFilter()
+//   setNumberItem()
+//   renderButtonDirect(numberPage)
+//   // handleFilter()
+//   // handleNextPage(infoPerfume)
+//   handleAddItem()
+//   // configElasticlunr()
+//   onLoginSuccess()
+//   formregis()
+// }
+// start()
