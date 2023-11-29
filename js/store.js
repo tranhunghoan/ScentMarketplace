@@ -33,7 +33,7 @@ var numberItem
     <div class="perfume_price old_price">${formatNumber( perfume.price) }đ <h4>(-10%)</h4></div>
     <div class="perfume_price new_price">${formatNumber( perfume.price*0.9)}đ </div>
 </div>
-<button class="addIntoCart">Thêm vào giỏ hàng</button> </div>`
+<button class="addIntoCart" data-index="${perfume.id}">Thêm vào giỏ hàng</button> </div>`
 }
  function renderPage(currentPage,numberPage,perfumes){
     contentPage=''
@@ -96,6 +96,9 @@ var numberItem
         duplicateAndMove(e)
         numberItem++;
         localStorage.setItem('numberItem',JSON.stringify(numberItem))
+        var arrayId=JSON.parse(localStorage.getItem('index'))||[]
+        arrayId.push(parseInt(e.target.getAttribute('data-index')))
+        localStorage.setItem('index',JSON.stringify(arrayId))
         document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
 
 }}
