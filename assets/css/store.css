@@ -1,6 +1,4 @@
-i{
-  width:auto;
-}
+
 .wrap_search{
   display: flex;
   justify-content: center;
@@ -267,16 +265,10 @@ select{
   .product{
     padding:40px 0;
   }
-  .addIntoCart{
-    padding: 2px !important;;
-  }
 }
 @media (max-width:600px){
   .product{
     padding:5px;
-  }
-  .addIntoCart{
-    padding: 2px !important;;
   }
 }
 @media (max-width:520px){

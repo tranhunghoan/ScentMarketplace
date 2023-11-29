@@ -38,7 +38,6 @@
 #shopping-cart .shopping-cart-box img {
     width: 200px;
     height: 200px;
-    margin-left: 50px;
     border-radius: 20px;
 }
 #shopping-cart .shopping-cart-box .des {
@@ -115,6 +114,7 @@
     width: 100%;
     height: 60px;
     padding: 10px;
+    margin-bottom: 10px;
     border-top: 1px solid black;
 }
 #shopping-cart .total div {
@@ -127,11 +127,9 @@
     font-weight: 700;
 }
 #shopping-cart .btn-buy {
-    margin: 20px auto;
     padding: 20px 40px;
     color: white;
     background-color: #088178;
-    border: none;
     border-radius: 14px;
     font-size: 24px;
     cursor: pointer;
@@ -139,4 +137,53 @@
 }
 #shopping-cart .btn-buy:hover {
     background-color: #0bbbaf;
+}
+@media (max-width: 820px) {
+    #shopping-cart {
+        padding: 20px 10px;
+    }
+    #shopping-cart .shopping-cart-box .trash {
+        bottom: 12px;
+        right: 16px;
+    }
+}
+@media (max-width: 477px) {
+    #shopping-cart {
+        padding: 20px 10px;
+    }
+    #shopping-cart .shopping-cart-box img {
+        width: 120px;
+        height: 120px;
+        margin-left: 0;
+    }
+    #shopping-cart .shopping-cart-box .des span {
+        font-size: 18px;
+    } 
+    #shopping-cart .shopping-cart-box .des h5 {
+        font-size: 14px;
+    }
+    #shopping-cart .shopping-cart-box .trash {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        bottom: 6px;
+        right: 5px;
+    }
+    #shopping-cart .shopping-cart-box .shopping-cart-quantity {
+        width: 50px;
+        font-size: 16px;
+        padding: 5px 0;
+        margin: 10px 0;
+    }
+    #shopping-cart .shopping-cart-box .des h4 {
+        font-size: 18px;
+    }
+    #shopping-cart .shopping-cart-box .shopping-cart-btn {
+        height: 30px;
+        width: 30px;
+        line-height: 38px;
+        font-size: 30px;
+        margin: 10px;
+    }
 }
