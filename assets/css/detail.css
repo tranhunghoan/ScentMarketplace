@@ -1,34 +1,42 @@
 .detailPage{
     display: flex;
-    padding: 0 100px;
-    margin: 30px;
-    justify-content: center;
+    padding: 0 50px;
+    margin: 30px 0;
+    width:100%;
 }
 .infoProduct{
     padding: 0 50px;
-    width: auto;
 }
 .imageProduct{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
+    width:400px;
+    margin-left:50px;
+
 }
-table,td,th {
+table {
     border-collapse: collapse;
-    width: auto;
+    width:auto;
+    table-layout: auto;
   }
 th,td{
     text-align: left;
-    font-size: 15px;
+    font-size: 18px;
     padding:5px 5px;
 }
 td::before{
     content: ':';
 }
 th{
-    width:100px;
+    width:120px;
     padding:5px;
+}
+td{
+    width:300px;
+}
+li{
+    width:auto;
 }
 .mini-image{
     display: flex;
@@ -43,17 +51,16 @@ th{
 .mini-image img{
     display:inline-block;
     width: 95px;
-    height:118.75px;
     border-radius:unset;
     box-shadow: 0px 2px 5px rgb(156, 156, 156);
   }
 .slide-image img{
   width: 400px;
-  height:500px;
+  height:400px;
 }
 .slide-image{
     width: 400px;
-    height:500px;
+    height:400px;
     overflow: hidden;
     box-shadow: 0px 2px 5px rgb(156, 156, 156);
 }
@@ -66,6 +73,7 @@ th{
     transition: transform 1s ease;
 }
 .fa-minus,.fa-plus{
+    width:25px;
     font-size: 16px;
     padding:5px;
     background-color: rgb(216, 216, 216);
@@ -88,7 +96,7 @@ th{
 .productName{
     font-size: 25px;
     font-weight: bold;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 .productPrice{
     color:rgb(0, 0, 0);
@@ -96,12 +104,19 @@ th{
     margin:10px 0;
 }
 .productPrice .old_price{
+    font-size: 18px !important;
+    width:auto;
     display: inline-block;
     text-decoration: line-through;
 }
 .productPrice .new_price{
+    font-size: 18px !important;
+    width:auto;
     display: inline-block;
     color:rgb(232, 50, 0)
+}
+.addIntoCart.detail_page{
+    padding:10px 10px !important;
 }
 .number{
     font-size: 20px;
@@ -114,7 +129,7 @@ th{
     opacity: 0.7;
 }
 .buyNow{
-    background-color:rgb(248, 29, 29) ;
+    width:170px;
     color:rgb(255, 255, 255);
     font-size: 16px;
     border:none;
@@ -135,29 +150,60 @@ ul{
 }
 .fa-circle-check{
     background-color: rgb(1, 219, 16);
-    width: auto;
     border-radius: 50%;
     font-size: 20px;
     border-radius: none;
     border: none;
     box-shadow: 2px 2px 5px rgb(137, 134, 134);
 }
-input[type="number"]{
-    width:40px;
+.amount_product{
+    width:35px;
+    height:25px;
+    border:1px solid rgb(0, 0, 0);
+    margin:0 5px;
+    text-align: center;
+    line-height: 25px;
+}
+.addIntoCart.detail_page{
+    width:170px;
 }
 @media (max-width:1100px) {
     .detailPage{
         display: flex;
         flex-direction: column;
+        align-items: center;
         padding:0;
         margin:30px 0;
     }
+    .productName{
+        margin-top:20px;
+    }
 }
-@media(max-width:450px){
-  .slide-image,.mini-image{
+.perfume_brand{
+    font-size: 16px;
+}
+@media (max-width:550px) {
+    .nextPage,.prevPage{
+        display: none!important;
+    }
+}
+    @media(max-width:450px){
+  .slide-image,.mini-image,img.perfume_image_detail{
     width:350px;
+    height:350px;
   }
   .mini-image img{
-     width:80px;
+    width:80px;
+    height:80px;
+  }
+  .imageProduct{
+    width:350px;
+    margin:0;
+  }
+  .mini-image{
+    height:auto
+  }
+  .infoProduct{
+    padding:10px;
   }
 }

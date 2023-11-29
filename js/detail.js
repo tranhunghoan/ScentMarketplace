@@ -67,9 +67,11 @@ function renderDetailPage(queryParams){
         <div class="productPrice">Giá: <h4 class="old_price">${formatNumber(product.price)}đ</h4> <h4 class="new_price">${formatNumber(product.price*0.9)}đ</h4></div>
         <div class="countProduct">
         Số lượng :
-        <input type="number" class="number" name="quantity" min="1" max="100" value=1>
+        <li><i class="fa-solid fa-minus"></i></li>
+        <div class="amount_product">1</div>
+        <li><i class="fa-solid fa-plus"></i></li>
         </div>
-        <button class="addIntoCart">Thêm vào giỏ hàng</button>
+        <button class="addIntoCart detail_page">Thêm vào giỏ hàng</button>
         <button class="buyNow">Mua ngay</button>
  
         <ul>
@@ -116,17 +118,28 @@ function handleButtonAddProduct(){
     //setNumberItem()
     var numberProduct
     var button=document.querySelector('.addIntoCart')
-    const canvas = document.querySelector('.detailPage');
-
     const jsConfetti = new JSConfetti();
-
+    const increase=document.querySelector('.fa-plus')
+    const decrease=document.querySelector('.fa-minus')
+    var amount_product=parseInt(document.querySelector('.amount_product').innerHTML);     
+    increase.onclick=function(){
+       amount_product++;
+       document.querySelector('.amount_product').innerHTML=`${amount_product}`
+    }
+    decrease.onclick=function(){
+        if(amount_product!=1){
+            amount_product--;
+            document.querySelector('.amount_product').innerHTML=`${amount_product}`
+        }
+       
+     }
     button.addEventListener('click', () => {
     jsConfetti.addConfetti()
     })
     button.onclick=function(e){
        // duplicateAndMove(e)
         numberProduct=JSON.parse(localStorage.getItem('numberItem'))
-         numberProduct+=parseInt(document.querySelector('input.number').value)
+         numberProduct+=parseInt(document.querySelector('.amount_product').innerHTML);     
         document.querySelector('#cart .cart-amount').innerHTML=`${numberProduct}`
         localStorage.setItem('numberItem',JSON.stringify(numberProduct)) 
     }
