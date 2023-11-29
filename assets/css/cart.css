@@ -127,8 +127,12 @@
     font-weight: 700;
 }
 #shopping-cart .btn-buy {
+    display: inline-block;
+    width: auto;
     padding: 20px 40px;
+    margin: 20px auto;
     color: white;
+    text-decoration: none;
     background-color: #088178;
     border-radius: 14px;
     font-size: 24px;
