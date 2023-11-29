@@ -15,11 +15,12 @@
             </div>
             <h2>Liên hệ với chúng tôi</h2>
             <div class="contact-form">
-                <form action="">
-                    <input type="text" name="" placeholder="Họ và tên" required id="" class="form-control">
-                    <input type="email" name="" placeholder="Email" required id="" class="form-control">
-                    <textarea id="" name="" placeholder="Nội dung" required class="form-control"></textarea>
-                    <input class="btn s-full-width" type="submit" value="Gửi liên hệ">
+                <form onsubmit="sendContact(); reset(); return false;">
+                    <input type="text" id="name" name="name" placeholder="Họ và tên" required class="form-control">
+                    <input type="email" id="email" name="email" placeholder="Email" required class="form-control">
+                    <input type="text" id="subject" name="subject" placeholder="Chủ đề" required class="form-control">
+                    <textarea id="message" name="message" placeholder="Nội dung" required class="form-control" ></textarea>
+                    <input class="btn-contact s-full-width" type="submit" value="Gửi liên hệ">
                 </form>
             </div>
         </div>
@@ -33,13 +34,14 @@
             <p>Đăng ký để nhận được những thông báo mới nhất và <span>những ưu đãi đặc biệt.</span></p>
         </div>
         <div class="form">
-            <input type="email" name="" placeholder="Nhập mail của bạn" required id="">
-            <input class="btn-offer" type="submit" value="Đăng ký">
+            <input type="email" name="" class="email-signup" placeholder="Nhập mail của bạn" required id="">
+            <input onclick="sendEmail()" class="btn-offer" type="submit" value="Đăng ký">
         </div>
     </section>
     <div id="footer-placeholder"></div>
     <script src="../js/pageDefault/loadHeaderFooter.js"></script>
-    <script type="module" src="../js/home.js"></script>
-    <script type="module" src="../js/store.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="../js/sendContact.js"></script>
+
 </body>
 </html>
