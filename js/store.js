@@ -47,12 +47,17 @@ var numberItem
     document.querySelector('.product').innerHTML=contentPage
 }
  function renderButtonDirect(num){
+  if(num==0){ 
+    document.querySelector('.direction').innerHTML=''
+    return 0;
+  }
     buttonNextPage=`<button index="#!-1" class="prevPage cdp_i">prev</button>`
     for(let i=1;i<=num;i++){
         buttonNextPage+=`<button class="cdp_i" index="${i}" >${i}</button>`
     }
     buttonNextPage+=`<button index="#!+1" class="nextPage cdp_i">next</button>`
     document.querySelector('.direction').innerHTML=buttonNextPage
+    document.querySelector('.cdp').setAttribute('actpage',1);
     Pagination()
 }
  function duplicateAndMove(event) {
@@ -184,6 +189,7 @@ function handleResultSearch(arr){
      if(arr.length===0){
       contentPage.innerHTML= 'Không tìm thấy kết quả phù hợp'
       renderButtonDirect(0)
+      return 0
     } 
      else {
       contentPage.innerHTML=""
@@ -195,6 +201,7 @@ function handleResultSearch(arr){
      renderButtonDirect(Math.ceil(arr.length/18))
      handleNextPage(arr)
      handleAddItem()
+
   }}
 function handleFilter(){
     var filterButton=document.querySelector('button.filter')
@@ -216,6 +223,7 @@ function handleFilter(){
         })
         if(resultFilter.length===0){
             document.querySelector('.product').innerHTML="Không tìm thấy kết quả phù hợp"
+            document.querySelector('.cdp').setAttribute('actpage',1);
             renderButtonDirect(0)
             return 0;
           } 
@@ -252,7 +260,7 @@ window.addEventListener('scroll',function(){
     )
 }  
 function Pagination(){
-    window.onload = function() {
+   
         var paginationPage = parseInt(document.querySelector('.cdp').getAttribute('actpage'), 10);
         document.querySelectorAll('.cdp_i').forEach(function(item) {
           item.addEventListener('click', function() {
@@ -267,7 +275,7 @@ function Pagination(){
             document.querySelector('.cdp').setAttribute('actpage', paginationPage);
           });
         });
-      };
+      
       
 }
  function start(){
@@ -279,7 +287,7 @@ function Pagination(){
     handleNextPage(infoPerfume)
     handleAddItem()
     configElasticlunr()
-    scrollTop()
+    //scrollTop()
     Pagination()
 
 }

@@ -1,12 +1,18 @@
-*{
+
+i{
   width:auto;
 }
-body{
-  background-color: white;
+.wrap_search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding:20px 0;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgb(166, 166, 166);
 
 }
 .container{
-  background-color: white;
   position: relative;
 }
   .product{
@@ -43,6 +49,7 @@ body{
   }
   .perfume{
     display: flex;
+    flex:none;
     width:170px;
    position:relative;
    background-color:rgb(255, 255, 255);
@@ -109,18 +116,23 @@ body{
     height:20px;
   }
   .old_price{
+    font-size: 14px;
     text-decoration: line-through;
     color:rgb(97, 97, 97);
     font-weight: unset;
     line-height: 20px;
   }
   .old_price h4{
+    font-size: 14px;
     display: inline-block;
     margin:0;
     margin-left: 5px;
     padding: 0;
     color:rgb(255, 98, 0);
     width:45px;
+  }
+  .new_price{
+    font-size: 14px;
   }
   .direction{
     display:flex;
@@ -129,18 +141,26 @@ body{
     margin-bottom:20px;
   }
   .search{
+    width:290px;
     display:flex;
     justify-content: center;
+    position: relative;
+    align-items: center;
   }
   .searchItem{
-    margin: 20px 20px;
+    padding: 0 10px;
+    margin:10px 0;
     height:30px;
-    width:250px;
+    width:300px;
+    border-radius: 15px;
+    border:none;
+    box-shadow: 0 0 5px rgb(165, 165, 165);
+ 
   }
   .search .fa-magnifying-glass{
     font-size: 20px;
-    display: flex;
-    align-items: center;
+    position: absolute;
+    right:10px;
     width:20px;
   }
   .wrap{
@@ -200,7 +220,7 @@ button.filter{
   width: 80px;
 }
 button.no_filter{
-  background-color: rgb(255, 2, 53);
+  background-color: red;
   color:white;
   margin:0 5px;
   border-radius:5px;
@@ -230,6 +250,7 @@ select{
 }
 .fa-chevron-up{
     position: fixed;
+    width:33px;
     border-radius: 50%;
     background-color: white;
     padding:2px;
@@ -243,13 +264,37 @@ select{
 .fa-chevron-up:hover{
     color: rgb(0, 21, 255);
 }
+@media (max-width:1000px){
+  .product{
+    padding:40px 0;
+  }
+  .addIntoCart{
+    padding: 2px !important;;
+  }
+}
 @media (max-width:600px){
   .product{
     padding:5px;
   }
+  .addIntoCart{
+    padding: 2px !important;;
+  }
+}
+@media (max-width:520px){
+  .filter_block{
+    display:none;
+  }
+  .product{
+    padding:0;
+  }
+}
+
+.cdp_i.nextPage,.cdp_i.prevPage{
+  width:80px;
 }
 .cdp_i{
   background-color:#2ea44f;
+  width:40px;
 }
 /*paginations
 */
