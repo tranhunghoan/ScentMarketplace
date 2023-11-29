@@ -9,10 +9,11 @@
 }
 .detailBlogPage .image {
     clear: both;
-    display: block;
     margin: 0 auto;
-    width: 50%;
-    border-radius: 5%;
+    width: 90%;
+}
+.detailBlogPage image {
+    border-radius: 1.5%;
 }
 .detailBlogPage .box-meta i {
     color: #999;
@@ -40,7 +41,7 @@
 .detailBlogPage .content ul {
     list-style-type: none;
 }
-@media (max-width: 600px) {
+@media (max-width: 820px) {
     .detailBlogPage {
         padding: 20px;
         text-align:justify;

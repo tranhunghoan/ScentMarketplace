@@ -10,7 +10,7 @@ var numberPage=Math.ceil(infoBlog.length/9);
     <a href="./detailblog.html?id=${blog.id}" class="img"><img src="${blog.image}" alt=""></a>
     <div class="info">
     <p class="meta">${blog.date}</p>
-    <h4 class="title-blog"><a class="directPage" href="./detailblog.html?id=${blog.id}">${blog.title}</a></h4>
+    <h4 class="title"><a class="leadToDetail" href="./detailblog.html?id=${blog.id}">${blog.title}</a></h4>
     </div>
     </div>
     </li>`
@@ -27,8 +27,7 @@ var numberPage=Math.ceil(infoBlog.length/9);
         }
     document.querySelector('.blog-list-ul').innerHTML=contentPage
 }
-function handleNextPage(blogs){
-    //document.querySelector('.direction').onclick=handleAddItem
+function handlePage(blogs){
     var buttonPages=document.querySelectorAll('button.page')
     for(let i=0;i<buttonPages.length;i++){
     buttonPages[i].onclick=function (){
@@ -36,9 +35,18 @@ function handleNextPage(blogs){
 }
 }
 }
+function handleNextPage(blogs){
+    var buttonPages=document.querySelectorAll('button.nextPage')
+    for(let i=0;i<buttonPages.length;i++){
+    buttonPages[i].onclick=function (){
+    renderPage(2,blogs)
+}
+}
+}
 function start(){
     
-    renderPage(1,infoBlog)
-    handleNextPage(infoBlog)
+    renderPage(1,infoBlog);
+    handlePage(infoBlog);
+    handleNextPage(infoBlog);
 }
 start()
