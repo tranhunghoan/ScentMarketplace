@@ -1,9 +1,11 @@
 html{
     scroll-behavior: smooth;
+    
 }
 
 body {
     font-size: 16px;
+    background-color: #FFF6F4;
 }
 
 /* .row{
@@ -51,15 +53,24 @@ body {
     width: 66.66666%;
 }
 
+#about-body p{
+    text-indent: 48px;
+    text-align: justify;
+}
+
+#about-body p+p{
+    padding-top: 8px;
+}
+
 #about-body h2 {
-    color: #333333;
+    color: #E42024;
     margin-bottom: 48px;
     text-align: center;
     text-shadow: 0 0 1px #000;
 }
 
 #about-body h3 {
-    color: #333333;
+    color: #E42024;
     opacity: 0.8;
     margin-bottom: 24px;
     text-align: center;
@@ -72,6 +83,13 @@ body {
     margin-right: auto;
     padding-left: 16px;
     padding-right: 16px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+}
+
+.bg {
+    background: url("https://53.fs1.hubspotusercontent-na1.net/hubfs/53/assets/hubspot.com/about_2019/blobs/Blop-Gray@2x.png") no-repeat top center;
 }
 
 #about-body .about-content {
@@ -130,5 +148,4 @@ body {
 }
 
 @media (max-width:63.9375em) {
-
 }
