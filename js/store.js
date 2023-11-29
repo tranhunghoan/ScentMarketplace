@@ -88,11 +88,11 @@ var numberItem
     var buttonAddintocart=document.querySelectorAll('.addIntoCart')
     for( let button of buttonAddintocart){
     button.onclick=function(e){
-        duplicateAndMove(e)
-        numberItem++;
-        localStorage.setItem('numberItem',JSON.stringify(numberItem))
-        document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
-
+      duplicateAndMove(e)
+      numberItem++;
+      localStorage.setItem('numberItem',JSON.stringify(numberItem))
+      document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
+      console.log("add success")
 }}
 
 }
@@ -271,9 +271,9 @@ function Pagination(){
       
 }
  function start(){
+    setNumberItem()
     renderPage(1,numberPage,infoPerfume)
     deleteFilter()
-    setNumberItem()
     renderButtonDirect(10)
     handleFilter()
     handleNextPage(infoPerfume)

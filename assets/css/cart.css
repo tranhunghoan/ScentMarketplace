@@ -14,16 +14,9 @@
     color: #fff;
     width: auto;
 }
-
 #shopping-cart {
     text-align: center;
     padding: 50px 200px;
-}
-#shopping-cart .cart-box-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 #shopping-cart .shopping-cart-box {
     position: relative;
@@ -128,15 +121,14 @@
     color: #088178;
     font-size: 24px;
     margin-right: 20px;
+    width: auto;
 }
 #shopping-cart .total .total-price {
     font-weight: 700;
 }
 #shopping-cart .btn-buy {
-    display: flex;
     margin: 20px auto;
     padding: 20px 40px;
-    width: auto;
     color: white;
     background-color: #088178;
     border: none;
