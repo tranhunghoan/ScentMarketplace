@@ -7,12 +7,12 @@ var numberItem
 
  function setNumberItem(){
     if(localStorage.getItem('numberItem')===null){
-      console.log(1)
         numberItem=0;
     }
     else numberItem=JSON.parse( localStorage.getItem('numberItem'))
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` 
+    document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
+    document.querySelector('#cart-icon .cart-amount').innerHTML=`${numberItem}` 
     });
 }
  function renderCard(perfume){ 
@@ -92,7 +92,7 @@ var numberItem
  function handleAddItem(){
     var buttonAddintocart=document.querySelectorAll('.addIntoCart')
     for( let button of buttonAddintocart){
-    button.onclick=function(e){
+      button.onclick=function(e){
         duplicateAndMove(e)
         numberItem++;
         localStorage.setItem('numberItem',JSON.stringify(numberItem))
@@ -100,9 +100,9 @@ var numberItem
         arrayId.push(parseInt(e.target.getAttribute('data-index')))
         localStorage.setItem('index',JSON.stringify(arrayId))
         document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
-
-}}
-
+        document.querySelector('#cart-icon .cart-amount').innerHTML=`${numberItem}` 
+      }
+    }
 }
  function handleNextPage(perfume){
     const nextBtn=document.querySelector('.cdp_i.nextPage')
@@ -282,7 +282,7 @@ function Pagination(){
       
 }
  function start(){
-   setNumberItem()
+    setNumberItem()
     renderPage(1,numberPage,infoPerfume)
     deleteFilter()
     renderButtonDirect(numberPage)
