@@ -282,9 +282,9 @@ function Pagination(){
       
 }
  function start(){
+   setNumberItem()
     renderPage(1,numberPage,infoPerfume)
     deleteFilter()
-    setNumberItem()
     renderButtonDirect(numberPage)
     handleFilter()
     handleNextPage(infoPerfume)
