@@ -1,5 +1,6 @@
 export var user=[
     {
+        id:1,
         username:'Nhom11',
         tel: '0311282023',
         email: 'abc@gmail.com',
@@ -7,6 +8,7 @@ export var user=[
         password: 'Nhom11'
     },
     {
+        id:2,
         username:'VanQuynh',
         tel: '0335354123',
         email: 'baaboo3112@gmail.com',

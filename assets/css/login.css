@@ -40,7 +40,7 @@ body{
 }
 #form-login{
     max-width: 500px;
-    background: black;
+    background: rgba(248, 233, 214, 0.862);
     float: right;
     flex-grow: 1;
     padding: 25px 25px 35px;
@@ -49,19 +49,19 @@ body{
 .form-heading{
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: black;
     text-align: center;
     margin-bottom: 25px;
 }
 .form-group{
     position: relative;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
     margin-top: 10px;
     margin-bottom: 15px;
     display: flex;
 }
 .form-group i{
-    color: white;
+    color: black;
     font-size: 15px;
     padding-top: 5px;
     padding-right: 10px;
@@ -70,40 +70,64 @@ body{
     background: transparent;
     border: 0;
     outline: 0;
-    color: white;
+    color: black;
     flex-grow: 1;
 }
 .form-input::placeholder{
-    color: white;
+    color: black;
 }
 
 .form-submit{
     background: transparent;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid black;
+    color: black;
     width: 100%;
     text-transform: uppercase;
     padding: 6px 10px;
     transition: 0.25s ease-in-out;
     margin-top: 30px;
+    border-radius: 25px;
 }
 .form-register{
     background: transparent;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid black;
+    color: black;
     font-size: 15px;
     width: 100%;
     text-transform: uppercase;
     padding: 6px 10px;
     transition: 0.25s ease-in-out;
     margin-top: 5px;
+    border-radius: 25px;
 }
 .form-submit:hover{
-    border: 1px solid blue;
+    border: 1px solid white;
 }
 .form-register:hover{
-    border: 1px solid blue;
+    border: 1px solid white;
 }
-
+@media (max-width: 768px) {
+    .welcome p:first-child{
+        font-size: 20px;
+    }
+    .welcome p:last-child{
+        font-size: 15px;
+    }   
+    #wrapper{
+        min-height: 35vh;
+    }
+    #wrapper input{
+        font-size: 15px;
+    }
+    .form-heading{
+        font-size: 20px;
+    }
+    .form-register{
+        font-size: 15px;
+    }
+    .form-input::placeholder{
+        font-size: 14px;
+    }
+    }
 
   

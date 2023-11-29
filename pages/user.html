@@ -5,47 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Page</title>
     <script src="https://kit.fontawesome.com/757ea42d8a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="\assets\css\register.css">
-    <link rel="stylesheet" href="\assets\css\login.css">
     <script type="module" src="/js/home.js"></script>
-
+    <link rel="stylesheet" href="/assets/css/user.css">
 </head>
-<style>
-    #user-form {
-        max-width: 700px;
-        background: black;
-        float: right;
-        flex-grow: 1;
-        padding: 30px 30px 40px;
-        box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.8);
-        color: white;
-    }
-</style>
 <body>
     <div id="header-placeholder"></div>
-    <div id="wrapper">
-        <form onsubmit="updateUserInfo(event)" id="user-form">
-            <h1 class="form-heading">Thông tin người dùng</h1>
-            <div class="form-group">
-                <i class="far fa-user"></i>
-                <input id="username-l" class="form-input">
+    <div class="user-page">
+        <div class="user-option">
+            <div class="profile">
+                <img src="/assets/images/profile.jpg" alt="profile">
+                <p id="pro-user">
+                    
+                </p>
             </div>
-            <div class="form-group">
-                <i class="fa-regular fa-envelope"></i>
-                <input id="email-l" class="form-input">
+            <div class="list-option">
+                <ul>
+                    <li><a href="#" id="profile">Thông tin tài khoản</a></li>
+                    <li><a href="#" id="change-pass">Đổi mật khẩu</a></li>
+                    <li><a href="./home.html" id="logout">Đăng xuất</a></li>
+                </ul>
             </div>
-            <div class="form-group">
-                <i class="fa-solid fa-phone"></i>
-                <input id="tel-l" class="form-input">
-            </div>
-            <div class="form-group">
-                <i class="fas fa-map-marker-alt"></i>
-                <input id="address-l" class="form-input">
-            </div>
-            <div id="password-error" style="color: red;"></div>
-            <input type="submit" value="Cập nhật" class="user-form" >
-            <input type="button" value="Đăng xuất" class="user-form" id="logout">
-        </form>
+        </div>
+        <div id="pro-wrapper">
+            <form id="user-form">
+                <h1 class="form-heading">Thông tin cá nhân</h1>
+                <div class="form-group">
+                    <i class="far fa-user"></i>
+                    <input id="username-l" class="form-input">
+                </div>
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input id="email-l" class="form-input">
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-phone"></i>
+                    <input id="tel-l" class="form-input">
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input id="address-l" class="form-input">
+                </div>
+                <div class="bt-update">
+                    <input type="submit" value="Cập nhật" class="user-form" >
+                </div>
+                <!-- <input type="button" value="Đăng xuất" class="user-form" id="logout"> -->
+            </form>
+        </div>
+        <div id="change-wrapper"></div>
     </div>
     <div id="footer-placeholder"></div>
     <script src="../js/pageDefault/loadHeaderFooter.js"></script>

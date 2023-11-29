@@ -87,12 +87,23 @@ document.addEventListener('DOMContentLoaded', function () {
       passwordInput.setAttribute('type', type);
   });
 });
+document.addEventListener('DOMContentLoaded', function () {
+  var passwordInput = document.getElementById('pass-l');
+  var togglePassword = document.getElementById('toggle-password');
 
+  togglePassword.addEventListener('click', function () {
+  console.log('Clicked on the eye icon');
+  var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  });
+  });
 function formregis(){
   document.getElementById('register-button').addEventListener("click", function () {
     location.assign("./register.html");
   });
 }
+
+
 function regis(event) {
   event.preventDefault();
   var username = document.getElementById("username").value;
@@ -109,6 +120,7 @@ function regis(event) {
     password: password
   };
   user.push(newUser);
+  //localStorage.setItem('user', JSON.stringify(user));
   localStorage.setItem('isLoggedIn', 'false');
   window.location.href = "./login.html";
   return false;
@@ -132,6 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //Đăng nhập
+var currentUser="nnnnn";
 document.addEventListener('DOMContentLoaded', function () {
   var loginForm = document.getElementById('form-login');
   loginForm.addEventListener('submit', function (event) {
@@ -151,10 +164,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       else{
         localStorage.setItem('isLoggedIn', 'true');
+        currentUser = userName;
       }
     }
   });
-
 });
 
 function login(userName,userPass) {
@@ -162,82 +175,104 @@ function login(userName,userPass) {
       return u.username === userName && u.password === userPass;
   });
 }
+function loadUser(){
+  document.getElementById('pro-user').textContent = currentUser;
+}
 document.addEventListener('DOMContentLoaded', function () {
   var userLink = document.getElementById('user-link');
-  userLink.addEventListener('click', function () {
-    var isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (isLoggedIn === 'true') {
-      userLink.href = './user.html';
-    } 
-    else {
-      userLink.href = './login.html';
-    }
-  });
+  var mUserLink=document.getElementById('m-user-link');
+  var isLoggedIn = localStorage.getItem('isLoggedIn');
+
+  if (isLoggedIn === 'true') {
+    // Nếu đăng nhập, hiển thị icon user
+    userLink.innerHTML = '<i class="fa-solid fa-user"></i>';
+    mUserLink.innerHTML = '<i class="fa-solid fa-user"></i>';
+    userLink.href = './user.html';
+    mUserLink.href='./user.html';
+  } else {
+    // Nếu chưa đăng nhập, hiển thị icon login
+    userLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
+    mUserLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
+    userLink.href = './login.html';
+    mUserLink.href = './login.html';
+  }
 });
 
-// // lấy dữ liệu cho user
+// lấy dữ liệu cho user
 document.addEventListener('DOMContentLoaded', function () {
-  
-  var usernameInput = document.getElementById('username-l');
-  var emailInput = document.getElementById('email-l');
-  var telInput = document.getElementById('tel-l');
-  var passInput = document.getElementById('pass-l');
-  var addressInput = document.getElementById('address-l')
-
-  usernameInput.value = data.username;
-  emailInput.value = data.email;
-  telInput.value = data.tel;
-  passInput.value = data.password;
-  addressInput.value = data.address;
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  var passwordInput = document.getElementById('pass-l');
-  var togglePassword = document.getElementById('toggle-password');
-
-  togglePassword.addEventListener('click', function () {
-  console.log('Clicked on the eye icon');
-  var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-  passwordInput.setAttribute('type', type);
-  });
-  });
-
-document.addEventListener('DOMContentLoaded', function () {
+  var profileLink = document.getElementById('profile');
+  var changePassLink = document.getElementById('change-pass');
   var userForm = document.getElementById('user-form');
+  var proWrapper = document.getElementById('pro-wrapper');
+  var changeWrapper = document.getElementById('change-wrapper');
 
+  showUserInfo();
+  profileLink.addEventListener('click', function (event) {
+    event.preventDefault();
+    showUserInfo();
+  });
+
+  //click vào "Đổi mật khẩu"
+  changePassLink.addEventListener('click', function (event) {
+    event.preventDefault();
+    showChangePasswordForm();
+  });
+
+  // Xử lý sự kiện khi submit form cập nhật thông tin người dùng
   userForm.addEventListener('submit', function (event) {
-  event.preventDefault();
+    event.preventDefault();
+    updateUserInfo();
+    // Hiển thị lại thông tin người dùng sau khi cập nhật
+    showUserInfo();
+  });
 
-  var username = document.getElementById('username-l').value;
-  var email = document.getElementById('email-l').value;
-  var tel = document.getElementById('tel-l').value;
-  var password = document.getElementById('pass-l').value;
-  var address = document.getElementById('address-l').value;
+  function showUserInfo() {
+    // Ẩn form đổi mật khẩu
+    proWrapper.style.display = 'block';
+    changeWrapper.style.display = 'none';
+  }
 
-  var currentUser = localStorage.getItem(username);
-  var userData = JSON.parse(currentUser);
-  
-  userData.username = username;
-  userData.email = email;
-  userData.tel = tel;
-  userData.password = password;
-  userData.repass = password;
-  userData.address = address;
-
-  localStorage.setItem(username, JSON.stringify(userData));
-
-  alert('Thông tin đã được cập nhật thành công!');
+  function showChangePasswordForm() {
+    proWrapper.style.display = 'none';
+    changeWrapper.style.display = 'block';
+    changeWrapper.innerHTML = `
+      <form onsubmit="changePassword(event)">
+        <h1 class="form-heading">Đổi mật khẩu</h1>
+        <div class="form-group">
+          <i class="far fa-user"></i>
+          <input id="new-username" class="form-input" placeholder="Mật khẩu hiện tại">
+        </div>
+        <div class="form-group">
+          <i class="fas fa-key"></i>
+          <input id="new-password" type="password" class="form-input" placeholder="Mật khẩu mới">
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-lock"></i>
+          <input id="confirm-new-password" type="password" class="form-input" placeholder="Nhập lại mật khẩu mới">
+        </div>
+        <div class="bt-update">
+          <input type="submit" value="Lưu" class="user-form">
+        </div>
+      </form>
+    `;
+  }
 });
-});
+
 document.addEventListener('DOMContentLoaded', function () {
-  var logoutbutton= document.getElementById("logout");
+  var logoutbutton= document.getElementById('logout');
+  var userLink= document.getElementById('user-link');
+  var mUserLink= document.getElementById('m-user-link');
   logoutbutton.addEventListener('click', function(){
     localStorage.setItem('isLoggedIn', 'false');
-      window.location.href = './home.html';
+    userLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
+    mUserLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
+    window.location.href = './home.html';
   }) 
 });
 
+//load store
 function start(){
   formregis()
+  loadUser()
 }
 start()

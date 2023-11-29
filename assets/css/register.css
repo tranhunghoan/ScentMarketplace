@@ -13,81 +13,79 @@ body{
     font-size: 20px;
     background-color: rgb(249, 239, 226);
 }
+.regis-page{
+    display: flex;
+    max-width: 900px;
+    margin: 10px auto;
+    padding: 5px;
+}
+.hello{
+    flex: 1;
+    text-align: start;  
+}
 .hello{
     width: 100%;
-    height: 100px;
     text-align: center;
-    margin-top: 50px;
+    margin: auto;
 }
 .hello p:first-child{
-    font-size: 40px;
-    padding-bottom: 10px;
+    font-size: 30px;
+    padding-bottom: 5px;
 }
 .hello p:last-child{
-    font-size: 20px;
+    font-size: 15px;
 }
 #wrapper{
-      min-height: 75vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-  #wrapper input{
-      font-size: 20px;
-  }
-  #wrapper i{
-      width: 21px;
-  }
-  #form-register{
-      max-width: 700px;
-      background: rgba(249, 239, 226, 0.862);;
-      float: right;
-      flex-grow: 1;
-      padding: 30px 30px 40px;
-      box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.8);
-  }
-  .form-heading{
-      font-size: 30px;
-      font-family: Arial, Helvetica, sans-serif;
-      color: black;
-      text-align: center;
-      margin-bottom: 30px;
-  }
-  .form-group{
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapper i{
+    width: 21px;
+}
+#form-register{
+    max-width: 700px;
+    background: rgba(249, 239, 226, 0.862);
+    float: right;
+    flex-grow: 1;
+    padding: 30px 30px 40px;
+    box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+}
+.form-heading{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+}
+.form-group{
     position: relative;
-      border-bottom: 1px solid black;
-      margin-top: 15px;
-      margin-bottom: 20px;
-      display: flex;
+    border-bottom: 1px solid black;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    display: flex;
   }
-  .form-group i{
-      color: black;
-      font-size: 20px;
-      padding-top: 5px;
-      padding-right: 10px;
+.form-group i{
+    color: black;
+    font-size: 18px;
+    padding-top: 5px;
+    padding-right: 10px;
   }
-  .form-input{
-      background: transparent;
-      border: 0;
-      outline: 0;
-      color: black;
-      flex-grow: 1;
-  }
-  .form-input::placeholder{
-      color: black;
-  }
+.form-input{
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: black;
+    flex-grow: 1;
+}
+.form-input::placeholder{
+    color: black;
+    font-size: 18px;
+}
   
-  .form-submit{
-      background: transparent;
-      border: 1px solid white;
-      color: black;
-      width: 100%;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      transition: 0.25s ease-in-out;
-      margin-top: 30px;
-  }
-  .form-register{
+.form-register{
       background: transparent;
       border: 1px solid black;
       color: black;
@@ -96,47 +94,54 @@ body{
       padding: 6px 10px;
       transition: 0.25s ease-in-out;
       margin-top: 5px;
+      border-radius: 25px;
   }
-  .form-register:hover{
-      border: 1px solid blue;
+.form-register:hover{
+      border: 1px solid white;
   }
 
-  .regis-page{
-    display: flex;
-    max-width: 1100px;
-    margin: 0 auto;
-    background-color: rgb(255, 177, 177);
-    padding: 5px;
-    margin-top: 10px;
-}
-.hello{
-    flex: 1;
-    text-align: start;
-   
-}
-a{
+#form-register a{
     text-decoration:none;
 }
 .hello h2, .hello p{
     padding: 50px 50px;
 }
 #form-register p{
-    font-size: 20px;
+    font-size: 15px;
 }
 .wrapper{
     max-width: fit-content;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 768px) {
 .regis-page{
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
+
 }
-.hello p, .hello h2{
- padding: 10px 30px;
- font-size: 15px;
+.hello p:first-child{
+    padding: 0 30px;
+    font-size: 20px;
+    text-align: center;
 }
-.wrapper{
-    max-width: fit-content;
+.hello p:last-child{
+    font-size: 10px;
+    padding: 10px 30px;
+    text-align: center;
+}   
+#wrapper{
+    min-height: 50vh;
+}
+#wrapper input{
+    font-size: 15px;
+}
+.form-heading{
+    font-size: 20px;
+}
+#form-register{
+    font-size: 15px;
+}
+.form-input::placeholder{
+    font-size: 14px;
 }
 }
