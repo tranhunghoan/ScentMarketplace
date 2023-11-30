@@ -107,6 +107,9 @@ body{
     border: 1px solid white;
 }
 @media (max-width: 768px) {
+    .welcome{
+        margin-top: 5px 0;
+    }
     .welcome p:first-child{
         font-size: 20px;
     }
@@ -115,6 +118,7 @@ body{
     }   
     #wrapper{
         min-height: 35vh;
+        margin-bottom: 10px;
     }
     #wrapper input{
         font-size: 15px;
@@ -128,6 +132,6 @@ body{
     .form-input::placeholder{
         font-size: 14px;
     }
-    }
+}
 
   
