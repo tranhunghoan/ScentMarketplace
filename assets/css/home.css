@@ -712,20 +712,24 @@ body{
     display:flex;
     flex-direction: column;
   }
-  
+  .nav-item{
+    margin:0
+  }
   .footer-nav,.thanks-addr {
     flex: 1;
     margin-right: 0;
     margin-bottom: 10px;
   }
-  
+  .thanks-addr{
+    padding:0
+  }
   .footer-btn {
     font-size: 10px;
     padding: 4px 12px;
   }
   .footer-thanks p{
     font-size: 15px;
-    padding: 0;
+    padding-bottom: 10px;
   }
   
   
@@ -745,9 +749,11 @@ body{
     align-items: flex-start;
   }
   .nav-item a img{
-    width:35%
+    width:30%
   }
-  
+  .row p{
+    font-size: 14px;
+  }
   .footer-thanks h2{
     padding: 10px 0;
   }
@@ -776,10 +782,14 @@ body{
   }
   .footer h2{
     font-size: 18px;
-    padding: 5px 0;
+    padding-top: 10px;
   }
   .footer h1{
     font-size: 20px;
+    padding:10px 0;
+  }
+  .nav-ul li{
+    margin:0
   }
   }
 /* Ẩn .mobile và #bar khi màn hình lớn hơn 768px */
