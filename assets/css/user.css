@@ -28,12 +28,17 @@ body{
     text-decoration: none;
     color: black;
 }
+.list-option li{
+    padding-left: 10px
+}
 .list-option a:hover{
     text-decoration: underline;
+    color: brown;
 }
+
 .profile{
     display: inline-block;
-    padding-bottom: 40px;
+    padding:0 40px 40px 0;
     text-align: center;  
 }
 .profile img{
@@ -134,36 +139,61 @@ body{
 }
 
 @media (max-width:768px){
+    .user-page{
+        display: flex;
+        flex-direction: column;
+        max-width: fit-content
+    }
+    .user-page #pro-wrapper{
+        text-align: center;
+    }
     .user-option{
-        flex: 0 1 40%;
-        margin: auto 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .list-option ul{
+        display: flex;
+        flex-direction: row;
+    }
+    .list-option ul li{
+        margin: 0;
+        display: inline-block;
+        max-width: fit-content;
     }
     .list-option a{
         text-decoration: none;
         color: black;
         font-size: 13px;
+        text-align: center;
+        justify-content: center;
     }
     .list-option a:hover{
         text-decoration: underline;
     }
     .profile{
-        display: inline-block;
-        padding-bottom: 40px;
-        text-align: center;  
+        display: flex;
+        flex-direction: row;
+        text-align: center; 
+        padding: 0; 
     }
     .profile img{
-        width: 100px;
-        height: 100px;
+        width: 50px;
+        height: 50px;
         aspect-ratio: 1 / 1;
         object-fit: cover; 
         border-radius: 50%;
     }
     #pro-user{
+        max-width: fit-content;
+        justify-content: center;
+        text-align: center;
         font-size: 20px;
+        padding:15px 0 0 35px
     }
+   
     #pro-wrapper{
-        min-height: 50vh;
-        display: flex;
+        max-height: fit-content;
+        max-width: fit-content;
         justify-content: center;
         align-items: center;
     }
@@ -171,13 +201,17 @@ body{
         width: 21px;
     }
     #user-form{
-        max-width: 700px;
+        max-width: 300px;
+        max-height: 200x;
         background: rgba(249, 239, 226, 0.862);
-        float: right;
         flex-grow: 1;
-        padding: 30px 30px 40px;
+        padding-bottom: 0;;
+        /* padding: 30px 30px 40px; */
         box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.8);
         font-size: 18px;
+    }
+    #user-form h1{
+        font-size: 25px;
     }
     .form-heading{
         font-size: 25px;
@@ -189,16 +223,16 @@ body{
     .form-group{
         position: relative;
         border-bottom: 1px solid black;
-        margin-top: 15px;
-        margin-bottom: 20px;
+        /* margin-top: 10px; */
+        /* margin-bottom: 20px; */
         display: flex;
       }
     .form-group i{
         color: black;
-        font-size: 18px;
-        padding-top: 5px;
-        padding-right: 10px;
-        width: 23px;
+        font-size: 15px;
+        /* padding-top: 5px;
+        padding-right: 10px; */
+        width: 20px;
       }
     .form-input{
         background: transparent;
@@ -217,10 +251,9 @@ body{
         color: black;
         width: 100%;
         text-transform: uppercase;
-        padding: 6px 10px;
+        padding: 5px 30px;
         transition: 0.25s ease-in-out;
-        margin-top: 5px;
-        border-radius: 25px;
+        border-radius: 5px;
     }
     .bt-update{
         text-align: center;
@@ -233,6 +266,7 @@ body{
     }
     #change-wrapper{
         max-width: 700px;
+        max-height: 700px;
         background: rgba(249, 239, 226, 0.862);
         float: right;
         flex-grow: 1;
