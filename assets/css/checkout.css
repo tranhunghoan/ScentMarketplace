@@ -1,0 +1,24 @@
+#checkout {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+#checkout .needs-validation {
+    max-width: 1024px;
+}
+#checkout .needs-validation .top-header {
+    text-align: center;
+}
+#checkout .row {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.row .cart-checkout {
+    flex: 1;
+}
+.row .detail-checkout {
+    flex: 2;
+    margin-right: 20px;
+}
