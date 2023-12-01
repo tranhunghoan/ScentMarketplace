@@ -80,7 +80,7 @@ body{
   min-width: 10px;
   padding: 2px;
   border-radius: 10px;
-  top: -5px;
+  top: -10px;
   right: 0;
   font-size: 13px;
 }
@@ -88,13 +88,14 @@ body{
   position: absolute;
   background-color: red;
   color: white;
-  width: 10px;
-  height: 15px;
+  width: auto;
+  min-width: 10px;
+  height: 18px;
   line-height: 15px;
   border-radius: 25px;
-  top: -5px;
-  padding: 0 0.05em;
-  right: 0;
+  top: -10px;
+  padding: 2px;
+  right: -4px;
 }
 .mobile{
   height: 50px;
