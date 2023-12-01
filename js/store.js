@@ -12,7 +12,8 @@ var numberItem
     else numberItem=JSON.parse( localStorage.getItem('numberItem'))
     document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
-    document.querySelector('#cart-icon .cart-amount').innerHTML=`${numberItem}` 
+    document.querySelector('#cart-icon .cart-amount').innerHTML=`${numberItem}`
+    document.querySelector('#checkout .cart-amount').innerHTML=`${numberItem}`
     });
 }
  function renderCard(perfume){ 

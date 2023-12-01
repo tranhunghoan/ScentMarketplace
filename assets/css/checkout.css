@@ -9,6 +9,11 @@
 #checkout .needs-validation .top-header {
     text-align: center;
 }
+.top-header p,
+.top-header h2 {
+    color: #088178;
+    margin-top: 10px;
+}
 #checkout .row {
     display: flex;
     flex-direction: row-reverse;
@@ -17,6 +22,89 @@
 }
 .row .cart-checkout {
     flex: 1;
+}
+.detail-checkout .title,
+.cart-checkout .title {
+    display: flex;
+    justify-content: space-between;
+    color: #088178;
+    font-size: 20px;
+}
+.title .cart-amount{
+    background-color: #5F9EA0;
+    text-align: center;
+    min-width: 10px;
+    padding: 4px;
+    width: auto;
+    font-size: 12px;
+    border-radius: 10px;
+    color: #fff;
+}
+.cart-checkout .product-list {
+    padding-top: 18px;
+}
+.cart-checkout .shopping-cart-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: #F5F5F5;
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #cce7d0;
+    border-radius: 10px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+}
+.cart-checkout .shopping-cart-box img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+}
+.cart-checkout .shopping-cart-box .des {
+    text-align: start;
+    margin-left: 4px;
+    flex: 2;
+    color: #606063;
+    font-size: 10px;
+}
+.cart-checkout .shopping-cart-box .des span {
+    color: #000;
+}
+.cart-checkout .shopping-cart-box .des .shopping-cart-price {
+    padding-top: 7px;
+}
+.cart-checkout .shopping-cart-box .total{
+    color: #088178;
+    font-size: 12px;
+    font-weight: 700;
+    padding-top: 7px;
+    flex: 1;
+}
+.cart-checkout .shopping-cart-box .shopping-cart-quantity {
+    padding: 2px 0;
+    margin: 10px 8px;
+    border: 1px solid black;
+    outline-color: red;
+    width: 30px;
+    text-align: center;
+    font-size: 14px;
+}
+.cart-checkout .total-amount {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    padding: 4px;
+    border-top: 1px solid black;
+}
+.cart-checkout .total-amount div {
+    color: #088178;
+    font-size: 14px;
+    margin-right: 20px;
+    width: auto;
+}
+.cart-checkout .total-amount .total-price {
+    font-weight: 700;
 }
 .row .detail-checkout {
     flex: 2;
