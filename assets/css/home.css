@@ -227,6 +227,7 @@ body{
   height: 25px;
   font-size: 14px;
   background-color: black;
+  border-radius: 4px;
   text-align: center;
   margin-top: 5px;
 }
