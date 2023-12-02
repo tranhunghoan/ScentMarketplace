@@ -83,7 +83,6 @@ function calculationItem() {
   var totalItem = basket.map((x) => x.item).reduce((x,y) => x+y,0)
     document.querySelector('#cart .cart-amount').innerHTML= totalItem
     document.querySelector('#cart-icon .cart-amount').innerHTML= totalItem
-
 }
  function handleAddItem(){
     var buttonAddintocart=document.querySelectorAll('.addIntoCart')

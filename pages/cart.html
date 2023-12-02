@@ -12,22 +12,6 @@
     
     <section id="shopping-cart">
         <div class="shopping-cart-container">
-            <div id="cart-id-${search.id}" class="shopping-cart-box">
-                <div style="width: auto;">
-                <img src="../assets/images/anhdao.jpg" alt="">
-                </div>
-                <div class="des">
-                    <span class="cart-pro-category">${search.cate}</span>
-                    <h5 class="cart-pro-title">${search.title}</h5>
-                    <div class="input-number">
-                    <button class="shopping-cart-btn">-</button>
-                    <input id="${search.id}" type="number" value="${x.item}" class="shopping-cart-quantity">
-                    <button class="shopping-cart-btn">+</button>
-                    </div>
-                    <h4 class="shopping-cart-price">649,000 VND</h4>
-                </div>
-                <i class="fas fa-trash trash"></i>
-            </div>
         </div>
         <div class="total">
           <div class="total-title">Tổng cộng</div>
@@ -40,5 +24,6 @@
     <script src="../js/pageDefault/loadHeaderFooter.js"></script>
     <script type="module" src="../js/home.js"></script>
     <script type='module'src="../js/store.js"></script>
+    <script type='module'src="../js/cart.js"></script>
 </body>
 </html>

@@ -25,19 +25,18 @@
     justify-content: start;
     background-color: #F5F5F5;
     width: 100%;
-    padding: 20px;
+    padding: 14px;
     border: 1px solid #cce7d0;
     border-radius: 25px;
     cursor: pointer;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
-    margin: 20px 0;
 }
 #shopping-cart .shopping-cart-box:hover {
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
 }
 #shopping-cart .shopping-cart-box img {
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
     border-radius: 20px;
 }
 #shopping-cart .shopping-cart-box .des {
@@ -46,12 +45,12 @@
 }
 #shopping-cart .shopping-cart-box .des span {
     color: #606063;
-    font-size: 32px;
+    font-size: 22px;
 }
 #shopping-cart .shopping-cart-box .des h5 {
     padding-top: 8px;
     color: #1a1a1a;
-    font-size: 20px;
+    font-size: 16px;
 }
 #shopping-cart .shopping-cart-box .des i {
     color: #FFCC33;
@@ -60,21 +59,21 @@
 }
 #shopping-cart .shopping-cart-box .des h4 {
     color: #088178;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     padding-top: 7px;
 }
 #shopping-cart .shopping-cart-box .trash {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
     border-radius: 50px;
     background-color: #ffa1a1;
-    font-size: 22px;
+    font-size: 20px;
     color: red;
     border: 1px solid #cce7d0;
     position: absolute;
-    bottom: 86px;
+    bottom: 14px;
     right: 15px;
     transition: 0.4s ease;
 }
@@ -83,11 +82,11 @@
     background-color: red;
 }
 #shopping-cart .shopping-cart-box .shopping-cart-quantity {
-    padding: 10px 0;
-    margin: 20px 8px;
+    padding: 4px 0;
+    margin: 10px 8px;
     border: 1px solid black;
     outline-color: red;
-    width: 50px;
+    width: 40px;
     text-align: center;
     font-size: 20px;
 }
@@ -97,10 +96,10 @@
     align-items: center;
 }
 #shopping-cart .shopping-cart-box .shopping-cart-btn {
-    height: 40px;
-    width: 40px;
-    line-height: 47px;
-    font-size: 40px;
+    height: 30px;
+    width: 30px;
+    line-height: 32px;
+    font-size: 28px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
