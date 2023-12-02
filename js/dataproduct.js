@@ -355,6 +355,4 @@
         Hương giữa: Cúc vạn thọ, Hoa nhài<br>
         Hương cuối: Hổ phách, Xạ hương`    
     },
-   
-   
 ]

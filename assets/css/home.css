@@ -222,7 +222,7 @@ body{
   font-size: 15px;
   padding-top: 5px;
 }
-.new-product button{
+.new-product .see-more{
   width: 10%;
   height: 25px;
   font-size: 14px;
@@ -234,12 +234,6 @@ body{
 .new-product a{
   text-decoration: none;
   color: white;
-}
-#body .n-product{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0;
 }
 
 #homeblog{
@@ -634,11 +628,6 @@ body{
   .new-product p:nth-child(2){
     font-size: 10px;
     padding-top: 2px;
-  }
-  .new-product button{
-    width: 10%;
-    height: 15px;
-    font-size: 8px;
   }
   button.prev,button.next {
     height:30px;

@@ -3,19 +3,8 @@ var contentPage=''
 var buttonNextPage=''
 var currentPage=1
 var numberPage=Math.ceil(infoPerfume.length/18)
-var numberItem
+var basket = JSON.parse(localStorage.getItem("data")) || []
 
- function setNumberItem(){
-    if(localStorage.getItem('numberItem')===null){
-        numberItem=0;
-    }
-    else numberItem=JSON.parse( localStorage.getItem('numberItem'))
-    document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
-    document.querySelector('#cart-icon .cart-amount').innerHTML=`${numberItem}`
-    document.querySelector('#checkout .cart-amount').innerHTML=`${numberItem}`
-    });
-}
  function renderCard(perfume){ 
     return ` <div class="perfume">
     <div class="wrap_image">
@@ -90,18 +79,29 @@ var numberItem
 
     // Sau khi di chuyển hoàn tất, có thể thêm sản phẩm vào giỏ hàng và xóa bản sao
 }
+function calculationItem() {
+  var totalItem = basket.map((x) => x.item).reduce((x,y) => x+y,0)
+    document.querySelector('#cart .cart-amount').innerHTML= totalItem
+    document.querySelector('#cart-icon .cart-amount').innerHTML= totalItem
+
+}
  function handleAddItem(){
     var buttonAddintocart=document.querySelectorAll('.addIntoCart')
     for( let button of buttonAddintocart){
       button.onclick=function(e){
         duplicateAndMove(e)
-        numberItem++;
-        localStorage.setItem('numberItem',JSON.stringify(numberItem))
-        var arrayId=JSON.parse(localStorage.getItem('index'))||[]
-        arrayId.push(parseInt(e.target.getAttribute('data-index')))
-        localStorage.setItem('index',JSON.stringify(arrayId))
-        document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}`
-        document.querySelector('#cart-icon .cart-amount').innerHTML=`${numberItem}` 
+        var id = e.target.getAttribute('data-index')
+        var search = basket.find((x)=> x.id === id)
+        if(search === undefined) {
+          basket.push({
+            id: id,
+            item: 1,
+          })
+        }else {
+          search.item += 1
+        }
+        calculationItem()
+      localStorage.setItem("data", JSON.stringify(basket))
       }
     }
 }
@@ -242,27 +242,6 @@ function handleFilter(){
 function formatNumber(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
-function scrollTop(){
-    var chervon=document.querySelector('.fa-chevron-up')
-    chervon.onclick=function(){ 
-    window.scrollBy({ 
-        top: -window.scrollY, 
-        behavior: 'smooth' 
-    });
-    }
-window.addEventListener('scroll',function(){
-    if(window.scrollY>=400){
-    chervon.style.display='block';
-    }
-    if(window.scrollY<400){
-    chervon.style.display='none';
-    }
-    
-
-
-}
-    )
-}  
 function Pagination(){
    
         var paginationPage = parseInt(document.querySelector('.cdp').getAttribute('actpage'), 10);
@@ -282,17 +261,15 @@ function Pagination(){
       
       
 }
- function start(){
-    setNumberItem()
-    renderPage(1,numberPage,infoPerfume)
-    deleteFilter()
-    renderButtonDirect(numberPage)
-    handleFilter()
-    handleNextPage(infoPerfume)
-    handleAddItem()
-    configElasticlunr()
-    //scrollTop()
-    Pagination()
-
+function start(){
+  calculationItem()
+  renderPage(1,numberPage,infoPerfume)
+  deleteFilter()
+  renderButtonDirect(numberPage)
+  handleFilter()
+  handleNextPage(infoPerfume)
+  handleAddItem()
+  configElasticlunr()
+  Pagination()
 }
 start()

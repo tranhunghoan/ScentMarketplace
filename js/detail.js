@@ -1,14 +1,6 @@
 import { infoPerfume } from "./dataproduct.js";
 var queryParams = {};
-var numberItem
-function setCount(){
-    document.addEventListener("DOMContentLoaded", (event) => {
-    if(localStorage.getItem('numberItem')===null){
-        numberItem=0;
-    }
-    else numberItem=JSON.parse( localStorage.getItem('numberItem'))
-    document.querySelector('#cart .cart-amount').innerHTML=`${numberItem}` })
-}
+
 function handleURL(){
     var url = window.location.href;
     url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
@@ -82,41 +74,9 @@ function renderDetailPage(queryParams){
                  </div>`
     document.querySelector('.detailPage').innerHTML=detailHtml
 }
-function duplicateAndMove(event) {
-    // Lấy sản phẩm gốc
-    console.log(event.target.parentElement.previousElementSibling)
-    let originalProduct = event.target.parentElement.previousElementSibling.querySelector('.perfume_image_detail');
-    
-    // Tạo bản sao của sản phẩm gốc
-    let clonedProduct = originalProduct.cloneNode(true);
-    //Gán thuộc tính cho sản phẩm clone
-    clonedProduct.id = "clonedProduct"; 
-    clonedProduct.style.position = "absolute";
-    clonedProduct.style.zIndex = "1"
-    clonedProduct.style.borderRadius = "50%"
-    clonedProduct.style.top = '20px'; // Giữ nguyên vị trí của sản phẩm gốc
-    clonedProduct.style.left = '20px'; // Giữ nguyên vị trí của sản phẩm gốc
-    event.target.parentElement.appendChild(clonedProduct);
-    let clonedRect = clonedProduct.getBoundingClientRect();
-    // Lấy vị trí của icon giỏ hàng
-    let cartIcon = document.querySelector('.fa-cart-shopping');
-    let cartRect = cartIcon.getBoundingClientRect();
-  
-    // Di chuyển bản sao vào vị trí của icon giỏ hàng
-    let xOffset = cartRect.left - clonedRect.left-100;
-    let yOffset = -clonedRect.top-125;
-   // event.target.parentElement.style.overflow='visible'
-    clonedProduct.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(0.05)`;
-    setTimeout(() => {
-        clonedProduct.remove()
-    },800);
 
-    // Sau khi di chuyển hoàn tất, có thể thêm sản phẩm vào giỏ hàng và xóa bản sao
-}
 
 function handleButtonAddProduct(){
-    //setNumberItem()
-    var numberProduct
     var button=document.querySelector('.addIntoCart')
     const jsConfetti = new JSConfetti();
     const increase=document.querySelector('.fa-plus')
@@ -163,7 +123,6 @@ function formatNumber(number) {
   
 function start(){
     handleURL()
-    setCount()
     renderDetailPage(queryParams)
     handleButtonAddProduct()
     handleClickImage()
