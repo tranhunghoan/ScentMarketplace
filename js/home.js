@@ -270,6 +270,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }) 
 });
 
+
 //load store
 function start(){
   formregis()

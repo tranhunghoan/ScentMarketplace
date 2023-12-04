@@ -12,6 +12,7 @@
 body{
     display: block;
     background-color: rgba(249, 239, 226, 0.862);
+    padding-top: 50px;
 }
 /* ----------------navbar------------  */
 #header{
@@ -22,7 +23,7 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
+    position: fixed;
     z-index: 999;
     top: 0;
     left: 0;
@@ -234,6 +235,12 @@ body{
 .new-product a{
   text-decoration: none;
   color: white;
+}
+#body .n-product{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
 }
 
 #homeblog{
