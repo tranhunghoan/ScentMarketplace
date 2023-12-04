@@ -1,12 +1,13 @@
 import { infoPerfume } from "./dataproduct.js";
 var queryParams = {};
-
+var basket = JSON.parse(localStorage.getItem("data")) || []
 function handleURL(){
     var url = window.location.href;
     url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
         queryParams[key] = value;
         });
 }
+
 function renderDetailPage(queryParams){
    var idProduct=parseInt(queryParams.id)
    var product=infoPerfume[idProduct-1]
@@ -64,7 +65,7 @@ function renderDetailPage(queryParams){
         <li><i class="fa-solid fa-plus"></i></li>
         </div>
         <button class="addIntoCart detail_page">Thêm vào giỏ hàng</button>
-        <button class="buyNow">Mua ngay</button>
+        <a href="./cart.html" class="buyNow">Mua ngay</a>
  
         <ul>
         <li><i class="fa-sharp fa-regular fa-circle-check"></i> Free ship</li>
@@ -75,6 +76,11 @@ function renderDetailPage(queryParams){
     document.querySelector('.detailPage').innerHTML=detailHtml
 }
 
+function calculationItem() {
+    var totalItem = basket.map((x) => x.item).reduce((x,y) => x+y,0)
+    document.querySelector('#cart .cart-amount').innerHTML= totalItem
+    document.querySelector('#cart-icon .cart-amount').innerHTML= totalItem
+}
 
 function handleButtonAddProduct(){
     var button=document.querySelector('.addIntoCart')
@@ -97,11 +103,18 @@ function handleButtonAddProduct(){
     jsConfetti.addConfetti()
     })
     button.onclick=function(e){
-       // duplicateAndMove(e)
-        numberProduct=JSON.parse(localStorage.getItem('numberItem'))
-         numberProduct+=parseInt(document.querySelector('.amount_product').innerHTML);     
-        document.querySelector('#cart .cart-amount').innerHTML=`${numberProduct}`
-        localStorage.setItem('numberItem',JSON.stringify(numberProduct)) 
+        var id = queryParams.id
+        var search = basket.find((x)=> x.id === id)
+        if(search === undefined) {
+          basket.push({
+            id: id,
+            item: amount_product,
+          })
+        }else {
+          search.item += amount_product
+        }
+        calculationItem()
+      localStorage.setItem("data", JSON.stringify(basket))
     }
 }
 function handleClickImage(){
@@ -123,6 +136,7 @@ function formatNumber(number) {
   
 function start(){
     handleURL()
+    calculationItem()
     renderDetailPage(queryParams)
     handleButtonAddProduct()
     handleClickImage()
