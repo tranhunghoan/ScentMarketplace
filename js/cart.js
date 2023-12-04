@@ -102,7 +102,8 @@ function total() {
       let priceInt = parseFloat(search.price)
       return priceInt * x.item
     }).reduce((x,y) => x+y,0)
-    totalItems.innerText = `${(amount*1000).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}`
+    totalItems.innerText = `${formatNumber(amount)} đ`
+    // totalItems.innerText = `${(amount*1000).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}`
   }
   else return totalItems.innerText = 0
   handleRemoveItem()

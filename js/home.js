@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
+  console.log(currentUser)
 });
 
 function login(userName,userPass) {
