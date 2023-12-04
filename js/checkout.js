@@ -8,6 +8,7 @@ function calculationItem() {
   var totalItem = basket.map((x) => x.item).reduce((x,y) => x+y,0)
     document.querySelector('#checkout .cart-amount').innerHTML= totalItem
 }
+
 function total() {
   if(basket.length !== 0) {
     let amount = basket.map((x) => {
@@ -18,10 +19,8 @@ function total() {
     totalItems.innerText = `${formatNumber(amount)} đ`
   }
   else return totalItems.innerText = 0
-  handleRemoveItem()
-  handleIncrement()
-  handleDecrement()
 }
+
 function generateProList() {
   if(basket.length !== 0) {
     return listItem.innerHTML = basket.map((x) => {
@@ -49,56 +48,65 @@ function generateProList() {
     listItem.innerHTML = ``
   }
 }
+
 function generateUserInfo() {
   var a
   if(false) {
-    userInfo.innerHTML = `<div class="form-item">
-  <label for="kh_ten">Họ tên</label>
-  <input type="text" class="form-control" name="kh_ten" id="kh_ten"
-      value="Dương Nguyễn Phú Cường" readonly="">
+    userInfo.innerHTML = `
+    <div class="form-item">
+      <label for="username">Họ tên</label>
+      <input type="text" class="form-control" name="username" id="username" value="Dương Nguyễn Phú Cường">
+    </div>
+  <div class="form-item">
+    <label for="address">Địa chỉ</label>
+    <input type="text" class="form-control" name="address" id="address" value="130 Xô Viết Nghệ Tỉnh">
   </div>
   <div class="form-item">
-  <label for="kh_diachi">Địa chỉ</label>
-  <input type="text" class="form-control" name="kh_diachi" id="kh_diachi"
-      value="130 Xô Viết Nghệ Tỉnh" readonly="">
+    <label for="phoneNumber">Điện thoại</label>
+    <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="0915659223" pattern="[0-9]{10}" >
   </div>
   <div class="form-item">
-  <label for="kh_dienthoai">Điện thoại</label>
-  <input type="text" class="form-control" name="kh_dienthoai" id="kh_dienthoai"
-      value="0915659223" readonly="">
-  </div>
-  <div class="form-item">
-  <label for="kh_email">Email</label>
-  <input type="text" class="form-control" name="kh_email" id="kh_email"
-      value="phucuong@ctu.edu.vn" readonly="">
+    <label for="email">Email</label>
+    <input type="text" class="form-control" name="email" id="email" value="phucuong@ctu.edu.vn">
   </div>`
   } else {
     userInfo.innerHTML = `<div class="form-item">
-  <label for="kh_ten">Họ tên</label>
-  <input type="text" class="form-control" name="kh_ten" id="kh_ten"
-      value="">
+  <label for="username">Họ tên</label>
+  <input type="text" class="form-control" name="username" id="username"
+      value="" required="">
   </div>
   <div class="form-item">
-  <label for="kh_diachi">Địa chỉ</label>
-  <input type="text" class="form-control" name="kh_diachi" id="kh_diachi"
-      value="">
+  <label for="address">Địa chỉ</label>
+  <input type="text" class="form-control" name="address" id="address"
+      value="" required="" >
   </div>
   <div class="form-item">
-  <label for="kh_dienthoai">Điện thoại</label>
-  <input type="text" class="form-control" name="kh_dienthoai" id="kh_dienthoai"
-      value="" >
+  <label for="phoneNumber">Điện thoại</label>
+  <input type="text" class="form-control" name="phoneNumber" id="phoneNumber"
+      value="" required="" pattern="[0-9]{10}" >
   </div>
   <div class="form-item">
-  <label for="kh_email">Email</label>
-  <input type="text" class="form-control" name="kh_email" id="kh_email"
-      value="">
+  <label for="email">Email</label>
+  <input type="text" class="form-control" name="email" id="email"
+      value="" required="" pattern=".*@.*">
   </div>`
   }
 }
+
 function formatNumber(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
+function handleSubmit() {
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("needs-validation").addEventListener("submit", (e) => {
+    e.preventDefault()
+    console.log(e)
+  });
+});
 
 function start() {
   calculationItem()
