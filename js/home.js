@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function login(userName,userPass) {
     return user.find(function (u) {
-      return u.username === userName && u.password === userPass;
+      return u.tel === userName && u.password === userPass;
   });
 }
 function loadUser(){
