@@ -101,12 +101,34 @@ function handleSubmit() {
 
 }
 
-document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("needs-validation").addEventListener("submit", (e) => {
     e.preventDefault()
     console.log(e)
+    let username = document.getElementById("username")
+    let address = document.getElementById("address")
+    let email = document.getElementById("email")
+    let phoneNumber = document.getElementById("phoneNumber")
+    let payment = document.getElementById("phoneNumber")
+
+    if (basket.length == 0) {
+      alert("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm")
+    } else {
+      // perform operation with form input
+      alert("Chúc mừng bạn đã đặt hàng thành công!")
+      console.log(
+        `This form has a username of ${username.value}
+        This form has a username of ${address.value}
+        This form has a username of ${email.value}
+        This form has a username of ${phoneNumber.value}`
+      );
+      username.value = ""
+      address.value = ""
+      email.value = ""
+      phoneNumber.value = ""
+      window.localStorage.removeItem('data')
+      location.reload();
+    }
   });
-});
 
 function start() {
   calculationItem()
