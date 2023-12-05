@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 const hashPassword = (password) =>
   bcrypt.hashSync(password, bcrypt.genSaltSync(8));
 
-export const register = ({ username, password }) =>
+  export const register = ({ username, password }) =>
   new Promise(async (resolve, reject) => {
     try {
       const response = await db.User.findOrCreate({
@@ -30,10 +30,15 @@ export const register = ({ username, password }) =>
       resolve({
         err: response[1] ? 0 : 1,
         mes: response[1] ? "Register successfully" : "Username already taken",
-        token
+        token,
       });
-    } catch (error) {}
+    } catch (error) {
+      // Handle the error here
+      console.error("Error in register function:", error);
+      reject(error);
+    }
   });
+
 
 
 export const login = ({ username, password }) =>
