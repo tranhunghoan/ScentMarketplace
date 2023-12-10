@@ -1,8 +1,24 @@
-import { infoPerfume } from "./dataproduct.js"
+// import { infoPerfume } from "./dataproduct.js"
+const API_URL = 'http://localhost:3000/api/v1'
+let infoPerfume
 let listItem = document.getElementsByClassName('product-list')[0]
 let userInfo = document.getElementsByClassName('form-info')[0]
 let basket = JSON.parse(localStorage.getItem("data")) || []
 let totalItems = document.getElementById('total-price')
+
+async function getData() {
+  await fetch(`${API_URL}/get-pro`)
+  .then(res => {
+    return res.json()
+  })
+  .then(data => {
+    infoPerfume = data.proList
+    numberPage = Math.ceil(infoPerfume.length/18)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
 
 function calculationItem() {
   var totalItem = basket.map((x) => x.item).reduce((x,y) => x+y,0)
@@ -130,7 +146,8 @@ function handleSubmit() {
     }
   });
 
-function start() {
+async function start() {
+  await getData()
   calculationItem()
   generateProList()
   generateUserInfo()
