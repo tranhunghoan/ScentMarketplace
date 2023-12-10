@@ -9,6 +9,7 @@ export const register = async (req, res) => {
     // const {error} = joi.object({ username, password }).validate(req.body);
     // if (error) return badRequest(error.details[0]?.message, res);
     const response = await services.register(req.body);
+    console.log(response);
     return res.status(200).json(response);
   } catch (error) {
     return internalServerError(res);
@@ -17,8 +18,8 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    const { username, password } = req.body;
-    if (!username || !password)
+    const { phone, password } = req.body;
+    if (!phone || !password)
       return res.status(400).json({
         err: 1,
         mes: "Missing payloads",
