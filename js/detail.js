@@ -1,6 +1,22 @@
-import { infoPerfume } from "./dataproduct.js";
+const API_URL = 'http://localhost:3000/api/v1'
+let infoPerfume
 var queryParams = {};
 var basket = JSON.parse(localStorage.getItem("data")) || []
+
+async function getData() {
+    await fetch(`${API_URL}/get-pro`)
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      infoPerfume = data.proList
+      console.log(infoPerfume)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
 function handleURL(){
     var url = window.location.href;
     url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
@@ -10,18 +26,19 @@ function handleURL(){
 
 function renderDetailPage(queryParams){
    var idProduct=parseInt(queryParams.id)
-   var product=infoPerfume[idProduct-1]
+   var product=infoPerfume.find((x) => {return x.id == idProduct})
+   console.log(product)
    var detailHtml=`<div class="imageProduct">
         <div class="slide-image">
         <div class="wrap-slide">
-        <img class="perfume_image_detail " src=${product.image} >
+        <img class="perfume_image_detail " src="${product.image}">
         <img class="perfume_image_detail " src="../assets/images/mini-image1.jpg" >
         <img class="perfume_image_detail " src="../assets/images/mini-image2.jpg" >
         <img class="perfume_image_detail " src="../assets/images/mini-image3.jpg" >
         </div>
         </div>
         <div class="mini-image">
-        <img tax-index="1"class="perfume_image_detail " src=${product.image} >
+        <img tax-index="1"class="perfume_image_detail " src="${product.image}">
         <img tax-index="2"class="perfume_image_detail " src="../assets/images/mini-image1.jpg" >
         <img tax-index="3"class="perfume_image_detail " src="../assets/images/mini-image2.jpg" >
         <img tax-index="4"class="perfume_image_detail " src="../assets/images/mini-image3.jpg" >
@@ -134,7 +151,8 @@ function formatNumber(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
   
-function start(){
+async function start(){
+    await getData()
     handleURL()
     calculationItem()
     renderDetailPage(queryParams)

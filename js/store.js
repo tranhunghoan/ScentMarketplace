@@ -1,10 +1,24 @@
-import { infoPerfume } from "./dataproduct.js"
+const API_URL = 'http://localhost:3000/api/v1'
+let infoPerfume
+let numberPage
 var contentPage=''
 var buttonNextPage=''
 var currentPage=1
-var numberPage=Math.ceil(infoPerfume.length/18)
 var basket = JSON.parse(localStorage.getItem("data")) || []
 
+async function getData() {
+  await fetch(`${API_URL}/get-pro`)
+  .then(res => {
+    return res.json()
+  })
+  .then(data => {
+    infoPerfume = data.proList
+    numberPage = Math.ceil(infoPerfume.length/18)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
  function renderCard(perfume){ 
     return ` <div class="perfume">
     <div class="wrap_image">
@@ -260,7 +274,8 @@ function Pagination(){
       
       
 }
-function start(){
+async function start(){
+  await getData()
   calculationItem()
   renderPage(1,numberPage,infoPerfume)
   deleteFilter()
