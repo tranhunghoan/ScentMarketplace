@@ -1,6 +1,6 @@
 import db from "../models";
 
-export const getAll = () =>
+export const getAllPro = () =>
   new Promise(async (resolve, reject) => {
     try {
       const response = await db.Product.findAll();

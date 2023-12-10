@@ -1,9 +1,10 @@
 import db from "../models";
-import data from "../data/data.json"
+import dataPro from "../data/dataPro.json"
+import dataBlog from "../data/dataBlog.json"
 
-export const insert = () => new Promise(async (resolve, reject) => {
+export const insertPro = () => new Promise(async (resolve, reject) => {
     try {
-        data.forEach(async (item) => {
+        dataPro.forEach(async (item) => {
             await db.Product.create({
                 image: item.image,
                 sex: item.sex,
@@ -17,10 +18,27 @@ export const insert = () => new Promise(async (resolve, reject) => {
                 description: item.description,
             })
         })
-        resolve("ok");
+        resolve("Inserted product list successfully");
     } catch (error) {
         // Handle the error here
-        console.error("Error in register function:", error);
+        console.error("Error in product function:", error);
+        reject(error);
+    }
+});
+export const insertBlog = () => new Promise(async (resolve, reject) => {
+    try {
+        dataBlog.forEach(async (item) => {
+            await db.Blog.create({
+                title: item.title,
+                image: item.image,
+                date: item.date,
+                content: item.content
+            })
+        })
+        resolve("Inserted blog list successfully");
+    } catch (error) {
+        // Handle the error here
+        console.error("Error in blog function:", error);
         reject(error);
     }
 });

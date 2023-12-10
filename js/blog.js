@@ -1,7 +1,23 @@
-import { infoBlog } from "./datablog.js"
+// import { infoBlog } from "./datablog.js"
+const API_URL = 'http://localhost:3000/api/v1'
+let infoBlog
+var numberPage
 var contentPage='';
 var currentPage=1;
-var numberPage=Math.ceil(infoBlog.length/9);
+
+async function getData() {
+    await fetch(`${API_URL}/get-blog`)
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+        infoBlog = data.blogList
+        numberPage = Math.ceil(infoBlog.length/9)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
  function renderBlog(blog){ 
     return `
@@ -43,8 +59,8 @@ function handleNextPage(blogs){
 }
 }
 }
-function start(){
-    
+async function start(){
+    await getData()
     renderPage(1,infoBlog);
     handlePage(infoBlog);
     handleNextPage(infoBlog);
