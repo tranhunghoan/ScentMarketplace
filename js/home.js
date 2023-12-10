@@ -104,14 +104,14 @@ function formregis(){
 }
 
 
-function regis(event) {
+async function regis(event) {
   event.preventDefault();
   var username = document.getElementById("username").value;
   var email = document.getElementById("email").value;
   var tel = document.getElementById("tel").value;
   var password = document.getElementById("pass").value;
   var address = document.getElementById("address").value;
-  // Tạo đối tượng người dùng mới
+
   var newUser = {
     username: username,
     tel: tel,
@@ -119,12 +119,29 @@ function regis(event) {
     address: address,
     password: password
   };
-  user.push(newUser);
-  //localStorage.setItem('user', JSON.stringify(user));
-  localStorage.setItem('isLoggedIn', 'false');
-  window.location.href = "./login.html";
+
+  try {
+    const response = await fetch('http://localhost:3000/api/v1/auth/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    });
+
+    if (response.ok) {
+      localStorage.setItem('isLoggedIn', 'false');
+      window.location.href = "./login.html";
+    } else {
+      console.error('Failed to register:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Error during registration:', error);
+  }
+
   return false;
 }
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var regisForm = document.getElementById('form-register');
@@ -147,28 +164,48 @@ document.addEventListener('DOMContentLoaded', function () {
 var currentUser="nnnnn";
 document.addEventListener('DOMContentLoaded', function () {
   var loginForm = document.getElementById('form-login');
-  loginForm.addEventListener('submit', function (event) {
+  loginForm.addEventListener('submit', async function (event) {
     var userName = document.getElementById('username').value;
     var userPass = document.getElementById('password').value;
     var errorContainer = document.getElementById('account-null');
-    if ((!userName || !userPass)) {
+
+    if (!userName || !userPass) {
       errorContainer.textContent = "Bạn chưa nhập tên đăng nhập hoặc mật khẩu!";
       event.preventDefault();
     } else {
       errorContainer.textContent = "";
-      var loginResult = login(userName, userPass);
-      if (!loginResult) {
-        errorContainer.textContent = "Tài khoản đăng nhập chưa chính xác!";
+
+      try {
+        const response = await fetch('http://localhost:3000/api/v1/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            phone: userName,
+            password: userPass,
+          }),
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          localStorage.setItem('isLoggedIn', 'true');
+          currentUser = userName;
+        } else {
+          console.error('Failed to login:', response.statusText);
+          errorContainer.textContent = "Tài khoản đăng nhập chưa chính xác!";
+          localStorage.setItem('isLoggedIn', 'false');
+          event.preventDefault();
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
         localStorage.setItem('isLoggedIn', 'false');
         event.preventDefault();
-      }
-      else{
-        localStorage.setItem('isLoggedIn', 'true');
-        currentUser = userName;
       }
     }
   });
 });
+
 
 function login(userName,userPass) {
     return user.find(function (u) {

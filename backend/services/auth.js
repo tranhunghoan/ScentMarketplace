@@ -5,14 +5,17 @@ import jwt from "jsonwebtoken";
 const hashPassword = (password) =>
   bcrypt.hashSync(password, bcrypt.genSaltSync(8));
 
-  export const register = ({ username, password }) =>
+export const register = ({ username, email, phone, password, address }) =>
   new Promise(async (resolve, reject) => {
     try {
       const response = await db.User.findOrCreate({
         where: { username },
         defaults: {
           username,
+          email,
+          phone,
           password: hashPassword(password),
+          address,
         },
       });
       const token = response[1]
@@ -20,8 +23,7 @@ const hashPassword = (password) =>
             {
               id: response[0].id,
               username: response[0].username,
-              email: response[0].email,
-              role_code: response[0].role_code,
+              phone: response[0].phone,
             },
             process.env.JWT_SECRET,
             { expiresIn: "5d" }
@@ -29,7 +31,7 @@ const hashPassword = (password) =>
         : null;
       resolve({
         err: response[1] ? 0 : 1,
-        mes: response[1] ? "Register successfully" : "Username already taken",
+        mes: response[1] ? "Register successfully" : "Phone already taken",
         token,
       });
     } catch (error) {
@@ -39,22 +41,21 @@ const hashPassword = (password) =>
     }
   });
 
-
-
-export const login = ({ username, password }) =>
+export const login = ({ phone, password }) =>
   new Promise(async (resolve, reject) => {
     try {
-      const response = await db.User.findOne({  
-        where: { username },
-        raw:true
+      const response = await db.User.findOne({
+        where: { phone },
+        raw: true,
       });
-      const isCheck = response && bcrypt.compareSync(password, response.password)
-      const token = isCheck ? jwt.sign(
+      const isCheck =
+        response && bcrypt.compareSync(password, response.password);
+      const token = isCheck
+        ? jwt.sign(
             {
               id: response.id,
               username: response.username,
-              email: response.email,
-              role_code: response.role_code,
+              phone: response.phone,
             },
             process.env.JWT_SECRET,
             { expiresIn: "5d" }
@@ -62,8 +63,12 @@ export const login = ({ username, password }) =>
         : null;
       resolve({
         err: token ? 0 : 1,
-        mes: token ? "Login successfully" : response ? 'Incorrect password': 'Username not found',
-        'access_token': token ? `Bearer ${token}` : null
+        mes: token
+          ? "Login successfully"
+          : response
+          ? "Incorrect password"
+          : "Phone not found",
+        access_token: token ? `Bearer ${token}` : null,
       });
     } catch (error) {}
   });
