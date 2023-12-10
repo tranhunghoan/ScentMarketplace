@@ -31,7 +31,7 @@ function renderDetailPage(queryParams){
    <div class="box-meta">
    <i class="fa fa-calendar" aria-hidden="true"></i> <span>Ngày đăng: ${blog.date}</span>
     </div>
-   <img class="image" src="${blog.image}">
+    <img class="image" src="${blog.image}">
    <div class="content">${blog.content}</div>
    `
     document.querySelector('.detailBlogPage').innerHTML=detailHtml

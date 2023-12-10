@@ -11,6 +11,9 @@
     clear: both;
     margin: 0 auto;
     width: 90%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
 }
 .detailBlogPage image {
     border-radius: 1.5%;
