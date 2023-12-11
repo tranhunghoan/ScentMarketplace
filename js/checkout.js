@@ -5,7 +5,7 @@ let listItem = document.getElementsByClassName('product-list')[0]
 let userInfo = document.getElementsByClassName('form-info')[0]
 let basket = JSON.parse(localStorage.getItem("data")) || []
 let totalItems = document.getElementById('total-price')
-
+let isLoggedIn = localStorage.getItem('isLoggedIn') || false
 async function getData() {
   await fetch(`${API_URL}/get-pro`)
   .then(res => {
@@ -13,7 +13,6 @@ async function getData() {
   })
   .then(data => {
     infoPerfume = data.proList
-    numberPage = Math.ceil(infoPerfume.length/18)
   })
   .catch(err => {
     console.log(err)
@@ -66,8 +65,7 @@ function generateProList() {
 }
 
 function generateUserInfo() {
-  var a
-  if(false) {
+  if(isLoggedIn == true) {
     userInfo.innerHTML = `
     <div class="form-item">
       <label for="username">Họ tên</label>
