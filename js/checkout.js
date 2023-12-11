@@ -114,15 +114,14 @@ function formatNumber(number) {
 function handleSubmit() {
 
 }
-
-  document.getElementById("needs-validation").addEventListener("submit", (e) => {
+document.addEventListener('DOMContentLoaded', function () {
+  let formEL = document.getElementById("needs-validation")
+  formEL.addEventListener("submit", (e) => {
     e.preventDefault()
-    console.log(e)
-    let username = document.getElementById("username")
-    let address = document.getElementById("address")
-    let email = document.getElementById("email")
-    let phoneNumber = document.getElementById("phoneNumber")
-    let payment = document.getElementById("phoneNumber")
+    const formData = new FormData(formEL)
+    const payment = document.querySelector('input[name="payment"]:checked').value
+    const data = {payment: payment, ...Object.fromEntries(formData)}
+    console.log(data)
 
     if (basket.length == 0) {
       alert("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm")
@@ -143,6 +142,8 @@ function handleSubmit() {
       location.reload();
     }
   });
+})
+  
 
 async function start() {
   await getData()

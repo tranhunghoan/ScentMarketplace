@@ -498,7 +498,6 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    position: relative;
   }
   .mobile {
     display: flex;
