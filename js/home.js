@@ -114,7 +114,7 @@ async function regis(event) {
 
   var newUser = {
     username: username,
-    tel: tel,
+    phone: tel,
     email: email,
     address: address,
     password: password
@@ -161,21 +161,22 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //Đăng nhập
-var currentUser="nnnnn";
+
 document.addEventListener('DOMContentLoaded', function () {
   var loginForm = document.getElementById('form-login');
   loginForm.addEventListener('submit', async function (event) {
+    event.preventDefault();
     var userName = document.getElementById('username').value;
     var userPass = document.getElementById('password').value;
     var errorContainer = document.getElementById('account-null');
-
+    
     if (!userName || !userPass) {
       errorContainer.textContent = "Bạn chưa nhập tên đăng nhập hoặc mật khẩu!";
-      event.preventDefault();
     } else {
-      errorContainer.textContent = "";
+      // console.log("hello");
       try {
-        const response = await fetch('http://localhost:3000/api/v1/auth/login', {
+
+        var response = await fetch('http://localhost:3000/api/v1/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -185,11 +186,13 @@ document.addEventListener('DOMContentLoaded', function () {
             password: userPass,
           }),
         });
-
+        console.log(response)
         if (response.ok) {
           const result = await response.json();
+          console.log(result);
           localStorage.setItem('isLoggedIn', 'true');
-          currentUser = userName;
+          window.location.href = './home.html';
+          // currentUser = userName;
         } else {
           console.error('Failed to login:', response.statusText);
           errorContainer.textContent = "Tài khoản đăng nhập chưa chính xác!";
@@ -206,14 +209,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function login(userName,userPass) {
-    return user.find(function (u) {
-      return u.tel === userName && u.password === userPass;
-  });
-}
-function loadUser(){
-  document.getElementById('pro-user').textContent = currentUser;
-}
+// function login(userName,userPass) {
+//     return user.find(function (u) {
+//       return u.tel === userName && u.password === userPass;
+//   });
+// }
+// function loadUser(){
+//   document.getElementById('pro-user').textContent = currentUser;
+// }
 document.addEventListener('DOMContentLoaded', function () {
   var userLink = document.getElementById('user-link');
   var mUserLink=document.getElementById('m-user-link');
@@ -310,6 +313,6 @@ document.addEventListener('DOMContentLoaded', function () {
 //load store
 function start(){
   formregis()
-  loadUser()
+  // loadUser()
 }
 start()
