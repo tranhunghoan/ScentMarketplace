@@ -1,8 +1,8 @@
 //banner
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   let currentSlide = 1;
   const totalSlides = 3;
-  const slideDuration = 5000; 
+  const slideDuration = 5000;
 
   function nextSlide() {
     currentSlide = (currentSlide % totalSlides) + 1;
@@ -13,96 +13,100 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 //dropdown navbar
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("bar").addEventListener("click", function () {
-        console.log("Clicked #bar");
-        var menuList = document.querySelector('.menu-list');
-        menuList.classList.toggle('active');
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("bar").addEventListener("click", function () {
+    console.log("Clicked #bar");
+    var menuList = document.querySelector(".menu-list");
+    menuList.classList.toggle("active");
 
-        var icons = document.querySelectorAll('.mobile .icons');
-        icons.forEach(function(icon) {
-            icon.style.display = 'none';
-        });
-
-        document.getElementById("xmark").style.display = 'initial';
-        console.log("#xmark displayed");
+    var icons = document.querySelectorAll(".mobile .icons");
+    icons.forEach(function (icon) {
+      icon.style.display = "none";
     });
 
-    document.getElementById("xmark").addEventListener("click", function () {
-        console.log("Clicked #xmark");
-        var menuList = document.querySelector('.menu-list');
-        menuList.classList.remove('active');
+    document.getElementById("xmark").style.display = "initial";
+    console.log("#xmark displayed");
+  });
 
-        var icons = document.querySelectorAll('.mobile .icons');
-        icons.forEach(function(icon) {
-            icon.style.display = 'flex';
-        });
+  document.getElementById("xmark").addEventListener("click", function () {
+    console.log("Clicked #xmark");
+    var menuList = document.querySelector(".menu-list");
+    menuList.classList.remove("active");
 
-        document.getElementById("xmark").style.display = 'none';
-        console.log("#xmark hidden");
+    var icons = document.querySelectorAll(".mobile .icons");
+    icons.forEach(function (icon) {
+      icon.style.display = "flex";
     });
 
+    document.getElementById("xmark").style.display = "none";
+    console.log("#xmark hidden");
+  });
 });
 
 // giữ trạng thái trang truy cập trang
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var currentPageUrl = window.location.href;
-  var menuLinks = document.querySelectorAll('.menu-list li a');
-  menuLinks.forEach(function(link) {
+  var menuLinks = document.querySelectorAll(".menu-list li a");
+  menuLinks.forEach(function (link) {
     if (link.href === currentPageUrl) {
-      link.classList.add('active');
+      link.classList.add("active");
     }
   });
 });
 
 //đăng ký, kiểm tra password
 //eye-login
-import { user } from "./datauser.js"; 
-document.addEventListener('DOMContentLoaded', function () {
-  var passwordInput = document.getElementById('password');
-  var togglePassword = document.getElementById('toggle-password');
+import { user } from "./datauser.js";
+document.addEventListener("DOMContentLoaded", function () {
+  var passwordInput = document.getElementById("password");
+  var togglePassword = document.getElementById("toggle-password");
 
-  togglePassword.addEventListener('click', function () {
-      var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordInput.setAttribute('type', type);
+  togglePassword.addEventListener("click", function () {
+    var type =
+      passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
   });
 });
 //eye-regis
-document.addEventListener('DOMContentLoaded', function () {
-  var passwordInput = document.getElementById('pass');
-  var togglePassword = document.getElementById('toggle-password');
+document.addEventListener("DOMContentLoaded", function () {
+  var passwordInput = document.getElementById("pass");
+  var togglePassword = document.getElementById("toggle-password");
 
-  togglePassword.addEventListener('click', function () {
-      var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordInput.setAttribute('type', type);
+  togglePassword.addEventListener("click", function () {
+    var type =
+      passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var passwordInput = document.getElementById('repass');
-  var togglePassword = document.getElementById('rtoggle-password');
+document.addEventListener("DOMContentLoaded", function () {
+  var passwordInput = document.getElementById("repass");
+  var togglePassword = document.getElementById("rtoggle-password");
 
-  togglePassword.addEventListener('click', function () {
-      var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordInput.setAttribute('type', type);
+  togglePassword.addEventListener("click", function () {
+    var type =
+      passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
   });
 });
-document.addEventListener('DOMContentLoaded', function () {
-  var passwordInput = document.getElementById('pass-l');
-  var togglePassword = document.getElementById('toggle-password');
+document.addEventListener("DOMContentLoaded", function () {
+  var passwordInput = document.getElementById("pass-l");
+  var togglePassword = document.getElementById("toggle-password");
 
-  togglePassword.addEventListener('click', function () {
-  console.log('Clicked on the eye icon');
-  var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-  passwordInput.setAttribute('type', type);
+  togglePassword.addEventListener("click", function () {
+    console.log("Clicked on the eye icon");
+    var type =
+      passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
   });
-  });
-function formregis(){
-  document.getElementById('register-button').addEventListener("click", function () {
-    location.assign("./register.html");
-  });
+});
+function formregis() {
+  document
+    .getElementById("register-button")
+    .addEventListener("click", function () {
+      location.assign("./register.html");
+    });
 }
-
 
 async function regis(event) {
   event.preventDefault();
@@ -117,97 +121,96 @@ async function regis(event) {
     phone: tel,
     email: email,
     address: address,
-    password: password
+    password: password,
   };
 
   try {
-    const response = await fetch('http://localhost:3000/api/v1/auth/register', {
-      method: 'POST',
+    const response = await fetch("http://localhost:3000/api/v1/auth/register", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(newUser),
     });
 
     if (response.ok) {
-      localStorage.setItem('isLoggedIn', 'false');
+      localStorage.setItem("isLoggedIn", "false");
       window.location.href = "./login.html";
     } else {
-      console.error('Failed to register:', response.statusText);
+      console.error("Failed to register:", response.statusText);
     }
   } catch (error) {
-    console.error('Error during registration:', error);
+    console.error("Error during registration:", error);
   }
 
   return false;
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  var regisForm = document.getElementById("form-register");
+  regisForm.addEventListener("submit", function (event) {
+    var password = document.getElementById("pass").value;
+    var confirmPassword = document.getElementById("repass").value;
+    var errorContainer = document.getElementById("password-error");
 
-document.addEventListener('DOMContentLoaded', function () {
-  var regisForm = document.getElementById('form-register');
-  regisForm.addEventListener('submit', function (event) {
-      var password = document.getElementById("pass").value;
-      var confirmPassword = document.getElementById("repass").value;
-      var errorContainer = document.getElementById('password-error');
-
-      if (password !== confirmPassword) {
-          errorContainer.textContent = "Mật khẩu nhập lại không khớp!";
-          event.preventDefault(); 
-      } else {
-          errorContainer.textContent = ""; 
-          return regis(event);
-      }
+    if (password !== confirmPassword) {
+      errorContainer.textContent = "Mật khẩu nhập lại không khớp!";
+      event.preventDefault();
+    } else {
+      errorContainer.textContent = "";
+      return regis(event);
+    }
   });
 });
 
 //Đăng nhập
 
-document.addEventListener('DOMContentLoaded', function () {
-  var loginForm = document.getElementById('form-login');
-  loginForm.addEventListener('submit', async function (event) {
+document.addEventListener("DOMContentLoaded", function () {
+  var loginForm = document.getElementById("form-login");
+  loginForm.addEventListener("submit", async function (event) {
     event.preventDefault();
-    var userName = document.getElementById('username').value;
-    var userPass = document.getElementById('password').value;
-    var errorContainer = document.getElementById('account-null');
-    
+    var userName = document.getElementById("username").value;
+    var userPass = document.getElementById("password").value;
+    var errorContainer = document.getElementById("account-null");
+    // console.log("hello")
     if (!userName || !userPass) {
       errorContainer.textContent = "Bạn chưa nhập tên đăng nhập hoặc mật khẩu!";
     } else {
-      // console.log("hello");
       try {
-
-        var response = await fetch('http://localhost:3000/api/v1/auth/login', {
-          method: 'POST',
+        // console.log("hello")
+        var response = await fetch("http://localhost:3000/api/v1/auth/login", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             phone: userName,
             password: userPass,
           }),
         });
-        console.log(response)
-        if (response.ok) {
-          const result = await response.json();
-          console.log(result);
-          localStorage.setItem('isLoggedIn', 'true');
-          window.location.href = './home.html';
+        // console.log(response);
+        const result = await response.json();
+
+        // console.log(result);
+        if (!result.err) {
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("access_token_SM", result.access_token);
+          window.location.href = "./home.html";
           // currentUser = userName;
         } else {
-          console.error('Failed to login:', response.statusText);
+          console.error("Failed to login:", response.statusText);
           errorContainer.textContent = "Tài khoản đăng nhập chưa chính xác!";
-          localStorage.setItem('isLoggedIn', 'false');
-          event.preventDefault();
+          localStorage.setItem("isLoggedIn", "false");
+          // Remove event.preventDefault() from here
         }
       } catch (error) {
-        console.error('Error during login:', error);
-        localStorage.setItem('isLoggedIn', 'false');
-        event.preventDefault();
+        console.error("Error during login:", error);
+        localStorage.setItem("isLoggedIn", "false");
+        // Remove event.preventDefault() from here
       }
     }
   });
 });
-
 
 // function login(userName,userPass) {
 //     return user.find(function (u) {
@@ -217,48 +220,48 @@ document.addEventListener('DOMContentLoaded', function () {
 // function loadUser(){
 //   document.getElementById('pro-user').textContent = currentUser;
 // }
-document.addEventListener('DOMContentLoaded', function () {
-  var userLink = document.getElementById('user-link');
-  var mUserLink=document.getElementById('m-user-link');
-  var isLoggedIn = localStorage.getItem('isLoggedIn');
+document.addEventListener("DOMContentLoaded", function () {
+  var userLink = document.getElementById("user-link");
+  var mUserLink = document.getElementById("m-user-link");
+  var isLoggedIn = localStorage.getItem("isLoggedIn");
 
-  if (isLoggedIn === 'true') {
+  if (isLoggedIn === "true") {
     // Nếu đăng nhập, hiển thị icon user
     userLink.innerHTML = '<i class="fa-solid fa-user"></i>';
     mUserLink.innerHTML = '<i class="fa-solid fa-user"></i>';
-    userLink.href = './user.html';
-    mUserLink.href='./user.html';
+    userLink.href = "./user.html";
+    mUserLink.href = "./user.html";
   } else {
     // Nếu chưa đăng nhập, hiển thị icon login
     userLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
     mUserLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
-    userLink.href = './login.html';
-    mUserLink.href = './login.html';
+    userLink.href = "./login.html";
+    mUserLink.href = "./login.html";
   }
 });
 
 // lấy dữ liệu cho user
-document.addEventListener('DOMContentLoaded', function () {
-  var profileLink = document.getElementById('profile');
-  var changePassLink = document.getElementById('change-pass');
-  var userForm = document.getElementById('user-form');
-  var proWrapper = document.getElementById('pro-wrapper');
-  var changeWrapper = document.getElementById('change-wrapper');
+document.addEventListener("DOMContentLoaded", function () {
+  var profileLink = document.getElementById("profile");
+  var changePassLink = document.getElementById("change-pass");
+  var userForm = document.getElementById("user-form");
+  var proWrapper = document.getElementById("pro-wrapper");
+  var changeWrapper = document.getElementById("change-wrapper");
 
   showUserInfo();
-  profileLink.addEventListener('click', function (event) {
+  profileLink.addEventListener("click", function (event) {
     event.preventDefault();
     showUserInfo();
   });
 
   //click vào "Đổi mật khẩu"
-  changePassLink.addEventListener('click', function (event) {
+  changePassLink.addEventListener("click", function (event) {
     event.preventDefault();
     showChangePasswordForm();
   });
 
   // Xử lý sự kiện khi submit form cập nhật thông tin người dùng
-  userForm.addEventListener('submit', function (event) {
+  userForm.addEventListener("submit", function (event) {
     event.preventDefault();
     updateUserInfo();
     // Hiển thị lại thông tin người dùng sau khi cập nhật
@@ -266,14 +269,74 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function showUserInfo() {
-    // Ẩn form đổi mật khẩu
-    proWrapper.style.display = 'block';
-    changeWrapper.style.display = 'none';
+    proWrapper.style.display = "block";
+    changeWrapper.style.display = "none";
+    getUser();
+
+    console.log(access_token);
+
+    async function getUser() {
+      const access_token = localStorage.getItem("access_token_SM");
+      const API_URL = "http://localhost:3000/api/v1";
+      try {
+        const response = await fetch(`${API_URL}/user`, {
+          method: "GET",
+          headers: {
+            Authorization: access_token,
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const userData = await response.json();
+        const data = userData.userData
+        // Gọi hàm để điền thông tin người dùng vào các trường trên trang
+        fillUserData(data);
+      } catch (error) {
+        console.error("Error fetching user data:", error.message);
+      }
+    }
+
+    // Hàm để điền thông tin người dùng vào các trường trên trang
+    function fillUserData(userData) {
+      const usernameInput = document.getElementById("username-l");
+      const emailInput = document.getElementById("email-l");
+      const telInput = document.getElementById("tel-l");
+      const addressInput = document.getElementById("address-l");
+    
+      // Check if the DOM elements exist before trying to update them
+      if (usernameInput) {
+        usernameInput.value = userData.username || ""; // Use the userData object properties
+      }
+    
+      if (emailInput) {
+        emailInput.value = userData.email || "";
+      }
+    
+      if (telInput) {
+        telInput.value = userData.phone || "";
+      }
+    
+      if (addressInput) {
+        addressInput.value = userData.address || "";
+      }
+    }
+
+    // Kiểm tra xem có dữ liệu người dùng không trước khi điền vào trường
+    // if (userData) {
+    //   usernameInput.value = userData.username || "";
+    //   emailInput.value = userData.email || "";
+    //   telInput.value = userData.tel || "";
+    //   addressInput.value = userData.address || "";
+    // }
   }
 
   function showChangePasswordForm() {
-    proWrapper.style.display = 'none';
-    changeWrapper.style.display = 'block';
+    proWrapper.style.display = "none";
+    changeWrapper.style.display = "block";
     changeWrapper.innerHTML = `
       <form onsubmit="changePassword(event)">
         <h1 class="form-heading">Đổi mật khẩu</h1>
@@ -297,22 +360,21 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var logoutbutton= document.getElementById('logout');
-  var userLink= document.getElementById('user-link');
-  var mUserLink= document.getElementById('m-user-link');
-  logoutbutton.addEventListener('click', function(){
-    localStorage.setItem('isLoggedIn', 'false');
+document.addEventListener("DOMContentLoaded", function () {
+  var logoutbutton = document.getElementById("logout");
+  var userLink = document.getElementById("user-link");
+  var mUserLink = document.getElementById("m-user-link");
+  logoutbutton.addEventListener("click", function () {
+    localStorage.setItem("isLoggedIn", "false");
     userLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
     mUserLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
-    window.location.href = './home.html';
-  }) 
+    window.location.href = "./home.html";
+  });
 });
 
-
 //load store
-function start(){
-  formregis()
+function start() {
+  formregis();
   // loadUser()
 }
-start()
+start();
