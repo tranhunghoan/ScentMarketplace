@@ -1,7 +1,22 @@
-import { infoPerfume } from "./dataproduct.js"
+// import { infoPerfume } from "./dataproduct.js"
+const API_URL = 'http://localhost:3000/api/v1'
+let infoPerfume
 let cart = document.getElementsByClassName('shopping-cart-container')[0]
 let basket = JSON.parse(localStorage.getItem("data")) || []
 let totalItems = document.getElementById('total-price')
+
+async function getData() {
+  await fetch(`${API_URL}/get-pro`)
+  .then(res => {
+    return res.json()
+  })
+  .then(data => {
+    infoPerfume = data.proList
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
 
 function handleIncrement() {
   var incrementBtns = document.querySelectorAll('.increment')
@@ -119,7 +134,8 @@ if(document.readyState == 'loading') {
 }else {
   ready();
 }
-function ready() {
+async function ready() {
+  await getData()
   generateCart()
   total()
   handleRemoveItem()
