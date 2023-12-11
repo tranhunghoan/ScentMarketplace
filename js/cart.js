@@ -4,7 +4,6 @@ let infoPerfume
 let cart = document.getElementsByClassName('shopping-cart-container')[0]
 let basket = JSON.parse(localStorage.getItem("data")) || []
 let totalItems = document.getElementById('total-price')
-
 async function getData() {
   await fetch(`${API_URL}/get-pro`)
   .then(res => {
