@@ -100,7 +100,7 @@ function generateCart() {
           <i class="fas fa-trash trash" data-index="${x.id}"></i>
       </div>
       `
-    })
+    }).join('')
   }else {
     cart.innerHTML = ``
   }

@@ -1,6 +1,8 @@
 // import { infoPerfume } from "./dataproduct.js"
 const API_URL = 'http://localhost:3000/api/v1'
+const access_token = localStorage.getItem("access_token_SM");
 let infoPerfume
+let infoUser
 let listItem = document.getElementsByClassName('product-list')[0]
 let userInfo = document.getElementsByClassName('form-info')[0]
 let basket = JSON.parse(localStorage.getItem("data")) || []
@@ -17,6 +19,24 @@ async function getData() {
   .catch(err => {
     console.log(err)
   })
+  try {
+    const response = await fetch(`${API_URL}/user`, {
+      method: "GET",
+      headers: {
+        Authorization: access_token,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const userData = await response.json();
+    infoUser = userData.userData
+  } catch (error) {
+    console.error("Error fetching user data:", error.message);
+  }
 }
 
 function calculationItem() {
@@ -40,11 +60,7 @@ function generateProList() {
   if(basket.length !== 0) {
     return listItem.innerHTML = basket.map((x) => {
       var search = infoPerfume.find((y) => y.id == x.id ) || []
-      return `
-      <input type="hidden" name="id" value="${x.id}">
-      <input type="hidden" name="price" value="${search.price}">
-      <input type="hidden" name="item" value="${x.item}">
-
+      return  `
       <li>
           <div id="cart-id-${search.id}" class="shopping-cart-box">
               <div style="width: auto;">
@@ -58,31 +74,31 @@ function generateProList() {
           </div>
       </li>
       `
-    })
+    }).join('')
   }else {
-    listItem.innerHTML = ``
+    listItem.innerHTML = ` `
   }
 }
 
 function generateUserInfo() {
-  console.log(typeof isLoggedIn)
+  console.log(infoUser)
   if(isLoggedIn == 'true') {
     userInfo.innerHTML = `
     <div class="form-item">
       <label for="username">Họ tên</label>
-      <input type="text" class="form-control" name="username" id="username" value="Dương Nguyễn Phú Cường">
+      <input type="text" class="form-control" name="username" id="username" value="${infoUser.username}">
     </div>
   <div class="form-item">
     <label for="address">Địa chỉ</label>
-    <input type="text" class="form-control" name="address" id="address" value="130 Xô Viết Nghệ Tỉnh">
+    <input type="text" class="form-control" name="address" id="address" value="${infoUser.address}">
   </div>
   <div class="form-item">
     <label for="phoneNumber">Điện thoại</label>
-    <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="0915659223" pattern="[0-9]{10}" >
+    <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="${infoUser.phone}" pattern="[0-9]{10}" >
   </div>
   <div class="form-item">
     <label for="email">Email</label>
-    <input type="text" class="form-control" name="email" id="email" value="phucuong@ctu.edu.vn">
+    <input type="text" class="form-control" name="email" id="email" value="${infoUser.email}">
   </div>`
   } else {
     userInfo.innerHTML = `<div class="form-item">
@@ -117,32 +133,42 @@ function handleSubmit() {
 }
 document.addEventListener('DOMContentLoaded', function () {
   let formEL = document.getElementById("needs-validation")
-  formEL.addEventListener("submit", (e) => {
+  formEL.addEventListener("submit", async(e) => {
     e.preventDefault()
     const formData = new FormData(formEL)
     const payment = document.querySelector('input[name="payment"]:checked').value
-    const data = {payment: payment, ...Object.fromEntries(formData)}
-    console.log(data)
-
-    if (basket.length == 0) {
-      alert("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm")
-    } else {
-      // perform operation with form input
-      alert("Chúc mừng bạn đã đặt hàng thành công!")
-      console.log(
-        `This form has a username of ${username.value}
-        This form has a username of ${address.value}
-        This form has a username of ${email.value}
-        This form has a username of ${phoneNumber.value}`
-      );
-      username.value = ""
-      address.value = ""
-      email.value = ""
-      phoneNumber.value = ""
-      window.localStorage.removeItem('data')
-      location.reload();
+    const data = {
+      payment: payment,
+      proList: basket,
+      ...Object.fromEntries(formData)}
+    console.log(basket)
+    try {
+      let response = await fetch("http://localhost:3000/api/v1/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+      console.log(response)
     }
-  });
+    catch (error) {
+      console.error(error)
+    }
+
+  //   if (basket.length == 0) {
+  //     alert("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm")
+  //   } else {
+  //     // perform operation with form input
+  //     alert("Chúc mừng bạn đã đặt hàng thành công!")
+  //     username.value = ""
+  //     address.value = ""
+  //     email.value = ""
+  //     phoneNumber.value = ""
+  //     window.localStorage.removeItem('data')
+  //     location.reload();
+  //   }
+  })
 })
   
 
