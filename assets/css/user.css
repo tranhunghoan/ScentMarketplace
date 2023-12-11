@@ -16,7 +16,7 @@ body{
 .user-page{
     display: flex;
     max-width: 700px;
-    margin:10px auto;
+    margin: 20px auto;
     padding: 5px;
     height: 350px;
 }

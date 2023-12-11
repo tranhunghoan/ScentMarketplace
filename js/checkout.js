@@ -65,7 +65,8 @@ function generateProList() {
 }
 
 function generateUserInfo() {
-  if(isLoggedIn == true) {
+  console.log(typeof isLoggedIn)
+  if(isLoggedIn == 'true') {
     userInfo.innerHTML = `
     <div class="form-item">
       <label for="username">Họ tên</label>
