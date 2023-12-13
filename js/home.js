@@ -192,21 +192,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const result = await response.json();
 
         // console.log(result);
-        if (!result.err) {
+        if (!result.err) {  
           localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("access_token_SM", result.access_token);
           window.location.href = "./home.html";
-          // currentUser = userName;
         } else {
           console.error("Failed to login:", response.statusText);
           errorContainer.textContent = "Tài khoản đăng nhập chưa chính xác!";
           localStorage.setItem("isLoggedIn", "false");
-          // Remove event.preventDefault() from here
         }
       } catch (error) {
         console.error("Error during login:", error);
         localStorage.setItem("isLoggedIn", "false");
-        // Remove event.preventDefault() from here
       }
     }
   });
@@ -263,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Xử lý sự kiện khi submit form cập nhật thông tin người dùng
   userForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    updateUserInfo();
+    // updateUserInfo();
     // Hiển thị lại thông tin người dùng sau khi cập nhật
     showUserInfo();
   });
@@ -272,8 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
     proWrapper.style.display = "block";
     changeWrapper.style.display = "none";
     getUser();
-
-    console.log(access_token);
+  }
 
     async function getUser() {
       const access_token = localStorage.getItem("access_token_SM");
@@ -324,15 +320,6 @@ document.addEventListener("DOMContentLoaded", function () {
         addressInput.value = userData.address || "";
       }
     }
-
-    // Kiểm tra xem có dữ liệu người dùng không trước khi điền vào trường
-    // if (userData) {
-    //   usernameInput.value = userData.username || "";
-    //   emailInput.value = userData.email || "";
-    //   telInput.value = userData.tel || "";
-    //   addressInput.value = userData.address || "";
-    // }
-  }
 
   function showChangePasswordForm() {
     proWrapper.style.display = "none";

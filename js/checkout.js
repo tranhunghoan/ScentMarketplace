@@ -138,10 +138,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const formData = new FormData(formEL)
     const payment = document.querySelector('input[name="payment"]:checked').value
     const data = {
+      accessToken: access_token,  
       payment: payment,
       proList: basket,
-      ...Object.fromEntries(formData)}
-    console.log(basket)
+      // ...Object.fromEntries(formData)
+    }
+    // console.log(basket)
     try {
       let response = await fetch("http://localhost:3000/api/v1/checkout", {
         method: "POST",
