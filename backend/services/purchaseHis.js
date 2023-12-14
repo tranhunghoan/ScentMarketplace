@@ -7,7 +7,7 @@ export const checkout = (data) =>
       // console.log(data);
       const accessToken = data.accessToken.split(" ")[1];
       const decodedToken = jwt.verify(accessToken, process.env.JWT_SECRET);
-      const userId = decodedToken.id;
+      const userId = decodedToken.id || null;
       const proList = data.proList;
       const payment = data.payment;
 
@@ -38,6 +38,7 @@ export const checkout = (data) =>
 
       }
       resolve({
+        purchase : 1,
         message: "Data saved successfully" 
       });
     } catch (error) {

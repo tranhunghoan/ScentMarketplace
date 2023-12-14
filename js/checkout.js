@@ -152,24 +152,27 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         body: JSON.stringify(data),
       })
-      console.log(response)
+      const flag = await response.json();
+
+      if (basket.length == 0 || flag.purchase != 1) {
+        alert("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm")
+      } else {
+        
+        alert("Chúc mừng bạn đã đặt hàng thành công!")
+        username.value = ""
+        address.value = ""
+        email.value = ""
+        phoneNumber.value = ""
+        window.localStorage.removeItem('data')
+        // location.reload();
+        window.location.href = "./home.html";
+      }
     }
     catch (error) {
       console.error(error)
     }
 
-  //   if (basket.length == 0) {
-  //     alert("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm")
-  //   } else {
-  //     // perform operation with form input
-  //     alert("Chúc mừng bạn đã đặt hàng thành công!")
-  //     username.value = ""
-  //     address.value = ""
-  //     email.value = ""
-  //     phoneNumber.value = ""
-  //     window.localStorage.removeItem('data')
-  //     location.reload();
-  //   }
+   
   })
 })
   

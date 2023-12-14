@@ -72,3 +72,40 @@ export const login = ({ phone, password }) =>
       });
     } catch (error) {}
   });
+
+  export const changePassword = (data) =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const accessToken = data.accessToken.split(" ")[1];
+      const decodedToken = jwt.verify(accessToken, process.env.JWT_SECRET);
+      const userId = decodedToken.id || null;
+      const user = await db.User.findByPk(userId);
+      if (!user) {
+        resolve({
+          err: 1,
+          mes: "User not found",
+        });
+        return;
+      }
+
+      if (!bcrypt.compareSync(data.oldPassword, user.password) ) {
+        resolve({
+          err: 1,
+          mes: "Old password is incorrect",
+        });
+        return;
+      }
+
+      user.password = hashPassword(data.newPassword);
+      await user.save();
+
+      resolve({
+        err: 0,
+        mes: "Password changed successfully",
+      });
+    } catch (error) {
+      console.error("Error in changePassword function:", error);
+      reject(error);
+    }
+  });
+
