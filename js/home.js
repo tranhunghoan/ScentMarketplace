@@ -146,6 +146,8 @@ async function regis(event) {
   return false;
 }
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
   var regisForm = document.getElementById("form-register");
   regisForm.addEventListener("submit", function (event) {
@@ -321,11 +323,50 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    async function changePassword(event) {
+      event.preventDefault();
+      var currentPassword = document.getElementById("new-username").value;
+      var newPassword = document.getElementById("new-password").value;
+      var confirmNewPassword = document.getElementById("confirm-new-password").value;
+    
+      if (newPassword !== confirmNewPassword) {
+        alert("Mật khẩu mới và xác nhận mật khẩu mới không khớp.");
+      } else {
+        try {
+          const access_token = localStorage.getItem("access_token_SM");
+          var response = await fetch("http://localhost:3000/api/v1/auth/changePassword", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              accessToken: access_token,
+              oldPassword: currentPassword,
+              newPassword: newPassword,
+            }),
+          });
+    
+          if (response.ok) {
+            alert("Mật khẩu đã được thay đổi thành công!");
+            localStorage.setItem("isLoggedIn", "false");
+            window.location.href = "./home.html";
+          } else {
+            const errorData = await response.json();
+            alert(`Error: ${errorData.message}`);
+          }
+        } catch (error) {
+          console.error("Error during password change:", error);
+        }
+      }
+    }
+    
+  
+
   function showChangePasswordForm() {
     proWrapper.style.display = "none";
     changeWrapper.style.display = "block";
     changeWrapper.innerHTML = `
-      <form onsubmit="changePassword(event)">
+      <form id="changePasswordForm" onsubmit="changePassword">
         <h1 class="form-heading">Đổi mật khẩu</h1>
         <div class="form-group">
           <i class="far fa-user"></i>
@@ -340,10 +381,14 @@ document.addEventListener("DOMContentLoaded", function () {
           <input id="confirm-new-password" type="password" class="form-input" placeholder="Nhập lại mật khẩu mới">
         </div>
         <div class="bt-update">
-          <input type="submit" value="Lưu" class="user-form">
+          <input type="submit" value="Lưu" class="user-form" >
         </div>
       </form>
+     
+
     `;
+
+    document.getElementById("changePasswordForm").onsubmit = changePassword;
   }
 });
 // aaaaa
