@@ -10,3 +10,13 @@ export const getCurrent = async (req, res) => {
     return internalServerError(res);
   }
 };
+export const updateUserInfo = async (req, res) => {
+  try {
+    console.log(req.body);
+    const response = await services.updateUserInfo(req.body);
+    return res.status(200).json(response);
+  } catch (error) {
+    return internalServerError(res);
+  }
+};
+

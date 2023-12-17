@@ -262,10 +262,48 @@ document.addEventListener("DOMContentLoaded", function () {
   // Xử lý sự kiện khi submit form cập nhật thông tin người dùng
   userForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    // updateUserInfo();
+     updateUserInfo();
     // Hiển thị lại thông tin người dùng sau khi cập nhật
-    showUserInfo();
+    // showUserInfo();
+    window.location.reload();
   });
+
+  async function updateUserInfo() {
+    const usernameInput = document.getElementById("username-l").value;
+    const emailInput = document.getElementById("email-l").value;
+    const telInput = document.getElementById("tel-l").value;
+    const addressInput = document.getElementById("address-l").value;
+  
+    try {
+      const access_token = localStorage.getItem("access_token_SM");
+      var response = await fetch("http://localhost:3000/api/v1/user/update", {
+        method: "POST",
+        headers: {
+          Authorization: access_token,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          accessToken: access_token,
+          username: usernameInput,
+          email: emailInput,
+          tel: telInput,
+          address: addressInput,
+        }),
+      });
+  
+      if (response.ok) {
+        alert("User information updated successfully!");
+        // Optionally, you can redirect or perform other actions here
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error("Error during user information update:", error);
+    }
+  }
+  
+
 
   function showUserInfo() {
     proWrapper.style.display = "block";
