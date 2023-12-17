@@ -8,5 +8,6 @@ const router = express.Router();
 //Auth route
 router.use(verifyToken)
 router.get('/',controllers.getCurrent);
+router.post('/update',controllers.updateUserInfo);
 
 module.exports = router;
