@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       const flag = await response.json();
 
-      if (basket.length == 0 || flag.purchase != 1) {
+      if (basket.length == 0 ) {
         alert("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm")
       } else {
         
