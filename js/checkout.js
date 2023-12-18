@@ -143,7 +143,8 @@ document.addEventListener('DOMContentLoaded', function () {
       proList: basket,
       // ...Object.fromEntries(formData)
     }
-    // console.log(basket)
+    console.log(data)
+
     try {
       let response = await fetch("http://localhost:3000/api/v1/checkout", {
         method: "POST",

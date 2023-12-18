@@ -437,6 +437,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var mUserLink = document.getElementById("m-user-link");
   logoutbutton.addEventListener("click", function () {
     localStorage.setItem("isLoggedIn", "false");
+    localStorage.setItem("access_token_SM","")
     userLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
     mUserLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
     window.location.href = "./home.html";
