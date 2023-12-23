@@ -132,11 +132,16 @@ async function regis(event) {
       },
       body: JSON.stringify(newUser),
     });
-
-    if (response.ok) {
+    const err = await response.json()
+    console.log(err)
+    if(response.ok && err.err == 1) {
+      alert("Tài khoản đã tồn tại!");
+    }
+    else if (response.ok && err.err == 0) {
       localStorage.setItem("isLoggedIn", "false");
       window.location.href = "./login.html";
-    } else {
+    } 
+    else {
       console.error("Failed to register:", response.statusText);
     }
   } catch (error) {
@@ -383,13 +388,17 @@ document.addEventListener("DOMContentLoaded", function () {
               newPassword: newPassword,
             }),
           });
-    
-          if (response.ok) {
+          const errorData = await response.json();
+          console.log(errorData)
+          if (errorData.err == 1) {
+            alert("Mật khẩu hiện tại không đúng mời bạn nhập lại!");
+          }
+          else if (errorData.err == 2) {
             alert("Mật khẩu đã được thay đổi thành công!");
             localStorage.setItem("isLoggedIn", "false");
             window.location.href = "./home.html";
-          } else {
-            const errorData = await response.json();
+          } 
+          else {
             alert(`Error: ${errorData.message}`);
           }
         } catch (error) {

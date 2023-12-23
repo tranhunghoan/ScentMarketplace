@@ -13,6 +13,11 @@ body{
     font-size: 20px;
     background-color: rgb(249, 239, 226);
 }
+.user-container {
+    height: 64vh;
+    display: flex;
+    align-items: center;
+}
 .user-page{
     display: flex;
     max-width: 700px;

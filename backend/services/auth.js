@@ -9,7 +9,7 @@ export const register = ({ username, email, phone, password, address }) =>
   new Promise(async (resolve, reject) => {
     try {
       const response = await db.User.findOrCreate({
-        where: { username },
+        where: { phone },
         defaults: {
           username,
           email,
@@ -82,7 +82,7 @@ export const login = ({ phone, password }) =>
       const user = await db.User.findByPk(userId);
       if (!user) {
         resolve({
-          err: 1,
+          err: 0,
           mes: "User not found",
         });
         return;
@@ -100,7 +100,7 @@ export const login = ({ phone, password }) =>
       await user.save();
 
       resolve({
-        err: 0,
+        err: 2,
         mes: "Password changed successfully",
       });
     } catch (error) {
